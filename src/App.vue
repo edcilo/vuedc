@@ -62,18 +62,7 @@ recusandae repellat tempore vel vero voluptates. Exercitationem ipsum nostrum nu
                     </div>
 
                     <div class="col">
-                        <h2>Props</h2>
-
-                        <ul>
-                            <li>
-                                width: <input type="text" v-model="width">
-                            </li>
-                            <li>
-                                height: <input type="text" v-model="height">
-                            </li>
-                        </ul>
-
-                        <h2>Methods</h2>
+                        <h2>Events</h2>
                         <ul>
                             <li>scroll-y</li>
                             <li>scroll-x</li>
@@ -100,6 +89,48 @@ recusandae repellat tempore vel vero voluptates. Exercitationem ipsum nostrum nu
                     </div>
                 </panel>
             </div>
+
+            <div class="row">
+                <panel>
+                    <div class="col design-grid">
+                        <panel :width="width">
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, aliquam, aperiam autem eligendi et impedit
+in ipsam iure minus nam nihil non praesentium quos rem similique. Aliquid corporis omnis temporibus.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur deleniti dolor laudantium,
+libero minus nobis reiciendis ut voluptatibus. Architecto ea eaque eos error explicabo, facilis
+molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
+                            <loader :open="showLoader" :opacity="opacity" :fullscreen="fullscreen">Cargando...</loader>
+                        </panel>
+                    </div>
+
+                    <div class="col">
+                        <h2>Props</h2>
+
+                        <ul>
+                            <li>
+                                opacity: <input type="text" v-model="opacity">
+                            </li>
+                            <li>
+                                open: <button @click="toggleShowLoader">Show/Hide</button>
+                            </li>
+                            <li>
+                                fullscreen: <button @click="changeFullscreen">Change</button>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col">
+                        <h2>Usage</h2>
+<pre>
+&lt;panel width="{{ width }}" height="{{ height }}"&gt;
+    &lt;loader&gt;
+        Cargando...
+    &lt;/loader&gt;
+&lt;/panel&gt;
+</pre>
+                    </div>
+                </panel>
+            </div>
         </div>
     </div>
 </template>
@@ -107,6 +138,7 @@ recusandae repellat tempore vel vero voluptates. Exercitationem ipsum nostrum nu
 <script>
     import Panel from "./components/Panel/";
     import Scroll from "./components/Scroll";
+    import Loader from "./components/Loader";
 
     export default {
         name: "app",
@@ -114,12 +146,21 @@ recusandae repellat tempore vel vero voluptates. Exercitationem ipsum nostrum nu
             return {
                 width: "344px",
                 height: "228px",
+                showLoader: true,
+                opacity: 0.95,
+                fullscreen: false,
                 styles: {
                     padding: "8px"
                 }
             };
         },
         methods: {
+            toggleShowLoader() {
+                this.showLoader = !this.showLoader;
+            },
+            changeFullscreen() {
+                this.fullscreen = !this.fullscreen;
+            },
             scrollX() {
               console.log("scroll in X");
             },
@@ -153,7 +194,8 @@ recusandae repellat tempore vel vero voluptates. Exercitationem ipsum nostrum nu
         },
         components: {
             Panel,
-            Scroll
+            Scroll,
+            Loader
         },
     };
 </script>
