@@ -1,0 +1,112 @@
+/*--- COLORS ---*/
+// grayscale
+$c-black: #000000;
+$c-gray0: #333333;
+$c-gray1: #666666;
+$c-gray2: #999999;
+$c-gray3: #cccccc;
+$c-white: #ffffff;
+
+// text
+$c-text-primary: #303133;
+$c-text-regular: #606266;
+$c-text-secundary: #909399;
+$c-text-light: #C0C4CC;
+
+// colors
+$c-default: #f2f2f2;
+$c-primary: #409EFF;
+$c-secondary: #dc4d3a;
+$c-info: #909399;
+$c-success: #67C23A;
+$c-warning: #E6A23C;
+$c-danger: #F56C6C;
+$c-light: $c-gray3;
+$c-dark: $c-gray0;
+
+$c-blue: #007bff;
+$c-indigo: #6610f2;
+$c-purple: #6f42c1;
+$c-pink: #e83e8c;
+$c-red: #dc3545;
+$c-orange: #fd7e14;
+$c-yellow: #ffc107;
+$c-green: #28a745;
+$c-teal: #20c997;
+$c-cyan: #17a2b8;
+
+/*--- FONT SIZE ---*/
+// font size ratio
+$fs-ratio: 0.0625;
+
+// root font size
+$fs-root: 16;
+
+// headlines
+$fs-h1: 96;
+$fs-h2: 60;
+$fs-h3: 48;
+$fs-h4: 34;
+$fs-h5: 24;
+$fs-h6: 20;
+
+// subtitles
+$fs-st1: 16;
+$fs-st2: 14;
+
+// body
+$fs-b1: 16;
+$fs-b2: 14;
+
+$fs-btn: 14;
+$fs-cap: 12;
+$fs-ol: 10;
+
+// link
+$link-color: $c-primary;
+$link-decoration: none;
+$link-hover-color: darken($link-color, 15%);
+$link-hover-decoration: underline;
+
+// p
+$paragraph-margin-bottom: 1rem;
+
+// tracking from sketch
+$tfs: 0.2;
+
+// font weight
+$fw-light: 300;
+$fw-regular: 400;
+$fw-medium: 500;
+
+/*--- BREAKPOINTS ---*/
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
+);
+
+/*--- CONTAINERS ---*/
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px
+);
+
+// Gutter
+$gutter-width: 1rem;
+
+/*--- BORDER ---*/
+$br-sm: 2px;
+
+/*--- SHADOWS ---*/
+$panel-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.1);
+$box-shadow-sm: 0 .125rem .25rem rgba($c-black, .075);
+$box-shadow: 0 .5rem 1rem rgba($c-black, .15);
+$box-shadow-lg: 0 1rem 3rem rgba($c-black, .175);
+
+/*--- TRANSITIONS ---*/
+$trans-speed: 300ms;

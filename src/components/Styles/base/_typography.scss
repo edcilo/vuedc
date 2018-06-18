@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500|Roboto+Mono");
+
+h1,
+.fs-h1 {
+    @include font-scale($fs-h1, $fw-light);
+}
+
+h2,
+.fs-h2 {
+    @include font-scale($fs-h2, $fw-light);
+}
+
+h3,
+.fs-h3 {
+    @include font-scale($fs-h3, $fw-regular);
+}
+
+h4,
+.fs-h4 {
+    @include font-scale($fs-h4, $fw-regular);
+}
+
+h5,
+.fs-h5 {
+    @include font-scale($fs-h5, $fw-regular);
+}
+
+h6,
+.fs-h6 {
+    @include font-scale($fs-h6, $fw-medium);
+}
+
+.fs-st1 {
+    @include font-scale($fs-st1, $fw-regular);
+}
+
+.fs-st2 {
+    @include font-scale($fs-st2, $fw-medium);
+}
+
+.fs-b1 {
+    @include font-scale($fs-b1, $fw-regular);
+}
+
+.fs-b2 {
+    @include font-scale($fs-b2, $fw-regular);
+}
+
+.fs-btn {
+    @include font-scale($fs-btn, $fw-medium);
+
+    text-transform: uppercase;
+}
+
+.fs-cap {
+    @include font-scale($fs-cap, $fw-regular);
+}
+
+.fs-ol {
+    @include font-scale($fs-ol, $fw-regular);
+
+    text-transform: uppercase;
+}

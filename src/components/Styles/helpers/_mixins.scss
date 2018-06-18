@@ -1,0 +1,53 @@
+@mixin font-size($sizeValue: $fs-root) {
+    font-size: $sizeValue + px;
+    font-size: ($sizeValue / $fs-root) + rem;
+}
+
+@mixin font-scale($fs, $fw) {
+    @include font-size($fs);
+
+    font-weight: $fw;
+    letter-spacing: ($tfs / $fs) + rem;
+}
+
+/*
+* @include triangle within a pseudo element and add positioning properties (ie. top, left)
+* $direction: up, down, left, right
+*/
+@mixin triangle($direction, $size: 6px, $color: #222){
+    content: '';
+    display: block;
+    position: absolute;
+    height: 0; width: 0;
+
+    @if ($direction == 'up'){
+        border-bottom: $size solid $color;
+        border-left: 1/2*$size solid transparent;
+        border-right: 1/2*$size solid transparent;
+    }
+    @else if ($direction == 'down'){
+        border-top: $size solid $color;
+        border-left: 1/2*$size solid transparent;
+        border-right: 1/2*$size solid transparent;
+    }
+    @else if ($direction == 'left'){
+        border-top: 1/2*$size solid transparent;
+        border-bottom: 1/2*$size solid transparent;
+        border-right: $size solid $color;
+    }
+    @else if ($direction == 'right'){
+        border-top: 1/2*$size solid transparent;
+        border-bottom: 1/2*$size solid transparent;
+        border-left: $size solid $color;
+    }
+}
+
+/*
+ * @include Truncate Text, A simple method for ensuring that your text element doesn’t overflow its container and breaks nicely
+ * $overflow: clip, ellipsis, or a string
+ */
+@mixin truncateText($overflow: ellipsis){
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: $overflow;
+}
