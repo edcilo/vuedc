@@ -6,7 +6,7 @@
 
         <div class="container">
             <div class="row">
-                <panel>
+                <panel class="panel-component">
                     <div class="col design-grid">
                         <panel :width="width" :height="height" />
                     </div>
@@ -35,7 +35,7 @@
             </div>
 
             <div class="row">
-                <panel>
+                <panel class="panel-component">
                     <div class="col design-grid">
                         <panel :width="width" :height="height">
                             <scroll v-on:scroll-x="scrollX"
@@ -91,7 +91,7 @@ recusandae repellat tempore vel vero voluptates. Exercitationem ipsum nostrum nu
             </div>
 
             <div class="row">
-                <panel>
+                <panel class="panel-component">
                     <div class="col design-grid">
                         <panel :width="width">
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, aliquam, aperiam autem eligendi et impedit
@@ -134,6 +134,38 @@ molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing 
                     </div>
                 </panel>
             </div>
+
+            <div class="row">
+                <panel class="panel-component">
+                    <div class="col design-grid">
+                        <panel :width="width" >
+                            <p>Normal</p>
+                            <ve-image :alt="alt" :src="src" />
+
+                            <p>Lazy load</p>
+                            <ve-image :alt="alt" :lazy="true" :src="src" :preview="preview" />
+                        </panel>
+                    </div>
+
+                    <div class="col">
+                        <h2>Props</h2>
+
+                        <ul>
+                            <li>alt: <input type="text" v-model="alt"></li>
+                            <li>lazy: true/false</li>
+                            <li>src: <input type="text" v-model="src"></li>
+                            <li>preview: <input type="text" v-model="preview"></li>
+                        </ul>
+                    </div>
+
+                    <div class="col">
+                        <h2>Usage</h2>
+<pre>
+&lt;image /&gt;
+</pre>
+                    </div>
+                </panel>
+            </div>
         </div>
     </div>
 </template>
@@ -142,6 +174,7 @@ molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing 
     import Panel from "./components/Panel/";
     import Scroll from "./components/Scroll";
     import Loading from "./components/Loading";
+    import veImage from "./components/Image";
 
     export default {
         name: "app",
@@ -153,6 +186,9 @@ molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing 
                 opacity: 0.95,
                 speed: 300,
                 fullscreen: false,
+                alt: "image lazy",
+                src: "https://expeditionportal.com/media/2014/05/Mojave-002.jpg",
+                preview: "https://ucarecdn.com/dc3dad83-e7b5-44cd-841a-dbf4000005d6/-/resize/32x/-/quality/lightest/party.jpg",
                 styles: {
                     padding: "8px"
                 }
@@ -199,7 +235,8 @@ molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing 
         components: {
             Panel,
             Scroll,
-            Loading
+            Loading,
+            veImage
         },
     };
 </script>
@@ -230,12 +267,12 @@ molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing 
         grid-row-gap: 1rem;
     }
 
-    .ve-panel {
+    .panel-component {
         display: flex;
         padding: 0.5rem;
     }
 
-    .ve-panel .col {
+    .panel-component .col {
         padding: 0.5rem;
         width: 33.3333%;
     }
