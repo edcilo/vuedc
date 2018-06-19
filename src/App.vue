@@ -99,7 +99,7 @@ in ipsam iure minus nam nihil non praesentium quos rem similique. Aliquid corpor
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur deleniti dolor laudantium,
 libero minus nobis reiciendis ut voluptatibus. Architecto ea eaque eos error explicabo, facilis
 molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-                            <loader :open="showLoader" :opacity="opacity" :fullscreen="fullscreen" :speed="speed">Cargando...</loader>
+                            <loading :open="showLoader" :opacity="opacity" :fullscreen="fullscreen" :speed="speed">Loading...</loading>
                         </panel>
                     </div>
 
@@ -141,7 +141,7 @@ molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing 
 <script>
     import Panel from "./components/Panel/";
     import Scroll from "./components/Scroll";
-    import Loader from "./components/Loader";
+    import Loading from "./components/Loading";
 
     export default {
         name: "app",
@@ -199,7 +199,7 @@ molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing 
         components: {
             Panel,
             Scroll,
-            Loader
+            Loading
         },
     };
 </script>
