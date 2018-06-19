@@ -99,7 +99,7 @@ in ipsam iure minus nam nihil non praesentium quos rem similique. Aliquid corpor
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur deleniti dolor laudantium,
 libero minus nobis reiciendis ut voluptatibus. Architecto ea eaque eos error explicabo, facilis
 molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-                            <loader :open="showLoader" :opacity="opacity" :fullscreen="fullscreen">Cargando...</loader>
+                            <loader :open="showLoader" :opacity="opacity" :fullscreen="fullscreen" :speed="speed">Cargando...</loader>
                         </panel>
                     </div>
 
@@ -109,6 +109,9 @@ molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing 
                         <ul>
                             <li>
                                 opacity: <input type="text" v-model="opacity">
+                            </li>
+                            <li>
+                                speed: <input type="text" v-model.number="speed">
                             </li>
                             <li>
                                 open: <button @click="toggleShowLoader">Show/Hide</button>
@@ -148,6 +151,7 @@ molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing 
                 height: "228px",
                 showLoader: true,
                 opacity: 0.95,
+                speed: 300,
                 fullscreen: false,
                 styles: {
                     padding: "8px"
@@ -224,9 +228,6 @@ molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing 
         display: grid;
         grid-template-columns: auto;
         grid-row-gap: 1rem;
-    }
-
-    .row {
     }
 
     .ve-panel {

@@ -1,6 +1,6 @@
 <template>
     <div class="ve-loader">
-        <ve-mask class="ve-loader-mask" :style="{opacity: opacity}" :open="open" :fullscreen="fullscreen">
+        <ve-mask class="ve-loader-mask" :opacity="opacity" :open="open" :speed="speed" :fullscreen="fullscreen">
             <div class="ve-loader-spinner">
                 <div></div>
                 <div></div>
@@ -20,6 +20,10 @@
     export default {
         name: "Loader",
         props: {
+            fullscreen: {
+                type: Boolean,
+                default: false
+            },
             opacity: {
                 type: Number,
                 default: 1
@@ -28,9 +32,9 @@
                 type: Boolean,
                 default: false
             },
-            fullscreen: {
-                type: Boolean,
-                default: false
+            speed: {
+                type: Number,
+                default: 300
             }
         },
         components: {

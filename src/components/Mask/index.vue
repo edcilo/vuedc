@@ -1,5 +1,5 @@
 <template>
-    <div class="ve-mask" :style="styles">
+    <div ref="mask" class="ve-mask" :style="styles">
         <slot></slot>
     </div>
 </template>
@@ -10,31 +10,60 @@
         props: {
             fullscreen: {
                 type: Boolean,
-                default: false,
+                default: false
+            },
+            opacity: {
+                type: Number,
+                default: 1
             },
             open: {
                 type: Boolean,
-                default: false,
+                default: false
+            },
+            speed: {
+                type: Number,
+                default: 300
             }
         },
         data: function() {
+            const transitionDuration = `${this.speed}ms`;
+
             return {
-                styles: {}
+                styles: {
+                    transitionDuration,
+                    display: "none",
+                    opacity: 0
+                }
             };
         },
         watch: {
             fullscreen() {
                 this.toggleFullscreen();
             },
+            opacity(val) {
+                this.styles.opacity = val;
+            },
             open() {
                 this.toggleOpen();
+            },
+            speed(val) {
+                this.styles.transitionDuration = `${val}ms`;
             }
         },
         methods: {
             toggleOpen() {
+                this.styles.display = null;
+
                 if (this.open) {
-                    this.styles.display = null;
+                    this.styles.opacity = this.opacity;
                 } else {
+                    this.styles.opacity = 0;
+                }
+
+                window.setTimeout(this.changeDisplay, this.speed);
+            },
+            changeDisplay() {
+                if (!this.open) {
                     this.styles.display = "none";
                 }
             },
@@ -57,7 +86,7 @@
                 body.style["position"] = null;
                 body.style["overflow"] = null;
 
-                this.styles.position = "absolute";
+                this.styles.position = null;
             }
         },
         mounted() {
@@ -86,6 +115,6 @@
     justify-content: center;
     background: $c-white;
 
-    transition: opacity $trans-speed ease-in-out, opacity $trans-speed ease-in-out;
+    transition: opacity $trans-speed ease-in-out;
 }
 </style>
