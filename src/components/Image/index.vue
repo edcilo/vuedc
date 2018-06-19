@@ -1,6 +1,14 @@
 <template>
     <div class="ve-image">
-        <img ref="image" :src="srcImage" :alt="alt" :class="imgClass" />
+        <template v-if="!lazy">
+            <img :src="srcImage" :alt="alt"
+                @load="loadEvent" @error="errorEvent" />
+        </template>
+        <template v-else>
+            <img ref="preview" :src="srcPreview" :alt="alt" :class="previewClass" v-if="!loaded" />
+            <img ref="image" :src="srcImage" :alt="alt" class="reveal" v-show="loaded"
+                @load="imageLoaded" @error="errorEvent" />
+        </template>
     </div>
 </template>
 
@@ -23,13 +31,19 @@ export default {
         alt: {
             type: String,
             default: ""
+        },
+        placeholder: {
+            type: String,
+            default: null
         }
     },
     data: function() {
         return {
             srcImage: null,
-            imgClass: {preview: false, reveal: false},
-            timer: null
+            srcPreview: null,
+            previewClass: {preview: true, reveal: false},
+            timer: null,
+            loaded: false
         }
     },
     methods: {
@@ -52,23 +66,45 @@ export default {
                 let wT = window.pageYOffset;
                 let wB = wT + window.innerHeight;
 
-                let cRect = this.$refs.image.getBoundingClientRect();
+                if (!this.$refs.preview) {
+                    return;
+                }
+
+                let cRect = this.$refs.preview.getBoundingClientRect();
                 let pT = wT + cRect.top;
                 let pB = pT + cRect.height;
 
                 if (wT < pB && wB > pT) {
                     this.srcImage = this.src;
-                    this.imgClass.reveal = true;
-                    this.imgClass.preview = false;
                 }
             });
+        },
+        imageLoaded(e) {
+            this.loaded = true;
+
+            this.loadEvent(e);
+        },
+        loadEvent(e) {
+            this.$emit('load', e);
+        },
+        errorEvent(e) {
+            this.$emit('error', e);
+
+            if (this.placeholder && !this.lazy) {
+                this.srcImage = this.placeholder;
+            }
+
+            if (this.placeholder && this.lazy) {
+                this.srcPreview = this.placeholder;
+                this.previewClass.preview = false;
+                this.previewClass.reveal = true;
+            }
         }
     },
     mounted() {
         this.$nextTick(function() {
             if (this.lazy) {
-                this.srcImage = this.preview;
-                this.imgClass.preview = true;
+                this.srcPreview = this.preview;
 
                 this.lazyLoad();
             } else {

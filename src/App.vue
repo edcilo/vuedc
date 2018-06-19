@@ -140,10 +140,10 @@ molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing 
                     <div class="col design-grid">
                         <panel :width="width" >
                             <p>Normal</p>
-                            <ve-image :alt="alt" :src="src" />
+                            <ve-image :alt="alt" :src="src" :placeholder="imagePlaceholder" v-on:load="imageLoaded" v-on:error="imageError" />
 
                             <p>Lazy load</p>
-                            <ve-image :alt="alt" :lazy="true" :src="src" :preview="preview" />
+                            <ve-image :alt="alt" :lazy="true" :src="src" :preview="preview" :placeholder="imagePlaceholder" />
                         </panel>
                     </div>
 
@@ -153,8 +153,16 @@ molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing 
                         <ul>
                             <li>alt: <input type="text" v-model="alt"></li>
                             <li>lazy: true/false</li>
+                            <li>placeholder: <input type="text" v-model="imagePlaceholder"></li>
                             <li>src: <input type="text" v-model="src"></li>
                             <li>preview: <input type="text" v-model="preview"></li>
+                        </ul>
+
+                        <h2>Events</h2>
+
+                        <ul>
+                            <li>load</li>
+                            <li>error</li>
                         </ul>
                     </div>
 
@@ -187,6 +195,7 @@ molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing 
                 speed: 300,
                 fullscreen: false,
                 alt: "image lazy",
+                imagePlaceholder: "https://picsum.photos/200/300/?random",
                 src: "https://expeditionportal.com/media/2014/05/Mojave-002.jpg",
                 preview: "https://ucarecdn.com/dc3dad83-e7b5-44cd-841a-dbf4000005d6/-/resize/32x/-/quality/lightest/party.jpg",
                 styles: {
@@ -195,6 +204,12 @@ molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing 
             };
         },
         methods: {
+            imageError(e) {
+                console.log('image error', e);
+            },
+            imageLoaded(e) {
+                console.log('image loaded', e);
+            },
             toggleShowLoader() {
                 this.showLoader = !this.showLoader;
             },
