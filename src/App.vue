@@ -139,11 +139,13 @@ molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing 
                 <panel class="panel-component">
                     <div class="col design-grid">
                         <panel :width="width" >
-                            <p>Normal</p>
-                            <ve-image :alt="alt" :src="src" :placeholder="imagePlaceholder" v-on:load="imageLoaded" v-on:error="imageError" />
+                            <ve-img :alt="alt" :src="src" :placeholder="imagePlaceholder" v-on:load="imageLoaded" v-on:error="imageError" />
+                        </panel>
 
-                            <p>Lazy load</p>
-                            <ve-image :alt="alt" :lazy="true" :src="src" :preview="preview" :placeholder="imagePlaceholder" />
+                        <divider :clear="false" :dark="true" subheader="Lazy loaded" />
+
+                        <panel :width="width">
+                            <ve-img :alt="alt" :lazy="true" :src="src" :preview="preview" :placeholder="imagePlaceholder" />
                         </panel>
                     </div>
 
@@ -169,7 +171,7 @@ molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing 
                     <div class="col">
                         <h2>Usage</h2>
 <pre>
-&lt;image /&gt;
+&lt;ve-img /&gt;
 </pre>
                     </div>
                 </panel>
@@ -182,7 +184,8 @@ molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing 
     import Panel from "./components/Panel/";
     import Scroll from "./components/Scroll";
     import Loading from "./components/Loading";
-    import veImage from "./components/Image";
+    import veImg from "./components/Image";
+    import Divider from "./components/Divider";
 
     export default {
         name: "app",
@@ -251,7 +254,8 @@ molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing 
             Panel,
             Scroll,
             Loading,
-            veImage
+            veImg,
+            Divider
         },
     };
 </script>
