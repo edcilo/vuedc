@@ -1,41 +1,32 @@
-/*--- COLORS ---*/
-// grayscale
-$c-black: #000000;
-$c-gray0: #333333;
-$c-gray1: #666666;
-$c-gray2: #999999;
-$c-gray3: #cccccc;
-$c-white: #ffffff;
+@import "../base/variables/colors";
 
-// text
-$c-text-primary: #303133;
-$c-text-regular: #606266;
-$c-text-secundary: #909399;
-$c-text-light: #C0C4CC;
-
-// colors
+// base
 $c-default: #f2f2f2;
 $c-primary: #409EFF;
 $c-secondary: #dc4d3a;
 $c-info: #909399;
-$c-success: #67C23A;
-$c-warning: #E6A23C;
-$c-danger: #F56C6C;
-$c-light: $c-gray3;
-$c-dark: $c-gray0;
+$c-success: $c-green;
+$c-warning: $c-yellow;
+$c-danger: $c-red;
+$c-light: $c-gray5;
+$c-dark: $c-black;
 
-$c-blue: #007bff;
-$c-indigo: #6610f2;
-$c-purple: #6f42c1;
-$c-pink: #e83e8c;
-$c-red: #dc3545;
-$c-orange: #fd7e14;
-$c-yellow: #ffc107;
-$c-green: #28a745;
-$c-teal: #20c997;
-$c-cyan: #17a2b8;
+// text color
+$c-text-primary:   #22292F;
+$c-text-regular:   #3D4852;
+$c-text-secundary: #606F7B;
+$c-text-light:     #F8FAFC;
+
+$body-bg: $c-white;
+$body-color: $c-text-primary;
+
+$text-muted: $c-gray1;
 
 /*--- FONT SIZE ---*/
+$font-family-base: "Roboto", sans-serif;
+$font-family-monospace: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$line-height-base: 1.5;
+
 // font size ratio
 $fs-ratio: 0.0625;
 
@@ -68,6 +59,9 @@ $link-decoration: none;
 $link-hover-color: darken($link-color, 15%);
 $link-hover-decoration: underline;
 
+// heading
+$heading-margin-bottom: 1rem;
+
 // p
 $paragraph-margin-bottom: 1rem;
 
@@ -87,8 +81,11 @@ $tfs: 0.2;
 
 // font weight
 $fw-light: 300;
-$fw-regular: 400;
+$fw-base: 400;
 $fw-medium: 500;
+$fw-bold: 700;
+
+$dt-font-weight: $fw-bold;
 
 /*--- BREAKPOINTS ---*/
 $grid-breakpoints: (
@@ -115,6 +112,11 @@ $margin: 1rem;
 $margin-sm: 0.5rem;
 $margin-xs: 0.25rem;
 
+// Padding
+$padding-base: 1rem;
+$padding-sm: 0.5rem;
+$padding-xs: 0.5rem;
+
 /*--- BORDER ---*/
 $br-sm: 2px;
 
@@ -126,3 +128,11 @@ $box-shadow-lg: 0 1rem 3rem rgba($c-black, .175);
 
 /*--- TRANSITIONS ---*/
 $trans-speed: 300ms;
+
+/*--- TABLES ---*/
+$table-cell-padding: .75rem;
+$table-cell-padding-sm: .3rem;
+$table-caption-color: $text-muted;
+
+/*--- FORM ---*/
+$label-margin-bottom: .5rem;

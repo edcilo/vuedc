@@ -12,17 +12,17 @@ h2,
 
 h3,
 .fs-h3 {
-    @include font-scale($fs-h3, $fw-regular);
+    @include font-scale($fs-h3, $fw-base);
 }
 
 h4,
 .fs-h4 {
-    @include font-scale($fs-h4, $fw-regular);
+    @include font-scale($fs-h4, $fw-base);
 }
 
 h5,
 .fs-h5 {
-    @include font-scale($fs-h5, $fw-regular);
+    @include font-scale($fs-h5, $fw-base);
 }
 
 h6,
@@ -31,7 +31,7 @@ h6,
 }
 
 .fs-st1 {
-    @include font-scale($fs-st1, $fw-regular);
+    @include font-scale($fs-st1, $fw-base);
 }
 
 .fs-st2 {
@@ -39,11 +39,11 @@ h6,
 }
 
 .fs-b1 {
-    @include font-scale($fs-b1, $fw-regular);
+    @include font-scale($fs-b1, $fw-base);
 }
 
 .fs-b2 {
-    @include font-scale($fs-b2, $fw-regular);
+    @include font-scale($fs-b2, $fw-base);
 }
 
 .fs-btn {
@@ -53,11 +53,11 @@ h6,
 }
 
 .fs-cap {
-    @include font-scale($fs-cap, $fw-regular);
+    @include font-scale($fs-cap, $fw-base);
 }
 
 .fs-ol {
-    @include font-scale($fs-ol, $fw-regular);
+    @include font-scale($fs-ol, $fw-base);
 
     text-transform: uppercase;
 }

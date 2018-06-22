@@ -6,6 +6,26 @@
 
         <div class="container">
             <div class="row">
+                <panel>
+                    <h4>Headungs</h4>
+                    <h1>h1. Heading vuedc</h1>
+                    <h2>h2. Heading vuedc</h2>
+                    <h3>h3. Heading vuedc</h3>
+                    <h4>h4. Heading vuedc</h4>
+                    <h5>h5. Heading vuedc</h5>
+                    <h6>h6. Heading vuedc</h6>
+
+                    <h4>Lists</h4>
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet</li>
+                    </ul>
+
+                    <h4>Mark</h4>
+                    <p>Lorem ipsum dolor sit amet <mark>consectetur</mark> adipisicing elit.</p>
+                </panel>
+            </div>
+
+            <div class="row">
                 <panel class="panel-component">
                     <div class="col design-grid">
                         <panel :width="width" :height="height" />
@@ -94,11 +114,11 @@ recusandae repellat tempore vel vero voluptates. Exercitationem ipsum nostrum nu
                 <panel class="panel-component">
                     <div class="col design-grid">
                         <panel :width="width">
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, aliquam, aperiam autem eligendi et impedit
-in ipsam iure minus nam nihil non praesentium quos rem similique. Aliquid corporis omnis temporibus.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur deleniti dolor laudantium,
-libero minus nobis reiciendis ut voluptatibus. Architecto ea eaque eos error explicabo, facilis
-molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, aliquam, aperiam autem eligendi et impedit
+                            in ipsam iure minus nam nihil non praesentium quos rem similique. Aliquid corporis omnis temporibus.
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur deleniti dolor laudantium,
+                            libero minus nobis reiciendis ut voluptatibus. Architecto ea eaque eos error explicabo, facilis
+                            molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
                             <loading :open="showLoader" :opacity="opacity" :fullscreen="fullscreen" :speed="speed">Loading...</loading>
                         </panel>
                     </div>
@@ -138,13 +158,13 @@ molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing 
             <div class="row">
                 <panel class="panel-component">
                     <div class="col design-grid">
-                        <panel :width="width" >
+                        <panel>
                             <ve-img :alt="alt" :src="src" :placeholder="imagePlaceholder" v-on:load="imageLoaded" v-on:error="imageError" />
                         </panel>
 
                         <divider :clear="false" :dark="true" subheader="Lazy loaded" />
 
-                        <panel :width="width">
+                        <panel>
                             <ve-img :alt="alt" :lazy="true" :src="src" :preview="preview" :placeholder="imagePlaceholder" />
                         </panel>
                     </div>
@@ -176,16 +196,71 @@ molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing 
                     </div>
                 </panel>
             </div>
+
+            <div class="row">
+                <panel class="panel-component">
+                    <div class="col design-grid">
+                        <item>
+                            <template slot="visual">
+                                <avatar label="Lynnete" />
+                            </template>
+                            Title
+                            <template slot="control">
+                                Control
+                            </template>
+                        </item>
+                    </div>
+                    <div class="col design-grid">
+                        <avatar>
+                            <fa-icon icon="coffee" />
+                        </avatar>
+                        <avatar color="#f6be76">
+                            <fa-icon :icon="['fab', 'amazon']" />
+                        </avatar>
+                        <avatar :tile="true">
+                            <fa-icon :icon="['fab', 'amazon']" />
+                        </avatar>
+                        <avatar>
+                            <fa-icon :icon="['far', 'angry']" />
+                        </avatar>
+                        <avatar />
+                        <avatar>EC</avatar>
+                        <avatar color="#9561E2" />
+                        <avatar label="Lynnete" />
+                        <avatar label="Lynnete" color="#2779BD" />
+                        <avatar label="Lynnete" :tile="true" />
+                        <avatar>
+                            <img src="https://instagram.fmex10-1.fna.fbcdn.net/vp/7f6147a8df2f077569167037d829937d/5BAA1862/t51.2885-15/e35/26153702_903709439779829_8742051213953990656_n.jpg?_nc_eui2=AeG4eJg0VPNWF2ZL-6iOw4zGG0tZ0CjxO3qEd_Z0TxIu0smoS2C7H4NlTJGfhPqML8xeOVI2wUICPAi5jA4lo39-UDWUD1zLKTTvJ-L_h4Wprw" alt="avatar">
+                        </avatar>
+                        <avatar :tile="true">
+                            <img src="https://instagram.fmex10-1.fna.fbcdn.net/vp/7f6147a8df2f077569167037d829937d/5BAA1862/t51.2885-15/e35/26153702_903709439779829_8742051213953990656_n.jpg?_nc_eui2=AeG4eJg0VPNWF2ZL-6iOw4zGG0tZ0CjxO3qEd_Z0TxIu0smoS2C7H4NlTJGfhPqML8xeOVI2wUICPAi5jA4lo39-UDWUD1zLKTTvJ-L_h4Wprw" alt="avatar">
+                        </avatar>
+                        <avatar alt="avatar" src="https://instagram.fmex10-1.fna.fbcdn.net/vp/7f6147a8df2f077569167037d829937d/5BAA1862/t51.2885-15/e35/26153702_903709439779829_8742051213953990656_n.jpg?_nc_eui2=AeG4eJg0VPNWF2ZL-6iOw4zGG0tZ0CjxO3qEd_Z0TxIu0smoS2C7H4NlTJGfhPqML8xeOVI2wUICPAi5jA4lo39-UDWUD1zLKTTvJ-L_h4Wprw" />
+                        <avatar alt="avatar" :tile="true" src="https://instagram.fmex10-1.fna.fbcdn.net/vp/7f6147a8df2f077569167037d829937d/5BAA1862/t51.2885-15/e35/26153702_903709439779829_8742051213953990656_n.jpg?_nc_eui2=AeG4eJg0VPNWF2ZL-6iOw4zGG0tZ0CjxO3qEd_Z0TxIu0smoS2C7H4NlTJGfhPqML8xeOVI2wUICPAi5jA4lo39-UDWUD1zLKTTvJ-L_h4Wprw" />
+                        <avatar alt="avatar" size="60px" src="https://instagram.fmex10-1.fna.fbcdn.net/vp/7f6147a8df2f077569167037d829937d/5BAA1862/t51.2885-15/e35/26153702_903709439779829_8742051213953990656_n.jpg?_nc_eui2=AeG4eJg0VPNWF2ZL-6iOw4zGG0tZ0CjxO3qEd_Z0TxIu0smoS2C7H4NlTJGfhPqML8xeOVI2wUICPAi5jA4lo39-UDWUD1zLKTTvJ-L_h4Wprw" />
+                    </div>
+                </panel>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+    import { library } from '@fortawesome/fontawesome-svg-core';
+    import { faCoffee, faAt } from '@fortawesome/free-solid-svg-icons';
+    import { faAngry } from "@fortawesome/free-regular-svg-icons";
+    import { faAmazon } from "@fortawesome/free-brands-svg-icons";
+    import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+    library.add(faCoffee, faAngry, faAt, faAmazon);
+
     import Panel from "./components/Panel/";
     import Scroll from "./components/Scroll";
     import Loading from "./components/Loading";
     import veImg from "./components/Image";
     import Divider from "./components/Divider";
+    import Avatar from "./components/Avatar";
+    import Item from "./components/Item";
 
     export default {
         name: "app",
@@ -251,11 +326,14 @@ molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing 
             }
         },
         components: {
+            'fa-icon': FontAwesomeIcon,
             Panel,
             Scroll,
             Loading,
             veImg,
-            Divider
+            Divider,
+            Avatar,
+            Item
         },
     };
 </script>
