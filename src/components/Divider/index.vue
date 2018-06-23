@@ -4,23 +4,20 @@
     </div>
 </template>
 
-<script>
-export default {
-    name: "Divider",
-    props: {
-        clear: {
-            type: Boolean,
-            default: false
-        },
-        dark: {
-            type: Boolean,
-            default: false
-        },
-        subheader: {
-            type: String,
-            default: null
-        }
-    }
+<script lang="ts">
+import { Vue, Component, Prop } from "vue-property-decorator";
+
+@Component
+export default class veDivider extends Vue {
+
+    @Prop({ default: false })
+    clear!: boolean;
+
+    @Prop({ default: false })
+    dark!: boolean;
+
+    @Prop([String, Boolean])
+    subheader!: string | null
 }
 </script>
 

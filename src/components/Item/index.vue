@@ -6,14 +6,16 @@
     </panel>
 </template>
 
-<script>
-import Panel from "./../Panel";
+<script lang="ts">
+import { Vue, Component, Prop } from "vue-property-decorator";
+import Panel from "./../Panel/index.vue";
 
-export default {
-    name: "Item",
+@Component({
     components: {
         Panel
     }
+})
+export default class veItem extends Vue {
 }
 </script>
 

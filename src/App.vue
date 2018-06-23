@@ -6,8 +6,8 @@
 
         <div class="container">
             <div class="row">
-                <panel>
-                    <h4>Headungs</h4>
+                <ve-panel>
+                    <h4>Headings</h4>
                     <h1>h1. Heading vuedc</h1>
                     <h2>h2. Heading vuedc</h2>
                     <h3>h3. Heading vuedc</h3>
@@ -22,13 +22,13 @@
 
                     <h4>Mark</h4>
                     <p>Lorem ipsum dolor sit amet <mark>consectetur</mark> adipisicing elit.</p>
-                </panel>
+                </ve-panel>
             </div>
 
             <div class="row">
-                <panel class="panel-component">
+                <ve-panel class="panel-component">
                     <div class="col design-grid">
-                        <panel :width="width" :height="height" />
+                        <ve-panel :width="width" :height="height" />
                     </div>
 
                     <div class="col">
@@ -51,14 +51,14 @@
 &lt;/panel&gt;
 </pre>
                     </div>
-                </panel>
+                </ve-panel>
             </div>
 
             <div class="row">
-                <panel class="panel-component">
+                <ve-panel class="panel-component">
                     <div class="col design-grid">
-                        <panel :width="width" :height="height">
-                            <scroll v-on:scroll-x="scrollX"
+                        <ve-panel :width="width" :height="height">
+                            <ve-scroll v-on:scroll-x="scrollX"
                                 v-on:scroll-y="scrollY"
                                 v-on:scroll-up="scrollUp"
                                 v-on:scroll-down="scrollDown"
@@ -77,8 +77,8 @@ assumenda facere nesciunt nostrum, quidem repellat vero? Ab, aliquam consequatur
 et eum fugiat necessitatibus nobis quos repellat rerum! Lorem ipsum dolor sit amet, consectetur
 adipisicing elit. Delectus deserunt ducimus error, excepturi exercitationem ipsum pariatur quis
 recusandae repellat tempore vel vero voluptates. Exercitationem ipsum nostrum nulla porro quos unde?
-                            </scroll>
-                        </panel>
+                            </ve-scroll>
+                        </ve-panel>
                     </div>
 
                     <div class="col">
@@ -107,20 +107,20 @@ recusandae repellat tempore vel vero voluptates. Exercitationem ipsum nostrum nu
 &lt;/panel&gt;
 </pre>
                     </div>
-                </panel>
+                </ve-panel>
             </div>
 
             <div class="row">
-                <panel class="panel-component">
+                <ve-panel class="panel-component">
                     <div class="col design-grid">
-                        <panel :width="width">
+                        <ve-panel :width="width">
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, aliquam, aperiam autem eligendi et impedit
                             in ipsam iure minus nam nihil non praesentium quos rem similique. Aliquid corporis omnis temporibus.
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur deleniti dolor laudantium,
                             libero minus nobis reiciendis ut voluptatibus. Architecto ea eaque eos error explicabo, facilis
                             molestiae nihil omnis sunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-                            <loading :open="showLoader" :opacity="opacity" :fullscreen="fullscreen" :speed="speed">Loading...</loading>
-                        </panel>
+                            <ve-loading :open="showLoader" :opacity="opacity" :fullscreen="fullscreen" :speed="speed">Loading...</ve-loading>
+                        </ve-panel>
                     </div>
 
                     <div class="col">
@@ -152,21 +152,21 @@ recusandae repellat tempore vel vero voluptates. Exercitationem ipsum nostrum nu
 &lt;/panel&gt;
 </pre>
                     </div>
-                </panel>
+                </ve-panel>
             </div>
 
             <div class="row">
-                <panel class="panel-component">
+                <ve-panel class="panel-component">
                     <div class="col design-grid">
-                        <panel>
+                        <ve-panel>
                             <ve-img :alt="alt" :src="src" :placeholder="imagePlaceholder" v-on:load="imageLoaded" v-on:error="imageError" />
-                        </panel>
+                        </ve-panel>
 
-                        <divider :clear="false" :dark="true" subheader="Lazy loaded" />
+                        <ve-divider :clear="false" :dark="true" subheader="Lazy loaded" />
 
-                        <panel>
+                        <ve-panel>
                             <ve-img :alt="alt" :lazy="true" :src="src" :preview="preview" :placeholder="imagePlaceholder" />
-                        </panel>
+                        </ve-panel>
                     </div>
 
                     <div class="col">
@@ -194,187 +194,201 @@ recusandae repellat tempore vel vero voluptates. Exercitationem ipsum nostrum nu
 &lt;ve-img /&gt;
 </pre>
                     </div>
-                </panel>
+                </ve-panel>
             </div>
 
             <div class="row">
-                <panel class="panel-component">
+                <ve-panel class="panel-component">
                     <div class="col design-grid">
-                        <item>
+                        <ve-item>
                             <template slot="visual">
-                                <avatar label="Lynnete" />
+                                <ve-avatar label="Lynnete" />
                             </template>
                             Title
                             <template slot="control">
                                 Control
                             </template>
-                        </item>
+                        </ve-item>
                     </div>
                     <div class="col design-grid">
-                        <avatar>
+                        <ve-avatar>
                             <fa-icon icon="coffee" />
-                        </avatar>
-                        <avatar color="#f6be76">
+                        </ve-avatar>
+                        <ve-avatar color="#f6be76">
                             <fa-icon :icon="['fab', 'amazon']" />
-                        </avatar>
-                        <avatar :tile="true">
+                        </ve-avatar>
+                        <ve-avatar :tile="true">
                             <fa-icon :icon="['fab', 'amazon']" />
-                        </avatar>
-                        <avatar>
+                        </ve-avatar>
+                        <ve-avatar>
                             <fa-icon :icon="['far', 'angry']" />
-                        </avatar>
-                        <avatar />
-                        <avatar>EC</avatar>
-                        <avatar color="#9561E2" />
-                        <avatar label="Lynnete" />
-                        <avatar label="Lynnete" color="#2779BD" />
-                        <avatar label="Lynnete" :tile="true" />
-                        <avatar>
-                            <img src="https://instagram.fmex10-1.fna.fbcdn.net/vp/7f6147a8df2f077569167037d829937d/5BAA1862/t51.2885-15/e35/26153702_903709439779829_8742051213953990656_n.jpg?_nc_eui2=AeG4eJg0VPNWF2ZL-6iOw4zGG0tZ0CjxO3qEd_Z0TxIu0smoS2C7H4NlTJGfhPqML8xeOVI2wUICPAi5jA4lo39-UDWUD1zLKTTvJ-L_h4Wprw" alt="avatar">
-                        </avatar>
-                        <avatar :tile="true">
-                            <img src="https://instagram.fmex10-1.fna.fbcdn.net/vp/7f6147a8df2f077569167037d829937d/5BAA1862/t51.2885-15/e35/26153702_903709439779829_8742051213953990656_n.jpg?_nc_eui2=AeG4eJg0VPNWF2ZL-6iOw4zGG0tZ0CjxO3qEd_Z0TxIu0smoS2C7H4NlTJGfhPqML8xeOVI2wUICPAi5jA4lo39-UDWUD1zLKTTvJ-L_h4Wprw" alt="avatar">
-                        </avatar>
-                        <avatar alt="avatar" src="https://instagram.fmex10-1.fna.fbcdn.net/vp/7f6147a8df2f077569167037d829937d/5BAA1862/t51.2885-15/e35/26153702_903709439779829_8742051213953990656_n.jpg?_nc_eui2=AeG4eJg0VPNWF2ZL-6iOw4zGG0tZ0CjxO3qEd_Z0TxIu0smoS2C7H4NlTJGfhPqML8xeOVI2wUICPAi5jA4lo39-UDWUD1zLKTTvJ-L_h4Wprw" />
-                        <avatar alt="avatar" :tile="true" src="https://instagram.fmex10-1.fna.fbcdn.net/vp/7f6147a8df2f077569167037d829937d/5BAA1862/t51.2885-15/e35/26153702_903709439779829_8742051213953990656_n.jpg?_nc_eui2=AeG4eJg0VPNWF2ZL-6iOw4zGG0tZ0CjxO3qEd_Z0TxIu0smoS2C7H4NlTJGfhPqML8xeOVI2wUICPAi5jA4lo39-UDWUD1zLKTTvJ-L_h4Wprw" />
-                        <avatar alt="avatar" size="60px" src="https://instagram.fmex10-1.fna.fbcdn.net/vp/7f6147a8df2f077569167037d829937d/5BAA1862/t51.2885-15/e35/26153702_903709439779829_8742051213953990656_n.jpg?_nc_eui2=AeG4eJg0VPNWF2ZL-6iOw4zGG0tZ0CjxO3qEd_Z0TxIu0smoS2C7H4NlTJGfhPqML8xeOVI2wUICPAi5jA4lo39-UDWUD1zLKTTvJ-L_h4Wprw" />
+                        </ve-avatar>
+                        <ve-avatar />
+                        <ve-avatar>EC</ve-avatar>
+                        <ve-avatar color="#9561E2" />
+                        <ve-avatar label="Lynnete" />
+                        <ve-avatar label="Lynnete" color="#2779BD" />
+                        <ve-avatar label="Lynnete" :tile="true" />
+                        <ve-avatar>
+                            <img src="https://instagram.fmex10-1.fna.fbcdn.net/vp/7f6147a8df2f077569167037d829937d/5BAA1862/t51.2885-15/e35/26153702_903709439779829_8742051213953990656_n.jpg?_nc_eui2=AeG4eJg0VPNWF2ZL-6iOw4zGG0tZ0CjxO3qEd_Z0TxIu0smoS2C7H4NlTJGfhPqML8xeOVI2wUICPAi5jA4lo39-UDWUD1zLKTTvJ-L_h4Wprw" alt="ve-avatar">
+                        </ve-avatar>
+                        <ve-avatar :tile="true">
+                            <img src="https://instagram.fmex10-1.fna.fbcdn.net/vp/7f6147a8df2f077569167037d829937d/5BAA1862/t51.2885-15/e35/26153702_903709439779829_8742051213953990656_n.jpg?_nc_eui2=AeG4eJg0VPNWF2ZL-6iOw4zGG0tZ0CjxO3qEd_Z0TxIu0smoS2C7H4NlTJGfhPqML8xeOVI2wUICPAi5jA4lo39-UDWUD1zLKTTvJ-L_h4Wprw" alt="ve-avatar">
+                        </ve-avatar>
+                        <ve-avatar alt="ve-avatar" src="https://instagram.fmex10-1.fna.fbcdn.net/vp/7f6147a8df2f077569167037d829937d/5BAA1862/t51.2885-15/e35/26153702_903709439779829_8742051213953990656_n.jpg?_nc_eui2=AeG4eJg0VPNWF2ZL-6iOw4zGG0tZ0CjxO3qEd_Z0TxIu0smoS2C7H4NlTJGfhPqML8xeOVI2wUICPAi5jA4lo39-UDWUD1zLKTTvJ-L_h4Wprw" />
+                        <ve-avatar alt="ve-avatar" :tile="true" src="https://instagram.fmex10-1.fna.fbcdn.net/vp/7f6147a8df2f077569167037d829937d/5BAA1862/t51.2885-15/e35/26153702_903709439779829_8742051213953990656_n.jpg?_nc_eui2=AeG4eJg0VPNWF2ZL-6iOw4zGG0tZ0CjxO3qEd_Z0TxIu0smoS2C7H4NlTJGfhPqML8xeOVI2wUICPAi5jA4lo39-UDWUD1zLKTTvJ-L_h4Wprw" />
+                        <ve-avatar alt="ve-avatar" size="60px" src="https://instagram.fmex10-1.fna.fbcdn.net/vp/7f6147a8df2f077569167037d829937d/5BAA1862/t51.2885-15/e35/26153702_903709439779829_8742051213953990656_n.jpg?_nc_eui2=AeG4eJg0VPNWF2ZL-6iOw4zGG0tZ0CjxO3qEd_Z0TxIu0smoS2C7H4NlTJGfhPqML8xeOVI2wUICPAi5jA4lo39-UDWUD1zLKTTvJ-L_h4Wprw" />
                     </div>
-                </panel>
+                </ve-panel>
             </div>
         </div>
     </div>
 </template>
 
-<script>
-    import { library } from '@fortawesome/fontawesome-svg-core';
-    import { faCoffee, faAt } from '@fortawesome/free-solid-svg-icons';
-    import { faAngry } from "@fortawesome/free-regular-svg-icons";
-    import { faAmazon } from "@fortawesome/free-brands-svg-icons";
-    import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+<script lang="ts">
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCoffee, faAt } from '@fortawesome/free-solid-svg-icons';
+import { faAngry } from "@fortawesome/free-regular-svg-icons";
+import { faAmazon } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-    library.add(faCoffee, faAngry, faAt, faAmazon);
+library.add(faCoffee, faAngry, faAt, faAmazon);
 
-    import Panel from "./components/Panel/";
-    import Scroll from "./components/Scroll";
-    import Loading from "./components/Loading";
-    import veImg from "./components/Image";
-    import Divider from "./components/Divider";
-    import Avatar from "./components/Avatar";
-    import Item from "./components/Item";
+import { Component, Vue } from 'vue-property-decorator';
+import HelloWorld from './components/HelloWorld.vue';
+import vePanel from './components/Panel/index.vue';
+import veScroll from './components/Scroll/index.vue';
+import veLoading from './components/Loading/index.vue';
+import veImg from "./components/Image/index.vue";
+import veDivider from "./components/Divider/index.vue";
+import veAvatar from "./components/Avatar/index.vue";
+import veItem from "./components/Item/index.vue";
 
-    export default {
-        name: "app",
-        data: function() {
-            return {
-                width: "344px",
-                height: "228px",
-                showLoader: true,
-                opacity: 0.95,
-                speed: 300,
-                fullscreen: false,
-                alt: "image lazy",
-                imagePlaceholder: "https://picsum.photos/200/300/?random",
-                src: "https://expeditionportal.com/media/2014/05/Mojave-002.jpg",
-                preview: "https://ucarecdn.com/dc3dad83-e7b5-44cd-841a-dbf4000005d6/-/resize/32x/-/quality/lightest/party.jpg",
-                styles: {
-                    padding: "8px"
-                }
-            };
-        },
-        methods: {
-            imageError(e) {
-                console.log('image error', e);
-            },
-            imageLoaded(e) {
-                console.log('image loaded', e);
-            },
-            toggleShowLoader() {
-                this.showLoader = !this.showLoader;
-            },
-            changeFullscreen() {
-                this.fullscreen = !this.fullscreen;
-            },
-            scrollX() {
-              console.log("scroll in X");
-            },
-            scrollY() {
-              console.log("scroll in y");
-            },
-            scrollUp() {
-              console.log("scroll up");
-            },
-            scrollDown() {
-              console.log("scroll down");
-            },
-            scrollLeft() {
-              console.log("scroll left");
-            },
-            scrollRight() {
-              console.log("scroll right");
-            },
-            scrollYStart() {
-              console.log("scroll y reach start");
-            },
-            scrollYEnd() {
-              console.log("scroll y reach end");
-            },
-            scrollXStart() {
-              console.log("scroll x reach start");
-            },
-            scrollXEnd() {
-              console.log("scroll x reach end");
-            }
-        },
-        components: {
-            'fa-icon': FontAwesomeIcon,
-            Panel,
-            Scroll,
-            Loading,
-            veImg,
-            Divider,
-            Avatar,
-            Item
-        },
-    };
+@Component({
+  components: {
+    'fa-icon': FontAwesomeIcon,
+    vePanel,
+    veScroll,
+    veLoading,
+    veImg,
+    veDivider,
+    veAvatar,
+    veItem
+  },
+})
+
+export default class App extends Vue {
+    width = "344px";
+    height = "228px";
+
+    showLoader = true;
+    opacity = 0.95;
+    speed = 300;
+    fullscreen = false;
+
+    alt = "image lazy";
+    imagePlaceholder = "https://picsum.photos/200/300/?random";
+    src = "https://expeditionportal.com/media/2014/05/Mojave-002.jpg";
+    preview = "https://ucarecdn.com/dc3dad83-e7b5-44cd-841a-dbf4000005d6/-/resize/32x/-/quality/lightest/party.jpg";
+
+    imageError(e) {
+        console.log('image error', e);
+    }
+
+    imageLoaded(e) {
+        console.log('image loaded', e);
+    }
+
+
+
+    toggleShowLoader() {
+        this.showLoader = !this.showLoader;
+    }
+
+    changeFullscreen() {
+        this.fullscreen = !this.fullscreen;
+    }
+
+
+    scrollX() {
+        console.log("scroll in X");
+    }
+
+    scrollY() {
+        console.log("scroll in y");
+    }
+
+    scrollUp() {
+        console.log("scroll up");
+    }
+
+    scrollDown() {
+        console.log("scroll down");
+    }
+
+    scrollLeft() {
+        console.log("scroll left");
+    }
+
+    scrollRight() {
+        console.log("scroll right");
+    }
+
+    scrollYStart() {
+        console.log("scroll y reach start");
+    }
+
+    scrollYEnd() {
+        console.log("scroll y reach end");
+    }
+
+    scrollXStart() {
+        console.log("scroll x reach start");
+    }
+
+    scrollXEnd() {
+        console.log("scroll x reach end");
+    }
+}
 </script>
 
 <style lang="scss">
-    @import "./Components/Styles/main";
+@import "./Components/Styles/main";
 
-    pre {
-        background: #f9f9f9;
-        color: #ff4181;
-        box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
-        padding: 8px;
-        line-height: 1.4;
-    }
+pre {
+    background: #f9f9f9;
+    color: #ff4181;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    line-height: 1.4;
+}
 
-    #app {
-        padding: 1rem;
-    }
+#app {
+    padding: 1rem;
+}
 
-    .title {
-        border-bottom: 1px solid #f0f0f0;
-        margin-bottom: 2rem;
-    }
+.title {
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 2rem;
+}
 
-    .container {
-        display: grid;
-        grid-template-columns: auto;
-        grid-row-gap: 1rem;
-    }
+.container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-row-gap: 1rem;
+}
 
-    .panel-component {
-        display: flex;
-        padding: 0.5rem;
-    }
+.panel-component {
+    display: flex;
+    padding: 0.5rem;
+}
 
-    .panel-component .col {
-        padding: 0.5rem;
-        width: 33.3333%;
-    }
+.panel-component .col {
+    padding: 0.5rem;
+    width: 33.3333%;
+}
 
-    .design-grid {
-        background: #e5e5e5;
-    }
+.design-grid {
+    background: #e5e5e5;
+}
 </style>

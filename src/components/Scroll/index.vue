@@ -12,62 +12,63 @@
     </div>
 </template>
 
-<script>
-    import data from './data';
-    import defaultSettings from './settings';
-    import properties from './properties';
+<script lang="ts">
+import { Vue, Component, Prop } from "vue-property-decorator";
 
-    import Scrollbar from './scroll';
+import data from "./data";
+import defaultSettings from "./settings";
 
-    export default {
-        name: "Scroll",
-        props: properties,
-        data: function() {
-            return {
-                Scrollbar: null,
-                elementClasses: data.elementClasses,
+import Scrollbar from "./scroll";
 
-                barXClasses: data.barXClasses,
-                barYClasses: data.barYClasses,
+@Component
+export default class veScroll extends Vue
+{
+    @Prop({ default: () => { return {} } })
+    settings!: object;
 
-                railXClasses: data.railXClasses,
-                railYClasses: data.railYClasses,
-            }
-        },
-        methods: {
-            initScrollbar() {
-                data.settings = Object.assign({}, defaultSettings, this.settings);
+    Scrollbar: any;
+    elementClasses = data.elementClasses;
 
-                data.element = this.$refs.element;
-                data.scrollbarXRail = this.$refs.scrollbarXRail;
-                data.scrollbarX = this.$refs.scrollbarX;
-                data.scrollbarYRail = this.$refs.scrollbarYRail;
-                data.scrollbarY = this.$refs.scrollbarY;
+    barXClasses = data.barXClasses;
+    barYClasses = data.barYClasses;
 
-                this.Scrollbar = new Scrollbar(data);
-            },
-            dispatchEvent(suffix) {
-                this.$emit(`scroll-${suffix}`);
-            }
-        },
-        mounted() {
-            this.$nextTick(function() {
-                this.initScrollbar();
+    railXClasses = data.railXClasses;
+    railYClasses = data.railYClasses;
 
-                this.$refs.element.addEventListener("ps-scroll-y", () => this.dispatchEvent("y"));
-                this.$refs.element.addEventListener("ps-scroll-up", () => this.dispatchEvent("up"));
-                this.$refs.element.addEventListener("ps-scroll-down", () => this.dispatchEvent("down"));
-                this.$refs.element.addEventListener("ps-y-reach-start", () => this.dispatchEvent("y-reach-start"));
-                this.$refs.element.addEventListener("ps-y-reach-end", () => this.dispatchEvent("y-reach-end"));
+    initScrollbar() {
+        data.settings = Object.assign({}, defaultSettings, this.settings);
 
-                this.$refs.element.addEventListener("ps-scroll-x", () => this.dispatchEvent("x"));
-                this.$refs.element.addEventListener("ps-scroll-left", () => this.dispatchEvent("left"));
-                this.$refs.element.addEventListener("ps-scroll-right", () => this.dispatchEvent("right"));
-                this.$refs.element.addEventListener("ps-x-reach-start", () => this.dispatchEvent("x-reach-start"));
-                this.$refs.element.addEventListener("ps-x-reach-end", () => this.dispatchEvent("x-reach-end"));
-            });
-        },
-    };
+        data.element = this.$refs.element;
+        data.scrollbarXRail = this.$refs.scrollbarXRail;
+        data.scrollbarX = this.$refs.scrollbarX;
+        data.scrollbarYRail = this.$refs.scrollbarYRail;
+        data.scrollbarY = this.$refs.scrollbarY;
+
+        this.Scrollbar = new Scrollbar(data);
+    }
+
+    dispatchEvent(suffix: string) {
+        this.$emit(`scroll-${suffix}`);
+    }
+
+    mounted() {
+        this.$nextTick(() => {
+            this.initScrollbar();
+
+            this.$refs.element.addEventListener("ps-scroll-y", () => this.dispatchEvent("y"));
+            this.$refs.element.addEventListener("ps-scroll-up", () => this.dispatchEvent("up"));
+            this.$refs.element.addEventListener("ps-scroll-down", () => this.dispatchEvent("down"));
+            this.$refs.element.addEventListener("ps-y-reach-start", () => this.dispatchEvent("y-reach-start"));
+            this.$refs.element.addEventListener("ps-y-reach-end", () => this.dispatchEvent("y-reach-end"));
+
+            this.$refs.element.addEventListener("ps-scroll-x", () => this.dispatchEvent("x"));
+            this.$refs.element.addEventListener("ps-scroll-left", () => this.dispatchEvent("left"));
+            this.$refs.element.addEventListener("ps-scroll-right", () => this.dispatchEvent("right"));
+            this.$refs.element.addEventListener("ps-x-reach-start", () => this.dispatchEvent("x-reach-start"));
+            this.$refs.element.addEventListener("ps-x-reach-end", () => this.dispatchEvent("x-reach-end"));
+        });
+    }
+}
 </script>
 
 <style lang="sass" scoped>

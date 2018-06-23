@@ -6,10 +6,12 @@
     </div>
 </template>
 
-<script>
-    export default {
-        name: "Spinner"
-    }
+<script lang="ts">
+import { Vue, Component, Prop } from "vue-property-decorator";
+
+@Component
+export default class veSpinner extends Vue {
+}
 </script>
 
 <style lang="scss" scoped>

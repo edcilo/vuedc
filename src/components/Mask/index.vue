@@ -4,98 +4,105 @@
     </div>
 </template>
 
-<script>
-    export default {
-        name: "veMask",
-        props: {
-            fullscreen: {
-                type: Boolean,
-                default: false
-            },
-            opacity: {
-                type: Number,
-                default: 1
-            },
-            open: {
-                type: Boolean,
-                default: false
-            },
-            speed: {
-                type: Number,
-                default: 300
-            }
-        },
-        data: function() {
-            const transitionDuration = `${this.speed}ms`;
+<script lang="ts">
+import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 
-            return {
-                styles: {
-                    transitionDuration,
-                    display: "none",
-                    opacity: 0
-                }
-            };
-        },
-        watch: {
-            fullscreen() {
-                this.toggleFullscreen();
-            },
-            opacity(val) {
-                this.styles.opacity = val;
-            },
-            open() {
-                this.toggleOpen();
-            },
-            speed(val) {
-                this.styles.transitionDuration = `${val}ms`;
-            }
-        },
-        methods: {
-            toggleOpen() {
-                this.styles.display = null;
+@Component
+export default class veMask extends Vue {
+    @Prop({ default: false })
+    fullscreen!: boolean;
 
-                if (this.open) {
-                    this.styles.opacity = this.opacity;
-                } else {
-                    this.styles.opacity = 0;
-                }
+    @Prop({ default: 1 })
+    opacity!: number;
 
-                window.setTimeout(this.changeDisplay, this.speed);
-            },
-            changeDisplay() {
-                if (!this.open) {
-                    this.styles.display = "none";
-                }
-            },
-            toggleFullscreen() {
-                if (this.fullscreen) {
-                    this.openFullscreen();
-                } else {
-                    this.quitFullscreen();
-                }
-            },
-            openFullscreen() {
-                const body = document.querySelector('body');
-                body.style["position"] = "relative";
-                body.style["overflow"] = "hidden";
+    @Prop({ default: false })
+    open!: boolean;
 
-                this.styles.position = "fixed";
-            },
-            quitFullscreen() {
-                const body = document.querySelector('body');
-                body.style["position"] = null;
-                body.style["overflow"] = null;
+    @Prop({ default: 300 })
+    speed!: number;
 
-                this.styles.position = null;
-            }
-        },
-        mounted() {
-            this.$nextTick(function() {
-                this.toggleFullscreen();
-                this.toggleOpen();
-            });
+    styles = {
+        transitionDuration: `${this.speed}ms`,
+        display: "none",
+        opacity: 0,
+        position: ""
+    }
+
+    @Watch('fullscreen')
+    onFullscreenChanged() {
+        this.toggleFullscreen();
+    }
+
+    @Watch('opacity')
+    onOpacityChanged(val: number) {
+        this.styles.opacity = val;
+    }
+
+    @Watch('open')
+    onOpenChanged() {
+        this.toggleOpen();
+    }
+
+    @Watch('speed')
+    onSpeedChanged(val: number) {
+        this.styles.transitionDuration = `${val}ms`;
+    }
+
+    changeDisplay() {
+        if (!this.open) {
+            this.styles.display = "none";
         }
     }
+
+    openFullscreen() {
+        const body = document.querySelector('body');
+
+        if (body) {
+            body.style["position"] = "relative";
+            body.style["overflow"] = "hidden";
+
+            this.styles.position = "fixed";
+        }
+    }
+
+    quitFullscreen() {
+        const body = document.querySelector('body');
+
+        if (body) {
+            body.style["position"] = null;
+            body.style["overflow"] = null;
+
+            this.styles.position = "";
+        }
+    }
+
+    toggleFullscreen() {
+        if (this.fullscreen) {
+            this.openFullscreen();
+        } else {
+            this.quitFullscreen();
+        }
+    }
+
+    toggleOpen() {
+        this.styles.display = null;
+
+        if (this.open) {
+            this.styles.opacity = this.opacity;
+        } else {
+            this.styles.opacity = 0;
+        }
+
+        window.setTimeout(this.changeDisplay, this.speed);
+    }
+
+    mounted() {
+        this.$nextTick(() => {
+                this.toggleFullscreen();
+                this.toggleOpen();
+        });
+    }
+}
 </script>
 
 <style lang="scss" scoped>

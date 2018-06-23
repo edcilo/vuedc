@@ -8,60 +8,49 @@
     </div>
 </template>
 
-<script>
-export default {
-    name: "Avatar",
-    props: {
-        src: {
-            type: String,
-            default: null
-        },
-        alt: {
-            type: String,
-            default: ""
-        },
-        label: {
-            type: String,
-            default: null
-        },
-        color: {
-            type: String,
-            default: null
-        },
-        size: {
-            type: String,
-            default: ""
-        },
-        tile: {
-            type: Boolean,
-            default: false
-        }
-    },
-    data: function () {
-        const letter = this.getFirstLetter();
+<script lang="ts">
+import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 
-        return {
-            letter
-        }
-    },
-    watch: {
-        src(val) {
-            if (val !== null) {
-                this.letter = null;
-            }
-        },
-        label(val) {
-            if (val !== null) {
-                this.src = null;
-            }
+@Component
+export default class veAvatar extends Vue {
+    @Prop({ default: null })
+    src!: string;
 
-            this.letter = this.getFirstLetter();
+    @Prop({ default: "" })
+    alt!: string;
+
+    @Prop({ default: null })
+    label!: string;
+
+    @Prop({ default: null })
+    color!: string;
+
+    @Prop({ default: "" })
+    size!: string;
+
+    @Prop({ default: false })
+    tile!: boolean;
+
+    letter = this.getFirstLetter();
+
+    @Watch('src')
+    onSrcChanged(val) {
+        if (val !== null) {
+            this.letter = null;
         }
-    },
-    methods: {
-        getFirstLetter() {
-            return (this.label !== null) ? this.label.charAt(0) : null;
+    }
+
+    @Watch('label')
+    onLabelChanged(val) {
+        if (val !== null) {
+            this.src = null;
         }
+
+        this.letter = this.getFirstLetter();
+    }
+
+    getFirstLetter() {
+        return (this.label !== null) ? this.label.charAt(0) : null;
     }
 }
 </script>

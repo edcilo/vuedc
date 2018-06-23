@@ -4,13 +4,18 @@
     </div>
 </template>
 
-<script>
-    import properties from "./properties";
+<script lang="ts">
+import { Vue, Component, Prop } from "vue-property-decorator";
 
-    export default {
-        name: "Panel",
-        props: properties
-    };
+@Component
+export default class vePanel extends Vue
+{
+    @Prop({ default: "100%" })
+    width!: string;
+
+    @Prop({ default: "auto" })
+    height!: string;
+}
 </script>
 
 <style lang="sass" scoped>
