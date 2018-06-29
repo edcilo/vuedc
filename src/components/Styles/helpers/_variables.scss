@@ -8,7 +8,7 @@ $c-info: #909399;
 $c-success: $c-green;
 $c-warning: $c-yellow;
 $c-danger: $c-red;
-$c-light: $c-gray5;
+$c-light: $c-gray-light;
 $c-dark: $c-black;
 
 // text color
@@ -20,7 +20,7 @@ $c-text-light:     #F8FAFC;
 $body-bg: $c-white;
 $body-color: $c-text-primary;
 
-$text-muted: $c-gray1;
+$text-muted: $c-gray-darker;
 
 /*--- FONT SIZE ---*/
 $font-family-base: "Roboto", sans-serif;

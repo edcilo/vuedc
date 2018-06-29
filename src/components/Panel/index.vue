@@ -11,10 +11,10 @@ import { Vue, Component, Prop } from "vue-property-decorator";
 export default class vePanel extends Vue
 {
     @Prop({ default: "100%" })
-    width!: string;
+    private width!: string;
 
     @Prop({ default: "auto" })
-    height!: string;
+    private height!: string;
 }
 </script>
 

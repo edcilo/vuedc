@@ -11,6 +11,28 @@
 }
 
 /*
+* Make list of background color classes
+*/
+@mixin bg-color($colors) {
+    @each $name, $color in $colors {
+        .bg-#{$name} {
+            background-color: $color !important;
+        }
+    }
+}
+
+/*
+* Make list of text color classes
+*/
+@mixin tc-color($colors) {
+    @each $name, $color in $colors {
+        .tc-#{$name} {
+            color: $color !important;
+        }
+    }
+}
+
+/*
 * @include triangle within a pseudo element and add positioning properties (ie. top, left)
 * $direction: up, down, left, right
 */

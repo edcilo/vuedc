@@ -1,2 +1,131 @@
-// typography
-.lead {}
+// BACKGROUND AND TEXT COLORS
+$gray:               (
+    white:           $c-white,
+    gray-lightest:   $c-gray-lightest,
+    gray-lighter:    $c-gray-lighter,
+    gray-light:      $c-gray-light,
+    gray-base:       $c-gray-base,
+    gray-dark:       $c-gray-dark,
+    gray-darker:     $c-gray-darker,
+    gray-darkest:    $c-gray-darkest,
+    black:           $c-black
+);
+@include bg-color($gray);
+@include tc-color($gray);
+
+$red:                (
+    red:             $c-red,
+    red-lightest:    $c-red-lightest,
+    red-lighter:     $c-red-lighter,
+    red-light:       $c-red-light,
+    red-base:        $c-red-base,
+    red-dark:        $c-red-dark,
+    red-darker:      $c-red-darker,
+    red-darkest:     $c-red-darkest,
+);
+@include bg-color($red);
+@include tc-color($red);
+
+$orange:             (
+    orange:          $c-orange,
+    orange-lightest: $c-orange-lightest,
+    orange-lighter:  $c-orange-lighter,
+    orange-light:    $c-orange-light,
+    orange-base:     $c-orange-base,
+    orange-dark:     $c-orange-dark,
+    orange-darker:   $c-orange-darker,
+    orange-darkest:  $c-orange-darkest,
+);
+@include bg-color($orange);
+@include tc-color($orange);
+
+$yellow:             (
+    yellow:          $c-yellow,
+    yellow-lightest: $c-yellow-lightest,
+    yellow-lighter:  $c-yellow-lighter,
+    yellow-light:    $c-yellow-light,
+    yellow-base:     $c-yellow-base,
+    yellow-dark:     $c-yellow-dark,
+    yellow-darker:   $c-yellow-darker,
+    yellow-darkest:  $c-yellow-darkest,
+);
+@include bg-color($yellow);
+@include tc-color($yellow);
+
+$green:              (
+    green:           $c-green,
+    green-lightest:  $c-green-lightest,
+    green-lighter:   $c-green-lighter,
+    green-light:     $c-green-light,
+    green-base:      $c-green-base,
+    green-dark:      $c-green-dark,
+    green-darker:    $c-green-darker,
+    green-darkest:   $c-green-darkest,
+);
+@include bg-color($green);
+@include tc-color($green);
+
+$teal:               (
+    teal:            $c-teal,
+    teal-lightest:   $c-teal-lightest,
+    teal-lighter:    $c-teal-lighter,
+    teal-light:      $c-teal-light,
+    teal-base:       $c-teal-base,
+    teal-dark:       $c-teal-dark,
+    teal-darker:     $c-teal-darker,
+    teal-darkest:    $c-teal-darkest,
+);
+@include bg-color($teal);
+@include tc-color($teal);
+
+$blue:               (
+    blue:            $c-blue,
+    blue-lightest:   $c-blue-lightest,
+    blue-lighter:    $c-blue-lighter,
+    blue-light:      $c-blue-light,
+    blue-base:       $c-blue-base,
+    blue-dark:       $c-blue-dark,
+    blue-darker:     $c-blue-darker,
+    blue-darkest:    $c-blue-darkest,
+);
+@include bg-color($blue);
+@include tc-color($blue);
+
+$indigo:             (
+    indigo:          $c-indigo,
+    indigo-lightest: $c-indigo-lightest,
+    indigo-lighter:  $c-indigo-lighter,
+    indigo-light:    $c-indigo-light,
+    indigo-base:     $c-indigo-base,
+    indigo-dark:     $c-indigo-dark,
+    indigo-darker:   $c-indigo-darker,
+    indigo-darkest:  $c-indigo-darkest,
+);
+@include bg-color($indigo);
+@include tc-color($indigo);
+
+$purple:             (
+    purple:          $c-purple,
+    purple-lightest: $c-purple-lightest,
+    purple-lighter:  $c-purple-lighter,
+    purple-light:    $c-purple-light,
+    purple-base:     $c-purple-base,
+    purple-dark:     $c-purple-dark,
+    purple-darker:   $c-purple-darker,
+    purple-darkest:  $c-purple-darkest,
+);
+@include bg-color($purple);
+@include tc-color($purple);
+
+$pink:               (
+    pink:            $c-pink,
+    pink-lightest:   $c-pink-lightest,
+    pink-lighter:    $c-pink-lighter,
+    pink-light:      $c-pink-light,
+    pink-base:       $c-pink-base,
+    pink-dark:       $c-pink-dark,
+    pink-darker:     $c-pink-darker,
+    pink-darkest:    $c-pink-darkest,
+);
+@include bg-color($pink);
+@include tc-color($pink);

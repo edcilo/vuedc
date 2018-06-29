@@ -1,24 +1,24 @@
 /*--- COLORS ---*/
 // grayscale
-$c-black: #22292F;
-$c-gray0: #3D4852;
-$c-gray1: #606F7B;
-$c-gray2: #8795A1;
-$c-gray3: #B8C2CC;
-$c-gray4: #DAE1E7;
-$c-gray5: #F1F5F8;
-$c-gray6: #F8FAFC;
-$c-white: #FFFFFF;
+$c-white:           #FFFFFF;
+$c-gray-lightest:   #F8FAFC;
+$c-gray-lighter:    #F1F5F8;
+$c-gray-light:      #DAE1E7;
+$c-gray-base:       #B8C2CC;
+$c-gray-dark:       #8795A1;
+$c-gray-darker:     #606F7B;
+$c-gray-darkest:    #3D4852;
+$c-black:           #22292F;
 
 // colors
-$c-red-lightest: #FCEBEA;
-$c-red-lighter:  #F9ACAA;
-$c-red-light:    #EF5753;
-$c-red-base:     #E3342F;
-$c-red-dark:     #CC1F1A;
-$c-red-darker:   #621B18;
-$c-red-darkest:  #3B0D0C;
-$c-red: $c-red-base;
+$c-red-lightest:    #FCEBEA;
+$c-red-lighter:     #F9ACAA;
+$c-red-light:       #EF5753;
+$c-red-base:        #E3342F;
+$c-red-dark:        #CC1F1A;
+$c-red-darker:      #621B18;
+$c-red-darkest:     #3B0D0C;
+$c-red:             $c-red-base;
 
 $c-orange-lightest: #FFF5EB;
 $c-orange-lighter:  #FCD9B6;
@@ -27,7 +27,7 @@ $c-orange-base:     #F6993F;
 $c-orange-dark:     #DE751F;
 $c-orange-darker:   #613B1F;
 $c-orange-darkest:  #462A16;
-$c-orange: $c-orange-base;
+$c-orange:          $c-orange-base;
 
 $c-yellow-lightest: #FCFBEB;
 $c-yellow-lighter:  #FFF9C2;
@@ -36,34 +36,34 @@ $c-yellow-base:     #FFED4A;
 $c-yellow-dark:     #F2D024;
 $c-yellow-darker:   #684F1D;
 $c-yellow-darkest:  #453411;
-$c-yellow: $c-yellow-base;
+$c-yellow:          $c-yellow-base;
 
-$c-green-lightest: #E3FCEC;
-$c-green-lighter:  #A2F5BF;
-$c-green-light:    #51D88A;
-$c-green-base:     #38C172;
-$c-green-dark:     #1F9D55;
-$c-green-darker:   #1A4731;
-$c-green-darkest:  #0F2F21;
-$c-green: $c-green-base;
+$c-green-lightest:  #E3FCEC;
+$c-green-lighter:   #A2F5BF;
+$c-green-light:     #51D88A;
+$c-green-base:      #38C172;
+$c-green-dark:      #1F9D55;
+$c-green-darker:    #1A4731;
+$c-green-darkest:   #0F2F21;
+$c-green:           $c-green-base;
 
-$c-teal-lightest: #E8FFFE;
-$c-teal-lighter:  #A0F0ED;
-$c-teal-light:    #64D5CA;
-$c-teal-base:     #4DC0B5;
-$c-teal-dark:     #38A89D;
-$c-teal-darker:   #20504F;
-$c-teal-darkest:  #0D3331;
-$c-teal: $c-teal-base;
+$c-teal-lightest:   #E8FFFE;
+$c-teal-lighter:    #A0F0ED;
+$c-teal-light:      #64D5CA;
+$c-teal-base:       #4DC0B5;
+$c-teal-dark:       #38A89D;
+$c-teal-darker:     #20504F;
+$c-teal-darkest:    #0D3331;
+$c-teal:            $c-teal-base;
 
-$c-blue-lightest: #EFF8FF;
-$c-blue-lighter:  #BCDEFA;
-$c-blue-light:    #6CB2EB;
-$c-blue-base:     #3490DC;
-$c-blue-dark:     #2779BD;
-$c-blue-darker:   #1C3D5A;
-$c-blue-darkest:  #12283A;
-$c-blue: $c-blue-base;
+$c-blue-lightest:   #EFF8FF;
+$c-blue-lighter:    #BCDEFA;
+$c-blue-light:      #6CB2EB;
+$c-blue-base:       #3490DC;
+$c-blue-dark:       #2779BD;
+$c-blue-darker:     #1C3D5A;
+$c-blue-darkest:    #12283A;
+$c-blue:            $c-blue-base;
 
 $c-indigo-lightest: #E6E8FF;
 $c-indigo-lighter:  #B2B7FF;
@@ -72,7 +72,7 @@ $c-indigo-base:     #6574CD;
 $c-indigo-dark:     #5661B3;
 $c-indigo-darker:   #2F365F;
 $c-indigo-darkest:  #191E38;
-$c-indigo: $c-indigo-base;
+$c-indigo:          $c-indigo-base;
 
 $c-purple-lightest: #F3EBFF;
 $c-purple-lighter:  #D6BBFC;
@@ -81,15 +81,15 @@ $c-purple-base:     #9561E2;
 $c-purple-dark:     #794ACF;
 $c-purple-darker:   #382B5F;
 $c-purple-darkest:  #21183C;
-$c-purple: $c-purple-base;
+$c-purple:          $c-purple-base;
 
-$c-pink-lightest: #FFEBEF;
-$c-pink-lighter:  #FFBBCA;
-$c-pink-light:    #FA7EA8;
-$c-pink-base:     #F66D9B;
-$c-pink-dark:     #EB5286;
-$c-pink-darker:   #6F213F;
-$c-pink-darkest:  #451225;
-$c-pink: $c-pink-base;
+$c-pink-lightest:   #FFEBEF;
+$c-pink-lighter:    #FFBBCA;
+$c-pink-light:      #FA7EA8;
+$c-pink-base:       #F66D9B;
+$c-pink-dark:       #EB5286;
+$c-pink-darker:     #6F213F;
+$c-pink-darkest:    #451225;
+$c-pink:            $c-pink-base;
 
-$c-cyan: #17a2b8;
+$c-cyan:            #17a2b8;

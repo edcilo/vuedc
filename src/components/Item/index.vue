@@ -2,7 +2,9 @@
     <panel class="ve-item">
         <slot name="visual"></slot>
         <slot></slot>
-        <slot name="control"></slot>
+        <div class="control">
+            <slot name="control"></slot>
+        </div>
     </panel>
 </template>
 
@@ -24,5 +26,7 @@ export default class veItem extends Vue {
 
 .ve-item {
     padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
 }
 </style>
