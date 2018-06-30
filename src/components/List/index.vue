@@ -11,27 +11,43 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
 export default class VeList extends Vue
 {
     @Prop({ default: false })
-    rounded!: boolean;
+    private rounded!: boolean;
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "./../Styles/helpers/variables";
+
+%border-radius-top {
+    border-radius: $br-sm $br-sm 0 0;
+}
+
+%border-radius-bottom {
+    border-radius:  0 0 $br-sm $br-sm;
+}
 
 .ve-list {
     display: flex;
     flex-direction: column;
 
     &.rounded {
-        border-radius: 20px;
+        border-radius: $br-sm;
 
         .ve-list-item {
             &:first-child {
-                border-radius: $br-sm $br-sm 0 0;
+                @extend %border-radius-top;
+
+                .ve-item {
+                    @extend %border-radius-top;
+                }
             }
 
             &:last-child {
-                border-radius: 0 0 $br-sm $br-sm;
+                @extend %border-radius-bottom;
+
+                .ve-item {
+                    @extend %border-radius-bottom
+                }
             }
         }
     }

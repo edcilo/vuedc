@@ -18,6 +18,6 @@ export default class vePanel extends Vue
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
     @import "./styles";
 </style>

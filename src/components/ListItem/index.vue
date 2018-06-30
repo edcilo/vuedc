@@ -15,7 +15,7 @@ export default class VeListItem extends Vue
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "./../Styles/helpers/variables";
 
 .ve-list-item {

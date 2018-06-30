@@ -1,6 +1,6 @@
 <template>
     <div class="ve-divider" :class="{clear, dark}">
-        <span class="ve-divider-subheader" v-if="subheader">{{ subheader }}</span>
+        <span class="ve-divider-subheader">{{ subheader }}</span>
     </div>
 </template>
 
@@ -9,19 +9,18 @@ import { Vue, Component, Prop } from "vue-property-decorator";
 
 @Component
 export default class veDivider extends Vue {
+    @Prop({ default: false })
+    private clear!: boolean;
 
     @Prop({ default: false })
-    clear!: boolean;
+    private dark!: boolean;
 
-    @Prop({ default: false })
-    dark!: boolean;
-
-    @Prop([String, Boolean])
-    subheader!: string | null
+    @Prop({ default: "" })
+    private subheader!: string
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "./../Styles/helpers/variables";
 
 .ve-divider {

@@ -6,7 +6,7 @@
 
         <div class="color-panels">
             <ve-panel>
-                <ve-list>
+                <ve-list :rounded="true">
                     <ve-list-item v-for="(e, i) in gray" :key="i" :border="true">
                         <ve-item :class="e.class">
                             {{ i }}
@@ -19,7 +19,7 @@
             </ve-panel>
 
             <ve-panel>
-                <ve-list>
+                <ve-list :rounded="true">
                     <ve-list-item v-for="(e, i) in red" :key="i" :border="true">
                         <ve-item :class="e.class">
                             {{ i }}
@@ -32,7 +32,7 @@
             </ve-panel>
 
             <ve-panel>
-                <ve-list>
+                <ve-list :rounded="true">
                     <ve-list-item v-for="(e, i) in orange" :key="i" :border="true">
                         <ve-item :class="e.class">
                             {{ i }}
@@ -45,7 +45,7 @@
             </ve-panel>
 
             <ve-panel>
-                <ve-list>
+                <ve-list :rounded="true">
                     <ve-list-item v-for="(e, i) in yellow" :key="i" :border="true">
                         <ve-item :class="e.class">
                             {{ i }}
@@ -58,7 +58,7 @@
             </ve-panel>
 
             <ve-panel>
-                <ve-list>
+                <ve-list :rounded="true">
                     <ve-list-item v-for="(e, i) in green" :key="i" :border="true">
                         <ve-item :class="e.class">
                             {{ i }}
@@ -71,7 +71,7 @@
             </ve-panel>
 
             <ve-panel>
-                <ve-list>
+                <ve-list :rounded="true">
                     <ve-list-item v-for="(e, i) in teal" :key="i" :border="true">
                         <ve-item :class="e.class">
                             {{ i }}
@@ -84,7 +84,7 @@
             </ve-panel>
 
             <ve-panel>
-                <ve-list>
+                <ve-list :rounded="true">
                     <ve-list-item v-for="(e, i) in blue" :key="i" :border="true">
                         <ve-item :class="e.class">
                             {{ i }}
@@ -97,7 +97,7 @@
             </ve-panel>
 
             <ve-panel>
-                <ve-list>
+                <ve-list :rounded="true">
                     <ve-list-item v-for="(e, i) in indigo" :key="i" :border="true">
                         <ve-item :class="e.class">
                             {{ i }}
@@ -110,7 +110,7 @@
             </ve-panel>
 
             <ve-panel>
-                <ve-list>
+                <ve-list :rounded="true">
                     <ve-list-item v-for="(e, i) in purple" :key="i" :border="true">
                         <ve-item :class="e.class">
                             {{ i }}
@@ -123,7 +123,7 @@
             </ve-panel>
 
             <ve-panel>
-                <ve-list>
+                <ve-list :rounded="true">
                     <ve-list-item v-for="(e, i) in pink" :key="i" :border="true">
                         <ve-item :class="e.class">
                             {{ i }}
