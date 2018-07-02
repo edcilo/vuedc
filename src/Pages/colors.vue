@@ -1,5 +1,5 @@
 <template>
-    <div class="colors">
+    <div class="page-colors">
         <h2>Colors</h2>
 
         <h3>Color palette</h3>
@@ -160,19 +160,19 @@ export default class Colors extends Vue
 {
     gray: object = {
         "black": {
-            class: 'bg-black tc-white',
+            class: 'bg-black text-white',
             hex: '#22292F'
         },
         "darkest": {
-            class: 'bg-gray-darkest tc-white',
+            class: 'bg-gray-darkest text-white',
             hex: '#3D4852'
         },
         "darker": {
-            class: 'bg-gray-darker tc-white',
+            class: 'bg-gray-darker text-white',
             hex: '#606F7B'
         },
         "dark": {
-            class: 'bg-gray-dark tc-white',
+            class: 'bg-gray-dark text-white',
             hex: '#8795A1'
         },
         "base": {
@@ -199,19 +199,19 @@ export default class Colors extends Vue
 
     red: object = {
         "darkest": {
-            class: 'bg-red-darkest tc-white',
+            class: 'bg-red-darkest text-white',
             hex: '#3B0D0C'
         },
         "darker": {
-            class: 'bg-red-darker tc-white',
+            class: 'bg-red-darker text-white',
             hex: '#621B18'
         },
         "dark": {
-            class: 'bg-red-dark tc-white',
+            class: 'bg-red-dark text-white',
             hex: '#CC1F1A'
         },
         "base": {
-            class: 'bg-red-base tc-white',
+            class: 'bg-red-base text-white',
             hex: '#E3342F'
         },
         "light": {
@@ -230,19 +230,19 @@ export default class Colors extends Vue
 
     orange: object = {
         "darkest": {
-            class: 'bg-orange-darkest tc-white',
+            class: 'bg-orange-darkest text-white',
             hex: '#462A16'
         },
         "darker": {
-            class: 'bg-orange-darker tc-white',
+            class: 'bg-orange-darker text-white',
             hex: '#613B1F'
         },
         "dark": {
-            class: 'bg-orange-dark tc-white',
+            class: 'bg-orange-dark text-white',
             hex: '#DE751F'
         },
         "base": {
-            class: 'bg-orange-base tc-white',
+            class: 'bg-orange-base text-white',
             hex: '#F6993F'
         },
         "light": {
@@ -261,19 +261,19 @@ export default class Colors extends Vue
 
     yellow: object = {
         "darkest": {
-            class: 'bg-yellow-darkest tc-white',
+            class: 'bg-yellow-darkest text-white',
             hex: '#462A16'
         },
         "darker": {
-            class: 'bg-yellow-darker tc-white',
+            class: 'bg-yellow-darker text-white',
             hex: '#613B1F'
         },
         "dark": {
-            class: 'bg-yellow-dark tc-white',
+            class: 'bg-yellow-dark text-white',
             hex: '#DE751F'
         },
         "base": {
-            class: 'bg-yellow-base tc-white',
+            class: 'bg-yellow-base text-white',
             hex: '#F6993F'
         },
         "light": {
@@ -292,19 +292,19 @@ export default class Colors extends Vue
 
     green: object = {
         "darkest": {
-            class: 'bg-green-darkest tc-white',
+            class: 'bg-green-darkest text-white',
             hex: '#462A16'
         },
         "darker": {
-            class: 'bg-green-darker tc-white',
+            class: 'bg-green-darker text-white',
             hex: '#613B1F'
         },
         "dark": {
-            class: 'bg-green-dark tc-white',
+            class: 'bg-green-dark text-white',
             hex: '#DE751F'
         },
         "base": {
-            class: 'bg-green-base tc-white',
+            class: 'bg-green-base text-white',
             hex: '#F6993F'
         },
         "light": {
@@ -323,19 +323,19 @@ export default class Colors extends Vue
 
     teal: object = {
         "darkest": {
-            class: 'bg-teal-darkest tc-white',
+            class: 'bg-teal-darkest text-white',
             hex: '#462A16'
         },
         "darker": {
-            class: 'bg-teal-darker tc-white',
+            class: 'bg-teal-darker text-white',
             hex: '#613B1F'
         },
         "dark": {
-            class: 'bg-teal-dark tc-white',
+            class: 'bg-teal-dark text-white',
             hex: '#DE751F'
         },
         "base": {
-            class: 'bg-teal-base tc-white',
+            class: 'bg-teal-base text-white',
             hex: '#F6993F'
         },
         "light": {
@@ -354,19 +354,19 @@ export default class Colors extends Vue
 
     blue: object = {
         "darkest": {
-            class: 'bg-blue-darkest tc-white',
+            class: 'bg-blue-darkest text-white',
             hex: '#462A16'
         },
         "darker": {
-            class: 'bg-blue-darker tc-white',
+            class: 'bg-blue-darker text-white',
             hex: '#613B1F'
         },
         "dark": {
-            class: 'bg-blue-dark tc-white',
+            class: 'bg-blue-dark text-white',
             hex: '#DE751F'
         },
         "base": {
-            class: 'bg-blue-base tc-white',
+            class: 'bg-blue-base text-white',
             hex: '#F6993F'
         },
         "light": {
@@ -385,19 +385,19 @@ export default class Colors extends Vue
 
     indigo: object = {
         "darkest": {
-            class: 'bg-indigo-darkest tc-white',
+            class: 'bg-indigo-darkest text-white',
             hex: '#462A16'
         },
         "darker": {
-            class: 'bg-indigo-darker tc-white',
+            class: 'bg-indigo-darker text-white',
             hex: '#613B1F'
         },
         "dark": {
-            class: 'bg-indigo-dark tc-white',
+            class: 'bg-indigo-dark text-white',
             hex: '#DE751F'
         },
         "base": {
-            class: 'bg-indigo-base tc-white',
+            class: 'bg-indigo-base text-white',
             hex: '#F6993F'
         },
         "light": {
@@ -416,19 +416,19 @@ export default class Colors extends Vue
 
     purple: object = {
         "darkest": {
-            class: 'bg-purple-darkest tc-white',
+            class: 'bg-purple-darkest text-white',
             hex: '#462A16'
         },
         "darker": {
-            class: 'bg-purple-darker tc-white',
+            class: 'bg-purple-darker text-white',
             hex: '#613B1F'
         },
         "dark": {
-            class: 'bg-purple-dark tc-white',
+            class: 'bg-purple-dark text-white',
             hex: '#DE751F'
         },
         "base": {
-            class: 'bg-purple-base tc-white',
+            class: 'bg-purple-base text-white',
             hex: '#F6993F'
         },
         "light": {
@@ -447,19 +447,19 @@ export default class Colors extends Vue
 
     pink: object = {
         "darkest": {
-            class: 'bg-pink-darkest tc-white',
+            class: 'bg-pink-darkest text-white',
             hex: '#462A16'
         },
         "darker": {
-            class: 'bg-pink-darker tc-white',
+            class: 'bg-pink-darker text-white',
             hex: '#613B1F'
         },
         "dark": {
-            class: 'bg-pink-dark tc-white',
+            class: 'bg-pink-dark text-white',
             hex: '#DE751F'
         },
         "base": {
-            class: 'bg-pink-base tc-white',
+            class: 'bg-pink-base text-white',
             hex: '#F6993F'
         },
         "light": {
@@ -479,7 +479,7 @@ export default class Colors extends Vue
 </script>
 
 <style lang="scss" scoped>
-.colors {
+.page-colors {
     .color-panels {
         display: grid;
         justify-items: stretch;

@@ -4,7 +4,7 @@
             <h1>Vuedc</h1>
         </div>
 
-        <page-color />
+        <page-typography />
     </div>
 </template>
 
@@ -13,11 +13,13 @@ import { Component, Vue } from 'vue-property-decorator';
 
 import pageList from './Pages/list.vue';
 import pageColor from './Pages/colors.vue';
+import pageTypography from './Pages/typography.vue';
 
 @Component({
   components: {
-    pageList,
-    pageColor
+    pageColor,
+    pageTypography,
+    pageList
   }
 })
 export default class App extends Vue {}
