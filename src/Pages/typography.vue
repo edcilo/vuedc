@@ -1,5 +1,36 @@
 <template>
     <div class="page-typography">
+        <h2>Avatar</h2>
+
+        <ve-pannel>
+            <ve-avatar />
+
+            <ve-avatar label="edcilo" />
+
+            <ve-avatar label="edcilo" color="#f00" />
+
+            <ve-avatar label="edcilo" :tile="true" />
+
+            <ve-avatar src="http://edcilo.com/images/team/edcilo.png" alt="avatar with image" />
+            <ve-avatar src="http://edcilo.com/images/team/edcilo.png" alt="avatar with image" :tile="true" />
+        </ve-pannel>
+
+        <ve-panel>
+            <ve-avatar>
+                <img src="http://edcilo.com/images/team/edcilo.png" alt="avatar with image">
+            </ve-avatar>
+            <ve-avatar color="#e96e06">
+                <span style="color: #fff">E</span>
+            </ve-avatar>
+        </ve-panel>
+
+        <ve-panel>
+            <ve-avatar size="40px">40px</ve-avatar>
+            <ve-avatar size="60px">60px</ve-avatar>
+            <ve-avatar size="80px">80px</ve-avatar>
+            <ve-avatar size="100px">100px</ve-avatar>
+        </ve-panel>
+
         <h2>Divider</h2>
 
         <h3>Line</h3>
@@ -285,6 +316,7 @@ import vePanel from './../components/Panel/index.vue';
 import veList from './../components/List/index.vue';
 import veListItem from './../components/ListItem/index.vue';
 import veItem from './../components/Item/index.vue';
+import veAvatar from './../components/Avatar/index.vue';
 
 @Component({
     components: {
@@ -292,7 +324,8 @@ import veItem from './../components/Item/index.vue';
         vePanel,
         veList,
         veListItem,
-        veItem
+        veItem,
+        veAvatar
     }
 })
 export default class Typography extends Vue
