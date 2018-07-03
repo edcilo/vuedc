@@ -33,6 +33,17 @@
 }
 
 /*
+* Make list of border color classes
+*/
+@mixin border-color($colors) {
+    @each $name, $color in $colors {
+        .border-#{$name} {
+            border-color: $color !important;
+        }
+    }
+}
+
+/*
 * @include triangle within a pseudo element and add positioning properties (ie. top, left)
 * $direction: up, down, left, right
 */
