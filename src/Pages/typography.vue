@@ -1,22 +1,24 @@
 <template>
     <div class="page-typography">
+        <h2>Divider</h2>
+
+        <h3>Line</h3>
+
+        <ve-divider />
+
+        <h3>With subheader</h3>
+
+        <ve-divider subheader="With subheader" />
+
+        <h3>Light</h3>
+
+        <ve-panel class="bg-black">
+            <p>lorem ipsum dolor sit amet consectetur</p>
+            <ve-divider :dark="true" :clear="true" subheader="With subheader clear"></ve-divider>
+            <p>lorem ipsum dolor sit amet consectetur</p>
+        </ve-panel>
+
         <h2>Typography</h2>
-
-        <div class="box-shadow-test">
-            <div class="box-shadow-element shadow-sm"></div>
-
-            <div class="box-shadow-element shadow"></div>
-
-            <div class="box-shadow-element shadow-md"></div>
-
-            <div class="box-shadow-element shadow-lg"></div>
-
-            <div class="box-shadow-element shadow-inner"></div>
-
-            <div class="box-shadow-element shadow-outline"></div>
-
-            <div class="box-shadow-element shadow-none"></div>
-        </div>
 
         <div class="typography-panels">
             <ve-panel>
@@ -253,6 +255,24 @@
                     </ve-list-item>
                 </ve-list>
             </ve-panel>
+        </div>
+
+        <h2>Shadow</h2>
+
+        <div class="box-shadow-test">
+            <div class="box-shadow-element shadow-sm"></div>
+
+            <div class="box-shadow-element shadow"></div>
+
+            <div class="box-shadow-element shadow-md"></div>
+
+            <div class="box-shadow-element shadow-lg"></div>
+
+            <div class="box-shadow-element shadow-inner"></div>
+
+            <div class="box-shadow-element shadow-outline"></div>
+
+            <div class="box-shadow-element shadow-none"></div>
         </div>
     </div>
 </template>

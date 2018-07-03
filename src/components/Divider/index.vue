@@ -1,6 +1,6 @@
 <template>
-    <div class="ve-divider" :class="{clear, dark}">
-        <span class="ve-divider-subheader">{{ subheader }}</span>
+    <div class="ve-divider" :class="{dark, clear}">
+        <span v-if="subheader.length" class="ve-divider-subheader">{{ subheader }}</span>
     </div>
 </template>
 
@@ -24,25 +24,25 @@ export default class veDivider extends Vue {
 @import "./../Styles/helpers/variables";
 
 .ve-divider {
-    margin: 1rem 0;
+    margin: $margin-base 0;
     border-top: 1px solid rgba($c-black, 0.12);
-    color: $text-secondary;
-
-    &.clear {
-        border-color: rgba($c-white, 0.2);
-        color: $text-light
-    }
+    color: $text-muted;
 
     &.dark {
         border-color: rgba($c-black, 0.2);
-        color: $text-secondary
+        color: $text-muted
+    }
+
+    &.clear {
+        border-color: rgba($c-white, 0.2);
+        color: $text-light;
     }
 
     .ve-divider-subheader {
-        margin-top: 0.25rem;
+        margin: $margin-xs;
         display: block;
         font-size: $font-sm;
-        line-height: 1.4;
+        line-height: $line-height-tight;
     }
 }
 </style>
