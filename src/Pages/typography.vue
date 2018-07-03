@@ -2,6 +2,22 @@
     <div class="page-typography">
         <h2>Typography</h2>
 
+        <div class="box-shadow-test">
+            <div class="box-shadow-element shadow-sm"></div>
+
+            <div class="box-shadow-element shadow"></div>
+
+            <div class="box-shadow-element shadow-md"></div>
+
+            <div class="box-shadow-element shadow-lg"></div>
+
+            <div class="box-shadow-element shadow-inner"></div>
+
+            <div class="box-shadow-element shadow-outline"></div>
+
+            <div class="box-shadow-element shadow-none"></div>
+        </div>
+
         <div class="typography-panels">
             <ve-panel>
                 <ve-list :rounded="true">
@@ -272,6 +288,20 @@ export default class Typography extends Vue
         grid-column-gap: 1%;
         grid-row-gap: 1rem;
         grid-template-columns: repeat(4, 24.25%);
+    }
+
+    .box-shadow-test {
+        display: flex;
+        justify-content: center;
+        padding: 60px;
+        width: 100%;
+
+        .box-shadow-element {
+            background: #fafafa;
+            margin: 1rem;
+            width: 120px;
+            height: 120px;
+        }
     }
 }
 </style>

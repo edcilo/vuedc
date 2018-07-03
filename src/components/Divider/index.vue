@@ -26,16 +26,16 @@ export default class veDivider extends Vue {
 .ve-divider {
     margin: 1rem 0;
     border-top: 1px solid rgba($c-black, 0.12);
-    color: $c-text-secundary;
+    color: $text-secondary;
 
     &.clear {
         border-color: rgba($c-white, 0.2);
-        color: $c-text-light
+        color: $text-light
     }
 
     &.dark {
         border-color: rgba($c-black, 0.2);
-        color: $c-text-secundary
+        color: $text-secondary
     }
 
     .ve-divider-subheader {

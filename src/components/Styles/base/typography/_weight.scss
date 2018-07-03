@@ -1,35 +1,35 @@
 .font-hairline {
-    font-weight: 100 !important;
+    font-weight: $fw-hairline !important;
 }
 
 .font-thin {
-    font-weight: 200 !important;
+    font-weight: $fw-thin !important;
 }
 
 .font-light {
-    font-weight: 300 !important;
+    font-weight: $fw-light !important;
 }
 
 .font-normal {
-    font-weight: 400 !important;
+    font-weight: $fw-base !important;
 }
 
 .font-medium {
-    font-weight: 500 !important;
+    font-weight: $fw-medium !important;
 }
 
 .font-semibold {
-    font-weight: 600 !important;
+    font-weight: $fw-semibold !important;
 }
 
 .font-bold {
-    font-weight: 700 !important;
+    font-weight: $fw-bold !important;
 }
 
 .font-extrabold {
-    font-weight: 800 !important;
+    font-weight: $fw-extrabold !important;
 }
 
 .font-black {
-    font-weight: 900 !important;
+    font-weight: $fw-black !important;
 }

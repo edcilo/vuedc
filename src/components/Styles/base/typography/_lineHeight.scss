@@ -1,15 +1,15 @@
 .leading-none {
-    line-height: 1 !important;
+    line-height: $line-height-none !important;
 }
 
 .leading-tight {
-    line-height: 1.25 !important;
+    line-height: $line-height-tight !important;
 }
 
 .leading-normal	{
-    line-height: 1.5 !important;
+    line-height: $line-height-base !important;
 }
 
 .leading-loose {
-    line-height: 2 !important;
+    line-height: $line-height-loose !important;
 }

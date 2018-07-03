@@ -1,138 +1,161 @@
-@import "../base/variables/colors";
+@import "../helpers/variablesFolder/colors";
 
-// base
-$c-default: #f2f2f2;
-$c-primary: #409EFF;
-$c-secondary: #dc4d3a;
-$c-info: #909399;
-$c-success: $c-green;
-$c-warning: $c-yellow;
-$c-danger: $c-red;
-$c-light: $c-gray-light;
-$c-dark: $c-black;
+/*--- Color ---*/
+$c-default:               $c-black;
+$c-primary:               $c-blue-base;
+$c-secondary:             $c-red-light;
+$c-info:                  $c-blue-light;
+$c-success:               $c-green;
+$c-warning:               $c-yellow;
+$c-danger:                $c-red;
+$c-light:                 $c-gray-light;
+$c-dark:                  $c-black;
 
-// text color
-$c-text-primary:   #22292F;
-$c-text-regular:   #3D4852;
-$c-text-secundary: #606F7B;
-$c-text-light:     #F8FAFC;
 
-$body-bg: $c-white;
-$body-color: $c-text-primary;
+/*--- Typography ---*/
+$font-sans:               system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+$font-family-serif:       Constantia, Lucida Bright, Lucidabright, Lucida Serif, Lucida, DejaVu Serif, Bitstream Vera Serif, Liberation Serif, Georgia, serif;
+$font-family-monospace:   Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+$font-family-base:        $font-sans;
 
-$text-muted: $c-gray-darker;
+$line-height-none:        1;
+$line-height-tight:       1.25;
+$line-height-base:        1.5;
+$line-height-loose:       2;
 
-/*--- FONT SIZE ---*/
-$font-family-base: "Roboto", sans-serif;
-$font-family-monospace: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-$line-height-base: 1.5;
+$text-base:               $c-black;
+$text-primary:            $c-primary;
+$text-secondary:          $c-secondary;
+$text-info:               $c-info;
+$text-success:            $c-success;
+$text-warning:            $c-warning;
+$text-danger:             $c-danger;
+$text-light:              $c-light;
+$text-dark:               $c-black;
+$text-muted:              $c-gray-dark;
+
+// font size
+$font-xs:                 0.75rem;
+$font-sm:                 0.875rem;
+$font-base:               1rem;
+$font-lg:                 1.125rem;
+$font-xl:                 1.25rem;
+$font-2xl:                1.5rem;
+$font-3xl:                1.875rem;
+$font-4xl:                2.25rem;
+$font-5xl:                3rem;
+
+// font weight
+$fw-hairline:             100;
+$fw-thin:                 200;
+$fw-light:                300;
+$fw-base:                 400;
+$fw-medium:               500;
+$fw-semibold:             600;
+$fw-bold:                 700;
+$fw-extrabold:            800;
+$fw-black:                900;
 
 // font size ratio
-$fs-ratio: 0.0625;
+$fs-ratio:                0.0625;
 
 // root font size
-$fs-root: 16;
+$fs-root:                 16;
 
 // headlines
-$fs-h1: 96;
-$fs-h2: 60;
-$fs-h3: 48;
-$fs-h4: 34;
-$fs-h5: 24;
-$fs-h6: 20;
+$fs-h1:                   $fs-root * 6;
+$fs-h2:                   $fs-root * 3.75;
+$fs-h3:                   $fs-root * 3;
+$fs-h4:                   $fs-root * 2.125;
+$fs-h5:                   $fs-root * 1.5;
+$fs-h6:                   $fs-root * 1.25;
+
+// Gutter
+$gutter-width:            1rem;
+
+// Margin
+$margin-xs:               0.25rem;
+$margin-sm:               0.5rem;
+$margin-base:             1rem;
+$margin-lg:               1.5rem;
+$margin-xl:               2rem;
+
+// Padding
+$padding-xs:              0.5rem;
+$padding-sm:              0.5rem;
+$padding-base:            1rem;
+$padding-lg:              1.5rem;
+$padding-xl:              2rem;
 
 // subtitles
-$fs-st1: 16;
-$fs-st2: 14;
+$fs-st1:                  16;
+$fs-st2:                  14;
 
-// body
-$fs-b1: 16;
-$fs-b2: 14;
+$fs-b1:                   16;
+$fs-b2:                   14;
 
-$fs-btn: 14;
-$fs-cap: 12;
-$fs-ol: 10;
+$fs-btn:                  14;
+$fs-cap:                  12;
+$fs-ol:                   10;
 
 // link
-$link-color: $c-primary;
-$link-decoration: none;
-$link-hover-color: darken($link-color, 15%);
-$link-hover-decoration: underline;
+$link-color:              $c-primary;
+$link-decoration:         none;
+$link-hover-color:        darken($link-color, 15%);
+$link-hover-decoration:   underline;
 
 // heading
-$heading-margin-bottom: 1rem;
+$heading-margin-bottom:   1rem;
 
 // p
 $paragraph-margin-bottom: 1rem;
 
-// font sizes
-$font-xs: 0.75rem;
-$font-sm: 0.875rem;
-$font-base: 1rem;
-$font-lg: 1.125rem;
-$font-xl: 1.25rem;
-$font-2xl: 1.5rem;
-$font-3xl: 1.875rem;
-$font-4xl: 2.25rem;
-$font-5xl: 3rem;
-
 // tracking from sketch
-$tfs: 0.2;
+$tfs:                     0.2;
 
-// font weight
-$fw-light: 300;
-$fw-base: 400;
-$fw-medium: 500;
-$fw-bold: 700;
+$dt-font-weight:          $fw-bold;
 
-$dt-font-weight: $fw-bold;
+/*--- Body ---*/
+$body-bg:                 $c-white;
+$body-color:              $text-base;
 
-/*--- BREAKPOINTS ---*/
-$grid-breakpoints: (
-    xs: 0,
-    sm: 576px,
-    md: 768px,
-    lg: 992px,
-    xl: 1200px
+/*--- Breakpoints ---*/
+$grid-breakpoints:        (
+    xs:                   0,
+    sm:                   576px,
+    md:                   768px,
+    lg:                   992px,
+    xl:                   1200px
 );
 
-/*--- CONTAINERS ---*/
-$container-max-widths: (
-    sm: 540px,
-    md: 720px,
-    lg: 960px,
-    xl: 1140px
+/*--- Containers ---*/
+$container-max-widths:    (
+    sm:                   540px,
+    md:                   720px,
+    lg:                   960px,
+    xl:                   1140px
 );
-
-// Gutter
-$gutter-width: 1rem;
-
-// Margin
-$margin: 1rem;
-$margin-sm: 0.5rem;
-$margin-xs: 0.25rem;
-
-// Padding
-$padding-base: 1rem;
-$padding-sm: 0.5rem;
-$padding-xs: 0.5rem;
 
 /*--- BORDER ---*/
-$br-sm: 2px;
+$br-sm:                   2px;
 
-/*--- SHADOWS ---*/
-$panel-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.1);
-$box-shadow-sm: 0 .125rem .25rem rgba($c-black, .075);
-$box-shadow: 0 .5rem 1rem rgba($c-black, .15);
-$box-shadow-lg: 0 1rem 3rem rgba($c-black, .175);
+/*--- Shadow ---*/
+$box-shadow-sm:           0 .125rem .25rem rgba($c-black, .075);
+$box-shadow:              0 2px 4px 0 rgba($c-black, .10);
+$box-shadow-md:           0 4px 8px 0 rgba($c-black, .12), 0 2px 4px 0 rgba($c-black, .08);
+$box-shadow-lg:           0 15px 30px 0 rgba($c-black, .11), 0 5px 15px 0 rgba($c-black, .08);
+
+$panel-shadow:            0 1px 2px rgba($c-black, 0.1), 0 0 1px rgba($c-black, 0.1);
+$box-shadow-outline:      0 0 0 3px rgba($c-primary,  .6);
+$box-shadow-inner:        inset 0 2px 4px 0 rgba($c-black, .06);
 
 /*--- TRANSITIONS ---*/
-$trans-speed: 300ms;
+$trans-speed:             300ms;
 
 /*--- TABLES ---*/
-$table-cell-padding: .75rem;
-$table-cell-padding-sm: .3rem;
-$table-caption-color: $text-muted;
+$table-cell-padding:      .75rem;
+$table-cell-padding-sm:   .3rem;
+$table-caption-color:     $text-muted;
 
 /*--- FORM ---*/
-$label-margin-bottom: .5rem;
+$label-margin-bottom:     .5rem;
