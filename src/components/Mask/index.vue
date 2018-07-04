@@ -1,6 +1,9 @@
 <template>
     <div ref="mask" class="ve-mask" :style="styles">
-        <slot></slot>
+        <div class="ve-mask-background" :style="backgroundStyles"></div>
+        <div class="ve-mask-content" v-show="open">
+            <slot></slot>
+        </div>
     </div>
 </template>
 
@@ -8,11 +11,14 @@
 import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 
 interface Styles {
-    transitionDuration: string;
     display:            string;
-    opacity:            number;
     position:           string;
 };
+
+interface BackgroundStyles {
+    opacity: number;
+    transitionDuration: string;
+}
 
 @Component
 export default class veMask extends Vue {
@@ -31,10 +37,13 @@ export default class veMask extends Vue {
     protected body = document.querySelector('body');
 
     protected styles: Styles = {
-        transitionDuration: `${this.speed}ms`,
         display:            "none",
-        opacity:            0,
         position:           ""
+    }
+
+    protected backgroundStyles: BackgroundStyles = {
+        transitionDuration: `${this.speed}ms`,
+        opacity:            this.opacity
     }
 
     @Watch('fullscreen')
@@ -49,12 +58,12 @@ export default class veMask extends Vue {
 
     @Watch('opacity')
     onOpacityChanged(val: number) {
-        this.styles.opacity = val;
+        this.backgroundStyles.opacity = val;
     }
 
     @Watch('speed')
     onSpeedChanged(val: number) {
-        this.styles.transitionDuration = `${val}ms`;
+        this.backgroundStyles.transitionDuration = `${val}ms`;
     }
 
     changeDisplay() {
@@ -93,9 +102,9 @@ export default class veMask extends Vue {
         this.styles.display = '';
 
         if (open) {
-            this.styles.opacity = this.opacity;
+            this.backgroundStyles.opacity = this.opacity;
         } else {
-            this.styles.opacity = 0;
+            this.backgroundStyles.opacity = 0;
         }
 
         window.setTimeout(this.changeDisplay, this.speed);
@@ -114,19 +123,32 @@ export default class veMask extends Vue {
 @import "./../Styles/helpers/variables";
 
 .ve-mask {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    position:        absolute;
+    width:           100%;
+    height:          100%;
+    top:             0;
+    right:           0;
+    bottom:          0;
+    left:            0;
+    display:         flex;
+    flex-direction:  column;
+    align-items:     center;
     justify-content: center;
-    background: $c-black;
 
-    transition: opacity $trans-speed ease-in-out;
+    .ve-mask-background {
+        position:   absolute;
+        width:      100%;
+        height:     100%;
+        background: $c-black;
+
+        transition: opacity $trans-speed ease-in-out;
+    }
+
+    .ve-mask-content {
+        display:         flex;
+        flex-direction:  column;
+        align-items:     center;
+        justify-content: center;
+    }
 }
 </style>

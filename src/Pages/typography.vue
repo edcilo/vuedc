@@ -1,9 +1,29 @@
 <template>
     <div class="page-typography">
+        <h2>Loading</h2>
+
+        <button @click="toggleLoading">Toggle</button>
+
+        <ve-panel width="480px" height="280px">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis id esse, autem consequatur optio
+            eveniet delectus in accusantium totam qui provident magnam nesciunt sequi quo laudantium vitae.
+            Dolorum, debitis exercitationem! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Deleniti ea necessitatibus provident iure fugiat dignissimos magni quos, cumque ducimus
+            doloribus at nam esse dolore porro nulla recusandae deserunt similique reprehenderit.
+            <ve-loading :open="loadingShow" :fullscreen="false" :opacity="0.8">
+                Loading...
+            </ve-loading>
+        </ve-panel>
+
         <h2>Mask</h2>
 
-        <ve-panel width="680px" height="380px">
-            <ve-mask :open="true" :fullscreen="true" :opacity="0.6"/>
+        <ve-panel width="480px" height="280px">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis id esse, autem consequatur optio
+            eveniet delectus in accusantium totam qui provident magnam nesciunt sequi quo laudantium vitae.
+            Dolorum, debitis exercitationem! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Deleniti ea necessitatibus provident iure fugiat dignissimos magni quos, cumque ducimus
+            doloribus at nam esse dolore porro nulla recusandae deserunt similique reprehenderit.
+            <ve-mask :open="true" :fullscreen="false" :opacity="0.6"/>
         </ve-panel>
 
         <h2>Spinner</h2>
@@ -376,6 +396,7 @@ import veItem from './../components/Item/index.vue';
 import veAvatar from './../components/Avatar/index.vue';
 import veSpinner from './../components/Spinner/index.vue';
 import veMask from './../components/Mask/index.vue';
+import veLoading from './../components/Loading/index.vue';
 
 @Component({
     components: {
@@ -386,11 +407,18 @@ import veMask from './../components/Mask/index.vue';
         veItem,
         veAvatar,
         veSpinner,
-        veMask
+        veMask,
+        veLoading
     }
 })
 export default class Typography extends Vue
-{}
+{
+    protected loadingShow: boolean = true;
+
+    toggleLoading() {
+        this.loadingShow = !this.loadingShow;
+    }
+}
 </script>
 
 <style lang="scss">
