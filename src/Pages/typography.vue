@@ -1,5 +1,58 @@
 <template>
     <div class="page-typography">
+        <h2>Mask</h2>
+
+        <ve-panel width="680px" height="380px">
+            <ve-mask :open="true" :fullscreen="true" :opacity="0.6"/>
+        </ve-panel>
+
+        <h2>Spinner</h2>
+
+        <ve-panel width="40px">
+            <ve-spinner></ve-spinner>
+        </ve-panel>
+
+        <h2>Item</h2>
+
+        <ve-panel width="280px">
+            <ve-item>
+                Item with only text
+            </ve-item>
+
+            <ve-item>
+                <template slot="visual">
+                    <ve-avatar label="edcilo" />
+                </template>
+                Item with visual
+            </ve-item>
+
+            <ve-item>
+                Item with control
+                <template slot="control">
+                    Ctrl + C
+                </template>
+            </ve-item>
+
+            <ve-item>
+                 <template slot="visual">
+                    <ve-avatar label="edcilo" />
+                </template>
+                <template slot="control">
+                    Ctrl + C
+                </template>
+            </ve-item>
+
+            <ve-item>
+                <template slot="visual">
+                    <ve-avatar label="edcilo" />
+                </template>
+                Item with all
+                <template slot="control">
+                    Ctrl + C
+                </template>
+            </ve-item>
+        </ve-panel>
+
         <h2>Avatar</h2>
 
         <ve-pannel>
@@ -15,6 +68,8 @@
             <ve-avatar src="http://edcilo.com/images/team/edcilo.png" alt="avatar with image" :tile="true" />
         </ve-pannel>
 
+        <h3>Slot</h3>
+
         <ve-panel>
             <ve-avatar>
                 <img src="http://edcilo.com/images/team/edcilo.png" alt="avatar with image">
@@ -23,6 +78,8 @@
                 <span style="color: #fff">E</span>
             </ve-avatar>
         </ve-panel>
+
+        <h3>Sizes</h3>
 
         <ve-panel>
             <ve-avatar size="40px">40px</ve-avatar>
@@ -317,6 +374,8 @@ import veList from './../components/List/index.vue';
 import veListItem from './../components/ListItem/index.vue';
 import veItem from './../components/Item/index.vue';
 import veAvatar from './../components/Avatar/index.vue';
+import veSpinner from './../components/Spinner/index.vue';
+import veMask from './../components/Mask/index.vue';
 
 @Component({
     components: {
@@ -325,7 +384,9 @@ import veAvatar from './../components/Avatar/index.vue';
         veList,
         veListItem,
         veItem,
-        veAvatar
+        veAvatar,
+        veSpinner,
+        veMask
     }
 })
 export default class Typography extends Vue
