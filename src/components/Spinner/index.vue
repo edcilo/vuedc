@@ -10,11 +10,10 @@
 import { Vue, Component, Prop } from "vue-property-decorator";
 
 @Component
-export default class veSpinner extends Vue
-{}
+export default class veSpinner extends Vue {}
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
     @import "./../Styles/helpers/variables";
     @import "./../Styles/helpers/animations";
 

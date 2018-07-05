@@ -24,12 +24,6 @@ export default class veItem extends Vue
     protected hasVisual: boolean = typeof this.$slots.visual === 'object';
 
     protected hasControl: boolean = typeof this.$slots.control === 'object';
-
-    mounted() {
-        if (this.$slots.visual) {
-            console.log(this.$slots);
-        }
-    }
 }
 </script>
 

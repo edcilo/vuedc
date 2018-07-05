@@ -1,5 +1,26 @@
 <template>
     <div class="page-typography">
+        <h2>Image</h2>
+
+        <h3>Normal</h3>
+        <ve-panel width="380px">
+            <ve-image alt="normal" src="https://expeditionportal.com/media/2014/05/Mojave-002.jpg" />
+        </ve-panel>
+
+        <h3>Lazy</h3>
+        <ve-panel width="380px">
+            <ve-image :lazy="true" alt="lazy"
+                src="https://expeditionportal.com/media/2014/05/Mojave-002.jpg"
+                preview="https://static.greatbigcanvas.com/images/square/getty-images/cadiz-dunes-at-sunrise-sheephole-mountains-in-distance-in-mojave-desert-california,1977157.jpg?max=128" />
+        </ve-panel>
+
+        <h3>Placeholder</h3>
+        <ve-panel width="380px">
+            <ve-image alt="placeholder"
+                src="https://expeditionportal.com/media/2014/05/Mojave-002__notFound.jpg"
+                placeholder="https://cbsla.files.wordpress.com/2017/04/mojave-trails-national-preserve.jpg?w=628" />
+        </ve-panel>
+
         <h2>Loading</h2>
 
         <button @click="toggleLoading">Toggle</button>
@@ -75,7 +96,7 @@
 
         <h2>Avatar</h2>
 
-        <ve-pannel>
+        <ve-panel>
             <ve-avatar />
 
             <ve-avatar label="edcilo" />
@@ -86,7 +107,7 @@
 
             <ve-avatar src="http://edcilo.com/images/team/edcilo.png" alt="avatar with image" />
             <ve-avatar src="http://edcilo.com/images/team/edcilo.png" alt="avatar with image" :tile="true" />
-        </ve-pannel>
+        </ve-panel>
 
         <h3>Slot</h3>
 
@@ -95,7 +116,7 @@
                 <img src="http://edcilo.com/images/team/edcilo.png" alt="avatar with image">
             </ve-avatar>
             <ve-avatar color="#e96e06">
-                <span style="color: #fff">E</span>
+                <span style="color: #fff">EC</span>
             </ve-avatar>
         </ve-panel>
 
@@ -397,6 +418,7 @@ import veAvatar from './../components/Avatar/index.vue';
 import veSpinner from './../components/Spinner/index.vue';
 import veMask from './../components/Mask/index.vue';
 import veLoading from './../components/Loading/index.vue';
+import veImage from './../components/Image/index.vue';
 
 @Component({
     components: {
@@ -408,7 +430,8 @@ import veLoading from './../components/Loading/index.vue';
         veAvatar,
         veSpinner,
         veMask,
-        veLoading
+        veLoading,
+        veImage
     }
 })
 export default class Typography extends Vue

@@ -11,8 +11,8 @@
 import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 
 interface Styles {
-    display:            string;
-    position:           string;
+    display: string;
+    position: string;
 };
 
 interface BackgroundStyles {
@@ -47,32 +47,32 @@ export default class veMask extends Vue {
     }
 
     @Watch('fullscreen')
-    onFullscreenChanged(val: boolean) {
+    onFullscreenChanged(val: boolean): void {
         this.toggleFullscreen(val);
     }
 
     @Watch('open')
-    onOpenChanged(val: boolean) {
+    onOpenChanged(val: boolean): void {
         this.toggleOpen(val);
     }
 
     @Watch('opacity')
-    onOpacityChanged(val: number) {
+    onOpacityChanged(val: number): void {
         this.backgroundStyles.opacity = val;
     }
 
     @Watch('speed')
-    onSpeedChanged(val: number) {
+    onSpeedChanged(val: number): void {
         this.backgroundStyles.transitionDuration = `${val}ms`;
     }
 
-    changeDisplay() {
+    changeDisplay(): void {
         if (!this.open) {
             this.styles.display = "none";
         }
     }
 
-    openFullscreen() {
+    openFullscreen(): void {
         if (this.body) {
             this.body.style["position"] = "relative";
             this.body.style["overflow"] = "hidden";
@@ -81,7 +81,7 @@ export default class veMask extends Vue {
         }
     }
 
-    quitFullscreen() {
+    quitFullscreen(): void {
         if (this.body) {
             this.body.style["position"] = null;
             this.body.style["overflow"] = null;
@@ -90,7 +90,7 @@ export default class veMask extends Vue {
         }
     }
 
-    toggleFullscreen(fullscreen: boolean) {
+    toggleFullscreen(fullscreen: boolean): void {
         if (fullscreen) {
             this.openFullscreen();
         } else {
@@ -98,7 +98,7 @@ export default class veMask extends Vue {
         }
     }
 
-    toggleOpen(open: boolean) {
+    toggleOpen(open: boolean): void {
         this.styles.display = '';
 
         if (open) {
@@ -110,7 +110,7 @@ export default class veMask extends Vue {
         window.setTimeout(this.changeDisplay, this.speed);
     }
 
-    mounted() {
+    mounted(): void {
         this.$nextTick(() => {
             this.toggleFullscreen(this.fullscreen);
             this.toggleOpen(this.open);
@@ -119,7 +119,7 @@ export default class veMask extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "./../Styles/helpers/variables";
 
 .ve-mask {

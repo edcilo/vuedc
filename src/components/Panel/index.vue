@@ -18,6 +18,16 @@ export default class vePanel extends Vue
 }
 </script>
 
-<style lang="sass">
-    @import "./styles";
+<style lang="scss">
+@import "./../Styles/helpers/variables";
+
+.ve-panel {
+    position: relative;
+
+    background: $c-white;
+    box-shadow: $panel-shadow;
+    border-radius: $br-sm;
+
+    transition: width $trans-speed ease-in-out, height $trans-speed ease-in-out;
+}
 </style>

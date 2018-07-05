@@ -1,8 +1,10 @@
 <template>
     <div class="ve-avatar" :class="{ tile: tile }" :style="{ width: size, height: size }">
-        <img v-if="src !== null" class="ve-avatar-image" :src="src" :alt="alt">
-        <div v-else-if="letter !== null" class="ve-avatar-label" :style="{backgroundColor: color}">{{ letter }}</div>
-        <div v-else class="ve-avatar-placeholder" :style="{backgroundColor: color}">
+        <img v-if="src.length" class="ve-avatar-image" :src="src" :alt="alt">
+        <div v-else-if="letter !== null" class="ve-avatar-label" :style="{backgroundColor: color.length ? color : null}">
+            {{ letter }}
+        </div>
+        <div v-else class="ve-avatar-placeholder" :style="{backgroundColor: color.length ? color : null}">
             <slot>&nbsp;</slot>
         </div>
     </div>
@@ -13,20 +15,20 @@ import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 
 @Component
 export default class veAvatar extends Vue {
-    @Prop({ default: null })
-    protected src!: string | null;
+    @Prop({ default: "" })
+    protected src!: string;
 
-    @Prop({ default: null })
-    protected alt!: string | null;
+    @Prop({ default: "" })
+    protected alt!: string;
 
-    @Prop({ default: null })
-    protected label!: string | null;
+    @Prop({ default: "" })
+    protected label!: string;
 
-    @Prop({ default: null })
-    protected color!: string | null;
+    @Prop({ default: "" })
+    protected color!: string;
 
-    @Prop({ default: null })
-    protected size!: string | null;
+    @Prop({ default: "" })
+    protected size!: string;
 
     @Prop({ default: false })
     protected tile!: boolean;
@@ -34,23 +36,17 @@ export default class veAvatar extends Vue {
     protected letter: string | null = this.getFirstLetter();
 
     @Watch('src')
-    onSrcChanged(val: string | null) {
-        if (val === null) {
-            this.letter = null;
-        }
+    onSrcChanged(val: string): void {
+        this.letter = null;
     }
 
     @Watch('label')
-    onLabelChanged(val: string | null) {
-        if (val !== null) {
-            this.src = null;
-        }
-
+    onLabelChanged(val: string): void {
         this.letter = this.getFirstLetter();
     }
 
     getFirstLetter(): string | null {
-        return (this.label !== null) ? this.label.charAt(0).toUpperCase() : null;
+        return (this.label.length > 0) ? this.label.charAt(0).toUpperCase() : null;
     }
 }
 </script>
