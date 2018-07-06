@@ -29,6 +29,11 @@ export default {
     element: null,
     elementClasses,
 
+    scrollbarXRail: null,
+    scrollbarX: null,
+    scrollbarYRail: null,
+    scrollbarY: null,
+
     event: null,
     ownerDocument: null,
     isAlive: false,
