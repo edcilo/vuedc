@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator";
-import data from './data';
+import data from "@/components/Scroll/data";
 import defaultSettings from './settings';
 import properties from './properties';
 
