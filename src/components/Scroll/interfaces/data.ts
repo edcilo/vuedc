@@ -1,9 +1,5 @@
 import SettingsInterface from "@/components/Scroll/interfaces/settings";
-
-export interface ReachInterface {
-    x: string;
-    y: string;
-};
+import { CssInterface } from '@/components/Scroll/interfaces/css';
 
 export interface ElementClassesInterface {
     [className: string]: boolean;
@@ -23,21 +19,21 @@ export interface BarAxisClassesInterface {
 
 export interface DataInterface {
     settings:                 SettingsInterface;
-    element:                  HTMLElement | null;
+    element:                  HTMLElement;
     elementClasses:           ElementClassesInterface;
 
-    scrollbarX:               HTMLElement | null;
-    scrollbarXRail:           HTMLElement | null;
-    scrollbarY:               HTMLElement | null;
-    scrollbarYRail:           HTMLElement | null;
+    scrollbarX:               HTMLElement;
+    scrollbarXRail:           HTMLElement;
+    scrollbarY:               HTMLElement;
+    scrollbarYRail:           HTMLElement;
 
     event:                    any;
-    ownerDocument:            any;
+    ownerDocument:            Document;
     isAlive:                  boolean;
     isRtl:                    boolean;
     isNegativeScroll:         boolean;
     negativeScrollAdjustment: number;
-    reach:                    ReachInterface;
+    reach:                    CssInterface;
 
     lastScrollTop:            number;
     lastScrollLeft:           number;

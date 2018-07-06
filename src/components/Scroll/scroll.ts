@@ -1,9 +1,11 @@
-import * as CSS from "./lib/css";
-import cls from "./lib/class-names";
+import { DataInterface } from "@/components/Scroll/interfaces/data";
+
+import * as CSS from "@/components/Scroll/lib/css";
+import cls from "@/components/Scroll/lib/class-names";
 import EventManager from "./lib/event-manager";
 import processScrollDiff from "./process-scroll-diff";
 import updateGeometry from "./update-geometry";
-import { toInt, outerWidth } from "./lib/util";
+import { toInt, outerWidth } from "@/components/Scroll/lib/util";
 
 import clickRail from "./handlers/click-rail";
 import dragThumb from "./handlers/drag-thumb";
@@ -11,7 +13,11 @@ import keyboard from "./handlers/keyboard";
 import wheel from "./handlers/mouse-wheel";
 import touch from "./handlers/touch";
 
-const handlers = {
+interface HandlerInterface {
+    [handler: string]: (data: DataInterface) => void;
+};
+
+const handlers: HandlerInterface = {
     "click-rail": clickRail,
     "drag-thumb": dragThumb,
     keyboard,
@@ -20,7 +26,9 @@ const handlers = {
 };
 
 class Scrollbar {
-    constructor($data) {
+    protected data!: DataInterface;
+
+    constructor($data: DataInterface) {
         this.data = $data;
 
         const focus = () => this.data.element.classList.add(cls.state.focus);
@@ -33,14 +41,17 @@ class Scrollbar {
         this.data.event = new EventManager();
         this.data.ownerDocument = this.data.element.ownerDocument || document;
 
+        // AXIS X
         this.data.event.bind(this.data.scrollbarX, "focus", focus);
         this.data.event.bind(this.data.scrollbarX, "blur", blur);
-        const railXStyle = CSS.get(this.data.scrollbarXRail);
 
-        this.data.scrollbarXBottom = parseInt(railXStyle.bottom, 10);
-        if (isNaN(this.data.scrollbarXBottom)) {
+        const railXStyle: CSSStyleDeclaration = CSS.get(this.data.scrollbarXRail);
+
+        if (railXStyle.bottom === null) {
             this.data.isScrollbarXUsingBottom = false;
             this.data.scrollbarXTop = toInt(railXStyle.top);
+        } else {
+            this.data.scrollbarXBottom = parseInt(railXStyle.bottom, 10);
         }
 
         this.data.railBorderXWidth = toInt(railXStyle.borderLeftWidth) + toInt(railXStyle.borderRightWidth);
@@ -48,17 +59,20 @@ class Scrollbar {
         this.data.railXMarginWidth = toInt(railXStyle.marginLeft) + toInt(railXStyle.marginRight);
         CSS.set(this.data.scrollbarXRail, { display: "" });
 
+        // AXIS Y
         this.data.event.bind(this.data.scrollbarY, "focus", focus);
         this.data.event.bind(this.data.scrollbarY, "blur", blur);
-        const railYStyle = CSS.get(this.data.scrollbarYRail);
 
-        this.data.scrollbarYRight = parseInt(railYStyle.right, 10);
-        if (isNaN(this.data.scrollbarYRight)) {
+        const railYStyle: CSSStyleDeclaration = CSS.get(this.data.scrollbarYRail);
+
+        if (railYStyle.right === null) {
             this.data.isScrollbarYUsingRight = false;
             this.data.scrollbarYLeft = toInt(railYStyle.left);
+        } else {
+            this.data.scrollbarYRight = parseInt(railYStyle.right, 10);
         }
 
-        this.data.isRtl ? outerWidth(this.data.scrollbarY) : null;
+        //this.data.isRtl ? outerWidth(this.data.scrollbarY) : null;
         this.data.railBorderYWidth = toInt(railYStyle.borderTopWidth) + toInt(railYStyle.borderBottomWidth);
         CSS.set(this.data.scrollbarYRail, { display: "block" });
         this.data.railYMarginHeight = toInt(railYStyle.marginTop) + toInt(railYStyle.marginBottom);
@@ -71,16 +85,17 @@ class Scrollbar {
         );
 
         this.data.isAlive = true;
-        this.data.settings.handlers.forEach(handlerName => handlers[handlerName](this.data));
+        this.data.settings.handlers.forEach((handlerName: string) => handlers[handlerName](this.data));
 
         this.data.lastScrollTop = Math.floor(this.data.element.scrollTop);
         this.data.lastScrollLeft = this.data.element.scrollLeft;
 
-        this.data.event.bind(this.data.element, "scroll", e => this.onScroll(e));
+        this.data.event.bind(this.data.element, "scroll", () => this.onScroll());
         updateGeometry(this.data);
     }
 
-    onScroll() {
+    onScroll(): void
+    {
         if (!this.data.isAlive) {
             return;
         }
@@ -94,7 +109,7 @@ class Scrollbar {
     }
 
     update() {
-        if (!this.isAlive) {
+        if (!this.data.isAlive) {
             return;
         }
 
@@ -114,16 +129,16 @@ class Scrollbar {
             toInt(CSS.get(this.data.scrollbarYRail).marginBottom);
 
         // Hide scrollbars not to affect scrollWidth and scrollHeight
-        CSS.set(this.datascrollbarXRail, { display: "none" });
-        CSS.set(this.datascrollbarYRail, { display: "none" });
+        CSS.set(this.data.scrollbarXRail, { display: "none" });
+        CSS.set(this.data.scrollbarYRail, { display: "none" });
 
         updateGeometry(this.data);
 
         processScrollDiff(this.data, "top", 0, false, true);
         processScrollDiff(this.data, "left", 0, false, true);
 
-        CSS.set(this.datascrollbarXRail, { display: "" });
-        CSS.set(this.datascrollbarYRail, { display: "" });
+        CSS.set(this.data.scrollbarXRail, { display: "" });
+        CSS.set(this.data.scrollbarYRail, { display: "" });
     }
 }
 

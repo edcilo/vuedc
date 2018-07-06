@@ -17,7 +17,7 @@ import { Vue, Component, Prop } from "vue-property-decorator";
 import data from "@/components/Scroll/data";
 import defaultSettings from "@/components/Scroll/settings";
 
-import Scrollbar from './scroll';
+import Scrollbar from "@/components/Scroll/scroll";
 
 @Component
 export default class veScroll extends Vue {

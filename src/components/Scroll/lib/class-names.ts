@@ -25,10 +25,6 @@ const scrollingClassTimeout: ScrollingClassTimeoutInterface = { x: null, y: null
 
 export function addScrollingClass(data: DataInterface, axis: string): void
 {
-    if (data.element === null) {
-        throw new Error("The element should be of type HTMLElement, null given");
-    }
-
     const classList = data.element.classList;
     const className = cls.state.scrolling(axis);
 

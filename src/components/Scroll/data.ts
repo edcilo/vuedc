@@ -1,7 +1,7 @@
 import cls from "@/components/Scroll/lib/class-names";
 import Settings from "@/components/Scroll/settings";
+import { CssInterface } from '@/components/Scroll/interfaces/css';
 import {
-    ReachInterface,
     ElementClassesInterface,
     RailAxisClassesInterface,
     RailAxisStyleInterface,
@@ -9,7 +9,7 @@ import {
     DataInterface
 } from "@/components/Scroll/interfaces/data";
 
-const reach: ReachInterface = { x: "", y: "" };
+const reach: CssInterface = { x: "", y: "" };
 
 const elementClasses: ElementClassesInterface = {};
 elementClasses[cls.main] = true;
@@ -42,7 +42,7 @@ const data: DataInterface = {
     scrollbarYRail:           null,
 
     event:                    null,
-    ownerDocument:            null,
+    ownerDocument:            document,
     isAlive:                  false,
     isRtl:                    false,
     isNegativeScroll:         false,
