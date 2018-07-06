@@ -36,6 +36,8 @@ export default class veImage extends Vue {
     @Prop({ default: "" })
     protected placeholder!: string;
 
+    public $refs!: { preview: HTMLElement };
+
     protected srcImage:     string | null = null;
     protected srcPreview:   string | null = null;
     protected previewClass: Preview       = { preview: true, reveal: false };

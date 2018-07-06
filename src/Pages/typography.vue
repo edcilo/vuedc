@@ -1,5 +1,18 @@
 <template>
     <div class="page-typography">
+        <h2>Scroll</h2>
+
+        <ve-panel width="280px" height="280px">
+            <ve-scroll>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quos harum maxime rerum quidem incidunt culpa,
+                iure itaque numquam ducimus nihil corrupti porro mollitia corporis distinctio autem, adipisci deleniti in! Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Laborum fuga aliquid modi, totam quisquam qui nihil atque
+                perspiciatis ut sit molestiae quibusdam neque in mollitia? Architecto porro sequi culpa provident? Lorem ipsum
+                dolor sit, amet consectetur adipisicing elit. Blanditiis, rerum! Id numquam, accusantium possimus provident
+                pariatur sit. Nobis modi vitae obcaecati suscipit, nostrum perspiciatis, quis animi nihil ex rem nulla.
+            </ve-scroll>
+        </ve-panel>
+
         <h2>Image</h2>
 
         <h3>Normal</h3>
@@ -419,6 +432,7 @@ import veSpinner from './../components/Spinner/index.vue';
 import veMask from './../components/Mask/index.vue';
 import veLoading from './../components/Loading/index.vue';
 import veImage from './../components/Image/index.vue';
+import veScroll from './../components/Scroll/index.vue';
 
 @Component({
     components: {
@@ -431,7 +445,8 @@ import veImage from './../components/Image/index.vue';
         veSpinner,
         veMask,
         veLoading,
-        veImage
+        veImage,
+        veScroll
     }
 })
 export default class Typography extends Vue
