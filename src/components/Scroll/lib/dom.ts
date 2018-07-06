@@ -1,17 +1,18 @@
-export function div(className) {
+export function div(className: string): HTMLElement {
     const div = document.createElement("div");
     div.className = className;
     return div;
 }
 
-const elMatches =
-    typeof Element !== "undefined" &&
-    (Element.prototype.matches ||
+const elMatches = typeof Element !== "undefined" &&
+    (
+        Element.prototype.matches ||
         Element.prototype.webkitMatchesSelector ||
         Element.prototype.mozMatchesSelector ||
-        Element.prototype.msMatchesSelector);
+        Element.prototype.msMatchesSelector
+    );
 
-export function matches(element, query) {
+export function matches(element: HTMLElement, query: string) {
     if (!elMatches) {
         throw new Error("No element matching method supported");
     }
@@ -19,7 +20,7 @@ export function matches(element, query) {
     return elMatches.call(element, query);
 }
 
-export function remove(element) {
+export function remove(element: HTMLElement) {
     if (element.remove) {
         element.remove();
     } else {
@@ -29,8 +30,9 @@ export function remove(element) {
     }
 }
 
-export function queryChildren(element, selector) {
-    return Array.prototype.filter.call(element.children, child =>
-        matches(child, selector)
+export function queryChildren(element: HTMLElement, selector: string): Array<any> {
+    return Array.prototype.filter.call(
+        element.children,
+        (child: HTMLElement) => matches(child, selector)
     );
 }

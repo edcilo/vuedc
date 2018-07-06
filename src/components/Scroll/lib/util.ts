@@ -1,5 +1,5 @@
-import * as CSS from "./css";
-import * as DOM from "./dom";
+import * as CSS from "@/components/Scroll/lib/css";
+import * as DOM from "@/components/Scroll/lib/dom";
 import UtilInterface from "@/components/Scroll/interfaces/utils";
 
 export function toInt(x: string | null): number
