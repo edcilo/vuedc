@@ -1,6 +1,4 @@
-import SettingsInterface from '@/components/Scroll/interfaces/settings'
-
-const settings: SettingsInterface = {
+export default {
     handlers: ["click-rail", "drag-thumb", "keyboard", "wheel", "touch"],
     maxScrollbarLength: null,
     minScrollbarLength: null,
@@ -14,5 +12,3 @@ const settings: SettingsInterface = {
     wheelPropagation: true,
     wheelSpeed: 1,
 };
-
-export default settings;

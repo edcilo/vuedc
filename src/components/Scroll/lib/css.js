@@ -1,33 +1,23 @@
-import { CssInterface, ContentInterface, ContainerInterface } from '@/components/Scroll/interfaces/css';
-
-interface ObjString {
-    [key: string]: any;
-};
-
-export function get(element: HTMLElement): CSSStyleDeclaration {
-    return window.getComputedStyle(element);
+export function get(element) {
+    return getComputedStyle(element);
 }
 
-export function set(element: HTMLElement, obj: ObjString): HTMLElement {
+export function set(element, obj) {
     for (const key in obj) {
-        let val : string = obj[key];
-
+        let val = obj[key];
         if (typeof val === "number") {
             val = `${val}px`;
         }
-
-        (<any>element.style)[key] = val;
-        // element.style[key] = val;
+        element.style[key] = val;
     }
-
     return element;
 }
 
-export function isRtl(element: HTMLElement): boolean {
+export function isRtl(element) {
     return get(element).direction === "rtl";
 }
 
-export function isNegativeScroll(element: HTMLElement): boolean {
+export function isNegativeScroll(element) {
     const originalScrollLeft = element.scrollLeft;
     element.scrollLeft = -1;
 
@@ -37,13 +27,13 @@ export function isNegativeScroll(element: HTMLElement): boolean {
     return result;
 }
 
-export function negativeScrollAdjustment(element: HTMLElement, isNegativeScroll: boolean): number {
+export function negativeScrollAdjustment(element, isNegativeScroll) {
     return isNegativeScroll
         ? element.scrollWidth - element.clientWidth
         : 0;
 }
 
-export function reach(element: HTMLElement, content: ContentInterface, container: ContainerInterface): CssInterface {
+export function reach(element, content, container) {
     let {contentWidth, contentHeight} = content;
     let {containerWidth, containerHeight} = container;
 

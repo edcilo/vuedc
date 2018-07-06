@@ -1,6 +1,6 @@
-import { setScrollingClassInstantly } from "@/components/Scroll/lib/class-names";
+import { setScrollingClassInstantly } from "./lib/class-names";
 
-function createEvent(name: string) {
+function createEvent(name) {
     if (typeof window.CustomEvent === "function") {
         return new CustomEvent(name);
     } else {
@@ -68,7 +68,7 @@ function processScrollDiff(i, diff, [contentHeight, containerHeight, scrollTop, 
         }
     }
 
-    if (i.reach[y].length && (diff || forceFireReachEvent)) {
+    if (i.reach[y] && (diff || forceFireReachEvent)) {
         element.dispatchEvent(createEvent(`ps-${y}-reach-${i.reach[y]}`));
     }
 }

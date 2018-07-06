@@ -1,7 +1,6 @@
-import updateGeometry from "@/components/Scroll/update-geometry";
-import dataInterface, { DataInterface } from "@/components/Scroll/interfaces/data";
+import updateGeometry from "../update-geometry";
 
-export default function(i: DataInterface) {
+export default function(i) {
     i.event.bind(i.scrollbarY, "mousedown", e => e.stopPropagation());
     i.event.bind(i.scrollbarYRail, "mousedown", e => {
         const positionTop = e.pageY - window.pageYOffset - i.scrollbarYRail.getBoundingClientRect().top;

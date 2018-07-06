@@ -1,14 +1,9 @@
-import { DataInterface } from '@/components/Scroll/interfaces/data';
-import railOffsetInterface from '@/components/Scroll/interfaces/updateGeometry';
-import * as CSS from "@/components/Scroll/lib/css";
-import cls from "@/components/Scroll/lib/class-names";
+import * as CSS from "./lib/css";
+import cls from "./lib/class-names";
+import { toInt } from "./lib/util";
 
-export default function(i: DataInterface) {
-    if (i.element === null) {
-        throw new Error("No HTMLElement selected");
-    }
-
-    const element: HTMLElement = i.element;
+export default function(i) {
+    const element = i.element;
 
     const roundedScrollTop = Math.floor(element.scrollTop);
     i.containerWidth = element.clientWidth;
@@ -20,8 +15,10 @@ export default function(i: DataInterface) {
         i.scrollbarXActive = true;
         i.railXWidth = i.containerWidth - i.railXMarginWidth;
         i.railXRatio = i.containerWidth / i.railXWidth;
-        i.scrollbarXWidth = getThumbSize(i, i.railXWidth * i.containerWidth / i.contentWidth);
-        i.scrollbarXLeft = (i.negativeScrollAdjustment + element.scrollLeft) * (i.railXWidth - i.scrollbarXWidth) / (i.contentWidth - i.containerWidth);
+        i.scrollbarXWidth = getThumbSize(i, toInt(i.railXWidth * i.containerWidth / i.contentWidth));
+        i.scrollbarXLeft = toInt(
+            (i.negativeScrollAdjustment + element.scrollLeft) * (i.railXWidth - i.scrollbarXWidth) / (i.contentWidth - i.containerWidth)
+        );
     } else {
         i.scrollbarXActive = false;
     }
@@ -30,8 +27,10 @@ export default function(i: DataInterface) {
         i.scrollbarYActive = true;
         i.railYHeight = i.containerHeight - i.railYMarginHeight;
         i.railYRatio = i.containerHeight / i.railYHeight;
-        i.scrollbarYHeight = getThumbSize(i, i.railYHeight * i.containerHeight / i.contentHeight);
-        i.scrollbarYTop = roundedScrollTop * (i.railYHeight - i.scrollbarYHeight) / (i.contentHeight - i.containerHeight);
+        i.scrollbarYHeight = getThumbSize(i, toInt(i.railYHeight * i.containerHeight / i.contentHeight));
+        i.scrollbarYTop = toInt(
+            roundedScrollTop * (i.railYHeight - i.scrollbarYHeight) / (i.contentHeight - i.containerHeight)
+        );
     } else {
         i.scrollbarYActive = false;
     }
@@ -65,7 +64,7 @@ export default function(i: DataInterface) {
     }
 }
 
-function getThumbSize(i: DataInterface, thumbSize: number): number {
+function getThumbSize(i, thumbSize) {
     if (i.settings.minScrollbarLength) {
         thumbSize = Math.max(thumbSize, i.settings.minScrollbarLength);
     }
@@ -77,8 +76,8 @@ function getThumbSize(i: DataInterface, thumbSize: number): number {
     return thumbSize;
 }
 
-function updateCss(element: HTMLElement, i: DataInterface) {
-    const xRailOffset: railOffsetInterface = { width: i.railXWidth, height: 0, top: 0, right: 0, bottom: 0, left: 0 };
+function updateCss(element, i) {
+    const xRailOffset = { width: i.railXWidth };
     const roundedScrollTop = Math.floor(element.scrollTop);
 
     if (i.isRtl) {
@@ -93,12 +92,9 @@ function updateCss(element: HTMLElement, i: DataInterface) {
         xRailOffset.top = i.scrollbarXTop + roundedScrollTop;
     }
 
-    if (i.scrollbarXRail === null) {
-        throw new Error("No HTMLElement selected");
-    }
     CSS.set(i.scrollbarXRail, xRailOffset);
 
-    const yRailOffset: railOffsetInterface = { width: 0, height: i.railYHeight, top: roundedScrollTop, right: 0, bottom: 0, left: 0 };
+    const yRailOffset = { top: roundedScrollTop, height: i.railYHeight };
 
     if (i.isScrollbarYUsingRight) {
         if (i.isRtl) {
@@ -116,18 +112,9 @@ function updateCss(element: HTMLElement, i: DataInterface) {
         }
     }
 
-    if (i.scrollbarYRail === null) {
-        throw new Error("No HTMLElement selected");
-    }
     CSS.set(i.scrollbarYRail, yRailOffset);
 
-    if (i.scrollbarX === null) {
-        throw new Error("No HTMLElement selected");
-    }
     CSS.set(i.scrollbarX, { left: i.scrollbarXLeft, width: i.scrollbarXWidth - i.railBorderXWidth });
 
-    if (i.scrollbarY === null) {
-        throw new Error("No HTMLElement selected");
-    }
     CSS.set(i.scrollbarY, { top: i.scrollbarYTop, height: i.scrollbarYHeight - i.railBorderYWidth });
 }
