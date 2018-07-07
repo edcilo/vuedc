@@ -1,4 +1,4 @@
-import updateGeometry from "../update-geometry";
+import updateGeometry from "@/components/Scroll/update-geometry";
 
 export default function(i) {
     i.event.bind(i.scrollbarY, "mousedown", e => e.stopPropagation());

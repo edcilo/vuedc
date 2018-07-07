@@ -1,7 +1,7 @@
-import * as CSS from "../lib/css";
-import cls from "../lib/class-names";
-import updateGeometry from "../update-geometry";
-import { env } from "../lib/util";
+import * as CSS from "@/components/Scroll/lib/css";
+import cls from "@/components/Scroll/lib/class-names";
+import updateGeometry from "@/components/Scroll/update-geometry";
+import { env } from "@/components/Scroll/lib/util";
 
 export default function(i) {
     const element = i.element;

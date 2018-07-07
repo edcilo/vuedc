@@ -1,8 +1,8 @@
 export default interface railOffsetInterface {
-    width:  number;
-    height: number;
-    top:    number;
-    right:  number;
-    bottom: number;
-    left:   number;
+    width:  number | string;
+    height: number | string;
+    top:    number | string;
+    right:  number | string;
+    bottom: number | string;
+    left:   number | string;
 }

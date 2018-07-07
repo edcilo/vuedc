@@ -4,14 +4,14 @@ import * as CSS from "@/components/Scroll/lib/css";
 import cls from "@/components/Scroll/lib/class-names";
 import EventManager from "./lib/event-manager";
 import processScrollDiff from "./process-scroll-diff";
-import updateGeometry from "./update-geometry";
+import updateGeometry from "@/components/Scroll/update-geometry";
 import { toInt, outerWidth } from "@/components/Scroll/lib/util";
 
-import clickRail from "./handlers/click-rail";
-import dragThumb from "./handlers/drag-thumb";
-import keyboard from "./handlers/keyboard";
-import wheel from "./handlers/mouse-wheel";
-import touch from "./handlers/touch";
+import clickRail from "@/components/Scroll/handlers/click-rail";
+import dragThumb from "@/components/Scroll/handlers/drag-thumb";
+import keyboard from "@/components/Scroll/handlers/keyboard";
+import wheel from "@/components/Scroll/handlers/mouse-wheel";
+import touch from "@/components/Scroll/handlers/touch";
 
 interface HandlerInterface {
     [handler: string]: (data: DataInterface) => void;

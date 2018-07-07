@@ -1,11 +1,14 @@
-import * as CSS from "./lib/css";
-import cls from "./lib/class-names";
-import { toInt } from "./lib/util";
+import { DataInterface } from "@/components/Scroll/interfaces/data";
+import railOffsetInterface from "@/components/Scroll/interfaces/updateGeometry";
+import * as CSS from "@/components/Scroll/lib/css";
+import cls from "@/components/Scroll/lib/class-names";
+import { toInt } from "@/components/Scroll/lib/util";
 
-export default function(i) {
-    const element = i.element;
+export default function(i: DataInterface): void
+{
+    const element: HTMLElement = i.element;
 
-    const roundedScrollTop = Math.floor(element.scrollTop);
+    const roundedScrollTop: number = Math.floor(element.scrollTop);
     i.containerWidth = element.clientWidth;
     i.containerHeight = element.clientHeight;
     i.contentWidth = element.scrollWidth;
@@ -15,10 +18,8 @@ export default function(i) {
         i.scrollbarXActive = true;
         i.railXWidth = i.containerWidth - i.railXMarginWidth;
         i.railXRatio = i.containerWidth / i.railXWidth;
-        i.scrollbarXWidth = getThumbSize(i, toInt(i.railXWidth * i.containerWidth / i.contentWidth));
-        i.scrollbarXLeft = toInt(
-            (i.negativeScrollAdjustment + element.scrollLeft) * (i.railXWidth - i.scrollbarXWidth) / (i.contentWidth - i.containerWidth)
-        );
+        i.scrollbarXWidth = getThumbSize(i, i.railXWidth * i.containerWidth / i.contentWidth);
+        i.scrollbarXLeft = (i.negativeScrollAdjustment + element.scrollLeft) * (i.railXWidth - i.scrollbarXWidth) / (i.contentWidth - i.containerWidth);
     } else {
         i.scrollbarXActive = false;
     }
@@ -27,10 +28,8 @@ export default function(i) {
         i.scrollbarYActive = true;
         i.railYHeight = i.containerHeight - i.railYMarginHeight;
         i.railYRatio = i.containerHeight / i.railYHeight;
-        i.scrollbarYHeight = getThumbSize(i, toInt(i.railYHeight * i.containerHeight / i.contentHeight));
-        i.scrollbarYTop = toInt(
-            roundedScrollTop * (i.railYHeight - i.scrollbarYHeight) / (i.contentHeight - i.containerHeight)
-        );
+        i.scrollbarYHeight = getThumbSize(i, i.railYHeight * i.containerHeight / i.contentHeight);
+        i.scrollbarYTop = roundedScrollTop * (i.railYHeight - i.scrollbarYHeight) / (i.contentHeight - i.containerHeight);
     } else {
         i.scrollbarYActive = false;
     }
@@ -64,20 +63,30 @@ export default function(i) {
     }
 }
 
-function getThumbSize(i, thumbSize) {
+function getThumbSize(i: DataInterface, thumbSize: number): number
+{
     if (i.settings.minScrollbarLength) {
-        thumbSize = Math.max(thumbSize, i.settings.minScrollbarLength);
+        thumbSize = Math.max(thumbSize, toInt(i.settings.minScrollbarLength));
     }
 
     if (i.settings.maxScrollbarLength) {
-        thumbSize = Math.min(thumbSize, i.settings.maxScrollbarLength);
+        thumbSize = Math.min(thumbSize, toInt(i.settings.maxScrollbarLength));
     }
 
     return thumbSize;
 }
 
-function updateCss(element, i) {
-    const xRailOffset = { width: i.railXWidth };
+function updateCss(element: HTMLElement, i: DataInterface): void
+{
+    const xRailOffset: railOffsetInterface = {
+        width: i.railXWidth,
+        height: "auto",
+        top: "auto",
+        right: "auto",
+        bottom: "auto",
+        left: "auto"
+    };
+
     const roundedScrollTop = Math.floor(element.scrollTop);
 
     if (i.isRtl) {
@@ -94,7 +103,14 @@ function updateCss(element, i) {
 
     CSS.set(i.scrollbarXRail, xRailOffset);
 
-    const yRailOffset = { top: roundedScrollTop, height: i.railYHeight };
+    const yRailOffset: railOffsetInterface = {
+        width: "auto",
+        height: i.railYHeight,
+        top: roundedScrollTop,
+        right: "auto",
+        bottom: "auto",
+        left: "auto"
+    };
 
     if (i.isScrollbarYUsingRight) {
         if (i.isRtl) {
@@ -113,8 +129,6 @@ function updateCss(element, i) {
     }
 
     CSS.set(i.scrollbarYRail, yRailOffset);
-
     CSS.set(i.scrollbarX, { left: i.scrollbarXLeft, width: i.scrollbarXWidth - i.railBorderXWidth });
-
     CSS.set(i.scrollbarY, { top: i.scrollbarYTop, height: i.scrollbarYHeight - i.railBorderYWidth });
 }

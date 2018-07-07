@@ -1,5 +1,5 @@
-import cls, { addScrollingClass, removeScrollingClass } from "../lib/class-names";
-import updateGeometry from "../update-geometry";
+import cls, { addScrollingClass, removeScrollingClass } from "@/components/Scroll/lib/class-names";
+import updateGeometry from "@/components/Scroll/update-geometry";
 
 export default function(i) {
     bindMouseScrollHandler(i, [

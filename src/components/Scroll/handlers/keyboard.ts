@@ -1,6 +1,6 @@
-import * as DOM from "../lib/dom";
-import updateGeometry from "../update-geometry";
-import { isEditable } from "../lib/util";
+import * as DOM from "@/components/Scroll/lib/dom";
+import updateGeometry from "@/components/Scroll/update-geometry";
+import { isEditable } from "@/components/Scroll/lib/util";
 
 export default function(i) {
     const element = i.element;

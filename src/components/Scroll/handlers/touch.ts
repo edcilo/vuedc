@@ -1,7 +1,7 @@
-import updateGeometry from "../update-geometry";
-import cls from "../lib/class-names";
-import * as CSS from "../lib/css";
-import { env } from "../lib/util";
+import updateGeometry from "@/components/Scroll/update-geometry";
+import cls from "@/components/Scroll/lib/class-names";
+import * as CSS from "@/components/Scroll/lib/css";
+import { env } from "@/components/Scroll/lib/util";
 
 export default function(i) {
     if (!env.supportsTouch && !env.supportsIePointer) {
