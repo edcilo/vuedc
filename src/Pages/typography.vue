@@ -68,10 +68,12 @@
 
         <h2>Item</h2>
 
-        <ve-panel width="280px">
+        <div style="width: 420px">
             <ve-item>
                 Item with only text
             </ve-item>
+
+            <ve-divider />
 
             <ve-item>
                 <template slot="visual">
@@ -80,12 +82,16 @@
                 Item with visual
             </ve-item>
 
+            <ve-divider />
+
             <ve-item>
                 Item with control
                 <template slot="control">
                     Ctrl + C
                 </template>
             </ve-item>
+
+            <ve-divider />
 
             <ve-item>
                  <template slot="visual">
@@ -96,6 +102,8 @@
                 </template>
             </ve-item>
 
+            <ve-divider />
+
             <ve-item>
                 <template slot="visual">
                     <ve-avatar label="edcilo" />
@@ -105,7 +113,116 @@
                     Ctrl + C
                 </template>
             </ve-item>
-        </ve-panel>
+
+            <ve-divider />
+
+            <ve-item>
+                Only text
+            </ve-item>
+
+            <ve-divider />
+            <ve-item>
+                <template slot="visual">
+                    <font-awesome-icon class="ve-icon" icon="coffee" />
+                </template>
+                Item with icon
+            </ve-item>
+
+            <ve-divider />
+
+            <ve-item>
+                <template slot="visual">
+                    <ve-avatar label="edcilo" />
+                </template>
+                Item with avatar
+                <template slot="control">
+                    Ctrl + C
+                </template>
+            </ve-item>
+
+            <ve-divider />
+
+            <ve-item>
+                <template slot="visual">
+                    <ve-avatar :tile="true" label="edcilo" />
+                </template>
+                Item with avatar tile
+                <template slot="control">
+                    Ctrl + C
+                </template>
+            </ve-item>
+
+            <ve-divider />
+
+            <ve-item>
+                <template slot="visual">
+                    <ve-image :lazy="true" alt="lazy"
+                        src="https://expeditionportal.com/media/2014/05/Mojave-002.jpg"
+                        preview="https://static.greatbigcanvas.com/images/square/getty-images/cadiz-dunes-at-sunrise-sheephole-mountains-in-distance-in-mojave-desert-california,1977157.jpg?max=128" />
+                </template>
+                Item with image
+                <template slot="control">
+                    Ctrl + C
+                </template>
+            </ve-item>
+
+            <ve-divider />
+
+            <ve-item>
+                <template slot="overline">
+                    Overline
+                </template>
+                Item with avatar
+                <template slot="control">
+                    Ctrl + C
+                </template>
+            </ve-item>
+
+            <ve-divider />
+
+            <ve-item>
+                Item with avatar
+                <template slot="secondary">
+                    Secondary line text, Lorem ipsum dolor sit amet consectetur adipiscing alit.
+                </template>
+                <template slot="control">
+                    Ctrl + C
+                </template>
+            </ve-item>
+
+            <ve-divider />
+
+            <ve-item>
+                <template slot="overline">
+                    Overline
+                </template>
+                Item with avatar
+                <template slot="secondary">
+                    Secondary line text, Lorem ipsum dolor sit amet.
+                </template>
+                <template slot="control">
+                    Ctrl + C
+                </template>
+            </ve-item>
+
+            <ve-divider />
+
+            <ve-item>
+                <template slot="visual">
+                    <ve-avatar label="edcilo" />
+                </template>
+                <template slot="overline">
+                    Overline
+                </template>
+                Item with avatar
+                <template slot="secondary">
+                    Secondary line text, Lorem ipsum dolor sit amet.
+                </template>
+                <template slot="control">
+                    Ctrl + C
+                </template>
+            </ve-item>
+        </div>
 
         <h2>Avatar</h2>
 
@@ -325,6 +442,11 @@
                             Leading loose: Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil voluptatum soluta facilis ipsum nisi.
                         </ve-item>
                     </ve-list-item>
+                    <ve-list-item :border="true">
+                        <ve-item class="leading-none">
+                            Leading none: Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus corrupti sint laborum, omnis dolores.
+                        </ve-item>
+                    </ve-list-item>
                 </ve-list>
             </ve-panel>
 
@@ -422,6 +544,11 @@
 <script lang="ts">
 import {Vue, Component} from 'vue-property-decorator';
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+library.add(faCoffee);
+
 import veDivider from './../components/Divider/index.vue';
 import vePanel from './../components/Panel/index.vue';
 import veList from './../components/List/index.vue';
@@ -436,6 +563,7 @@ import veScroll from './../components/Scroll/index.vue';
 
 @Component({
     components: {
+        FontAwesomeIcon,
         veDivider,
         vePanel,
         veList,
