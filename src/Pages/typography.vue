@@ -458,15 +458,15 @@ export default class Typography extends Vue
     }
 
     scrollY() {
-        console.log('scroll in y');
+        //console.log('scroll in y');
     }
 
     scrollUp() {
-        console.log('scroll in up');
+        //console.log('scroll in up');
     }
 
     scrollDown() {
-        console.log('scroll in down');
+        //console.log('scroll in down');
     }
 }
 </script>

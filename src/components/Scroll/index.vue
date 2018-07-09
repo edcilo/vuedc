@@ -32,7 +32,7 @@ export default class veScroll extends Vue {
         scrollbarY:     HTMLElement
     };
 
-    private Scrollbar = null;
+    private Scrollbar: any = null;
     private elementClasses: Object = data.elementClasses;
 
     private barXClasses: Object = data.barXClasses;
