@@ -1,14 +1,16 @@
 import * as DOM from "@/components/Scroll/lib/dom";
 import updateGeometry from "@/components/Scroll/update-geometry";
 import { isEditable } from "@/components/Scroll/lib/util";
+import { DataInterface } from '@/components/Scroll/interfaces/data';
 
-export default function(i) {
-    const element = i.element;
+export default function(i: DataInterface) {
+    const element: HTMLElement = i.element;
 
     const elementHovered = () => DOM.matches(element, ":hover");
     const scrollbarFocused = () => DOM.matches(i.scrollbarX, ":focus") || DOM.matches(i.scrollbarY, ":focus");
 
-    function shouldPreventDefault(deltaX, deltaY) {
+    function shouldPreventDefault(deltaX: number, deltaY: number): boolean
+    {
         const scrollTop = Math.floor(element.scrollTop);
 
         if (deltaX === 0) {
@@ -36,7 +38,7 @@ export default function(i) {
         return true;
     }
 
-    i.event.bind(i.ownerDocument, "keydown", e => {
+    i.event.bind(i.ownerDocument, "keydown", (e: KeyboardEvent) => {
         if ( (e.isDefaultPrevented && e.isDefaultPrevented()) || e.defaultPrevented ) {
             return;
         }
