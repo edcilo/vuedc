@@ -2,11 +2,13 @@ import * as CSS from "@/components/Scroll/lib/css";
 import cls from "@/components/Scroll/lib/class-names";
 import updateGeometry from "@/components/Scroll/update-geometry";
 import { env } from "@/components/Scroll/lib/util";
+import { DataInterface } from '@/components/Scroll/interfaces/data';
 
-export default function(i) {
+export default function(i: DataInterface) {
     const element = i.element;
 
-    function shouldPreventDefault(deltaX, deltaY) {
+    function shouldPreventDefault(deltaX: number, deltaY: number)
+    {
         const roundedScrollTop = Math.floor(element.scrollTop);
         const isTop = element.scrollTop === 0;
         const isBottom = roundedScrollTop + element.offsetHeight === element.scrollHeight;
@@ -25,7 +27,8 @@ export default function(i) {
         return hitsBound ? !i.settings.wheelPropagation : true;
     }
 
-    function getDeltaFromEvent(e) {
+    function getDeltaFromEvent(e): Array<number>
+    {
         let deltaX = e.deltaX;
         let deltaY = -1 * e.deltaY;
 
@@ -55,7 +58,8 @@ export default function(i) {
         return [deltaX, deltaY];
     }
 
-    function shouldBeConsumedByChild(target, deltaX, deltaY) {
+    function shouldBeConsumedByChild(target, deltaX: number, deltaY: number): boolean
+    {
         // FIXME: this is a workaround for <select> issue in FF and IE #571
         if (!env.isWebKit && element.querySelector("select:focus")) {
             return true;
@@ -100,7 +104,8 @@ export default function(i) {
         return false;
     }
 
-    function mousewheelHandler(e) {
+    function mousewheelHandler(e): void
+    {
         const [deltaX, deltaY] = getDeltaFromEvent(e);
 
         if (shouldBeConsumedByChild(e.target, deltaX, deltaY)) {

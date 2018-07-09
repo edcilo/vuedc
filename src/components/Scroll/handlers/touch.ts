@@ -2,19 +2,21 @@ import updateGeometry from "@/components/Scroll/update-geometry";
 import cls from "@/components/Scroll/lib/class-names";
 import * as CSS from "@/components/Scroll/lib/css";
 import { env } from "@/components/Scroll/lib/util";
+import { DataInterface } from '@/components/Scroll/interfaces/data';
 
-export default function(i) {
+export default function(i: DataInterface) {
     if (!env.supportsTouch && !env.supportsIePointer) {
         return;
     }
 
-    const element = i.element;
+    const element: HTMLElement = i.element;
 
-    function shouldPrevent(deltaX, deltaY) {
-        const scrollTop = Math.floor(element.scrollTop);
-        const scrollLeft = element.scrollLeft;
-        const magnitudeX = Math.abs(deltaX);
-        const magnitudeY = Math.abs(deltaY);
+    function shouldPrevent(deltaX: number, deltaY: number): boolean
+    {
+        const scrollTop: number = Math.floor(element.scrollTop);
+        const scrollLeft: number = element.scrollLeft;
+        const magnitudeX: number = Math.abs(deltaX);
+        const magnitudeY: number = Math.abs(deltaY);
 
         if (magnitudeY > magnitudeX) {
             // user is perhaps trying to swipe up/down the page
@@ -40,7 +42,8 @@ export default function(i) {
         return true;
     }
 
-    function applyTouchMove(differenceX, differenceY) {
+    function applyTouchMove(differenceX: number, differenceY: number): void
+    {
         element.scrollTop -= differenceY;
         element.scrollLeft -= differenceX;
 
@@ -52,7 +55,7 @@ export default function(i) {
     let speed = {};
     let easingLoop = null;
 
-    function getTouch(e) {
+    function getTouch(e: TouchEvent) {
         if (e.targetTouches) {
             return e.targetTouches[0];
         } else {
@@ -61,13 +64,16 @@ export default function(i) {
         }
     }
 
-    function shouldHandle(e) {
+    function shouldHandle(e): boolean
+    {
         if (e.pointerType && e.pointerType === "pen" && e.buttons === 0) {
             return false;
         }
+
         if (e.targetTouches && e.targetTouches.length === 1) {
             return true;
         }
+
         if (
             e.pointerType &&
             e.pointerType !== "mouse" &&
@@ -75,10 +81,12 @@ export default function(i) {
         ) {
             return true;
         }
+
         return false;
     }
 
-    function touchStart(e) {
+    function touchStart(e): void
+    {
         if (!shouldHandle(e)) {
             return;
         }
@@ -95,7 +103,8 @@ export default function(i) {
         }
     }
 
-    function shouldBeConsumedByChild(target, deltaX, deltaY) {
+    function shouldBeConsumedByChild(target, deltaX, deltaY): boolean
+    {
         if (!element.contains(target)) {
             return false;
         }
@@ -138,7 +147,8 @@ export default function(i) {
         return false;
     }
 
-    function touchMove(e) {
+    function touchMove(e): void
+    {
         if (shouldHandle(e)) {
             const touch = getTouch(e);
 
@@ -169,7 +179,8 @@ export default function(i) {
         }
     }
 
-    function touchEnd() {
+    function touchEnd(): void
+    {
         if (i.settings.swipeEasing) {
             clearInterval(easingLoop);
             easingLoop = setInterval(function() {
