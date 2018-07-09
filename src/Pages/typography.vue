@@ -3,7 +3,7 @@
         <h2>Scroll</h2>
 
         <ve-panel width="280px" height="280px">
-            <ve-scroll>
+            <ve-scroll v-on:scroll-y="scrollY" v-on:scroll-up="scrollUp" v-on:scroll-down="scrollDown">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quos harum maxime rerum quidem incidunt culpa,
                 iure itaque numquam ducimus nihil corrupti porro mollitia corporis distinctio autem, adipisci deleniti in! Lorem
                 ipsum dolor sit amet consectetur adipisicing elit. Laborum fuga aliquid modi, totam quisquam qui nihil atque
@@ -455,6 +455,18 @@ export default class Typography extends Vue
 
     toggleLoading() {
         this.loadingShow = !this.loadingShow;
+    }
+
+    scrollY() {
+        console.log('scroll in y');
+    }
+
+    scrollUp() {
+        console.log('scroll in up');
+    }
+
+    scrollDown() {
+        console.log('scroll in down');
     }
 }
 </script>

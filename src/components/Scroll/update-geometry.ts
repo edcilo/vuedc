@@ -1,14 +1,14 @@
 import { DataInterface } from "@/components/Scroll/interfaces/data";
-import railOffsetInterface from "@/components/Scroll/interfaces/updateGeometry";
 import * as CSS from "@/components/Scroll/lib/css";
 import cls from "@/components/Scroll/lib/class-names";
 import { toInt } from "@/components/Scroll/lib/util";
+import railOffsetInterface from '@/components/Scroll/interfaces/updateGeometry';
 
 export default function(i: DataInterface): void
 {
-    const element: HTMLElement = i.element;
+    const element = i.element;
 
-    const roundedScrollTop: number = Math.floor(element.scrollTop);
+    const roundedScrollTop = Math.floor(element.scrollTop);
     i.containerWidth = element.clientWidth;
     i.containerHeight = element.clientHeight;
     i.contentWidth = element.scrollWidth;
@@ -80,11 +80,11 @@ function updateCss(element: HTMLElement, i: DataInterface): void
 {
     const xRailOffset: railOffsetInterface = {
         width: i.railXWidth,
-        height: "auto",
-        top: "auto",
-        right: "auto",
-        bottom: "auto",
-        left: "auto"
+        height: null,
+        top: null,
+        right: null,
+        bottom: null,
+        left: null
     };
 
     const roundedScrollTop = Math.floor(element.scrollTop);
@@ -104,25 +104,23 @@ function updateCss(element: HTMLElement, i: DataInterface): void
     CSS.set(i.scrollbarXRail, xRailOffset);
 
     const yRailOffset: railOffsetInterface = {
-        width: "auto",
+        width: null,
         height: i.railYHeight,
         top: roundedScrollTop,
-        right: "auto",
-        bottom: "auto",
-        left: "auto"
+        right: null,
+        bottom: null,
+        left: null,
     };
 
     if (i.isScrollbarYUsingRight) {
         if (i.isRtl) {
-            yRailOffset.right =
-                i.contentWidth - (i.negativeScrollAdjustment + element.scrollLeft) - i.scrollbarYRight - i.scrollbarYOuterWidth;
+            yRailOffset.right = i.contentWidth - (i.negativeScrollAdjustment + element.scrollLeft) - i.scrollbarYRight - i.scrollbarYOuterWidth;
         } else {
             yRailOffset.right = i.scrollbarYRight - element.scrollLeft;
         }
     } else {
         if (i.isRtl) {
-            yRailOffset.left =
-                i.negativeScrollAdjustment + element.scrollLeft + i.containerWidth * 2 - i.contentWidth - i.scrollbarYLeft - i.scrollbarYOuterWidth;
+            yRailOffset.left = i.negativeScrollAdjustment + element.scrollLeft + i.containerWidth * 2 - i.contentWidth - i.scrollbarYLeft - i.scrollbarYOuterWidth;
         } else {
             yRailOffset.left = i.scrollbarYLeft + element.scrollLeft;
         }

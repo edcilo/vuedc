@@ -59,19 +59,21 @@ export default class EventManager {
     eventElement(element: HTMLElement)
     {
         let ee = this.eventElements.filter(ee => ee.element === element)[0];
+
         if (!ee) {
             ee = new EventElement(element);
             this.eventElements.push(ee);
         }
+
         return ee;
     }
 
-    bind(element, eventName, handler): void
+    bind(element: HTMLElement, eventName: string, handler: () => void): void
     {
         this.eventElement(element).bind(eventName, handler);
     }
 
-    unbind(element, eventName, handler): void
+    unbind(element: HTMLElement, eventName: string, handler: () => void): void
     {
         const ee = this.eventElement(element);
         ee.unbind(eventName, handler);
@@ -88,13 +90,14 @@ export default class EventManager {
         this.eventElements = [];
     }
 
-    once(element, eventName, handler): void
+    once(element: HTMLElement, eventName: string, handler: () => void): void
     {
         const ee = this.eventElement(element);
         const onceHandler = evt => {
             ee.unbind(eventName, onceHandler);
             handler(evt);
         };
+
         ee.bind(eventName, onceHandler);
     }
 }
