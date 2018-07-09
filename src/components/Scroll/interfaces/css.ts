@@ -1,6 +1,5 @@
 export interface CssInterface {
-    x: string | null;
-    y: string | null;
+    [axis: string]: string | null;
 }
 
 export interface ContentInterface {

@@ -1,10 +1,18 @@
+interface HandlerInterface {
+    [eventName: string]: Array<any>;
+};
+
 class EventElement {
-    constructor(element) {
+    protected element: HTMLElement;
+    protected handlers: HandlerInterface = {};
+
+    constructor(element: HTMLElement)
+    {
         this.element = element;
-        this.handlers = {};
     }
 
-    bind(eventName, handler) {
+    bind(eventName: string, handler: () => void): void
+    {
         if (typeof this.handlers[eventName] === "undefined") {
             this.handlers[eventName] = [];
         }
@@ -13,23 +21,28 @@ class EventElement {
         this.element.addEventListener(eventName, handler, {passive: false});
     }
 
-    unbind(eventName, target) {
+    unbind(eventName: string, target: () => void): boolean | void
+    {
         this.handlers[eventName] = this.handlers[eventName].filter(handler => {
             if (target && handler !== target) {
                 return true;
             }
+
             this.element.removeEventListener(eventName, handler, false);
+
             return false;
         });
     }
 
-    unbindAll() {
+    unbindAll(): void
+    {
         for (const name in this.handlers) {
             this.unbind(name);
         }
     }
 
-    get isEmpty() {
+    get isEmpty(): boolean
+    {
         return Object.keys(this.handlers).every(
             key => this.handlers[key].length === 0
         );
@@ -37,11 +50,14 @@ class EventElement {
 }
 
 export default class EventManager {
+    protected eventElements: Array<any>;
+
     constructor() {
         this.eventElements = [];
     }
 
-    eventElement(element) {
+    eventElement(element: HTMLElement)
+    {
         let ee = this.eventElements.filter(ee => ee.element === element)[0];
         if (!ee) {
             ee = new EventElement(element);
@@ -50,11 +66,13 @@ export default class EventManager {
         return ee;
     }
 
-    bind(element, eventName, handler) {
+    bind(element, eventName, handler): void
+    {
         this.eventElement(element).bind(eventName, handler);
     }
 
-    unbind(element, eventName, handler) {
+    unbind(element, eventName, handler): void
+    {
         const ee = this.eventElement(element);
         ee.unbind(eventName, handler);
 
@@ -64,12 +82,14 @@ export default class EventManager {
         }
     }
 
-    unbindAll() {
+    unbindAll(): void
+    {
         this.eventElements.forEach(e => e.unbindAll());
         this.eventElements = [];
     }
 
-    once(element, eventName, handler) {
+    once(element, eventName, handler): void
+    {
         const ee = this.eventElement(element);
         const onceHandler = evt => {
             ee.unbind(eventName, onceHandler);

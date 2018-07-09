@@ -1,6 +1,8 @@
-import { setScrollingClassInstantly } from "./lib/class-names";
+import { setScrollingClassInstantly } from "@/components/Scroll/lib/class-names";
+import { DataInterface } from '@/components/Scroll/interfaces/data';
 
-function createEvent(name) {
+function createEvent(name: string): CustomEvent
+{
     if (typeof window.CustomEvent === "function") {
         return new CustomEvent(name);
     } else {
@@ -10,8 +12,9 @@ function createEvent(name) {
     }
 }
 
-export default function(i, axis, diff, useScrollingClass = true, forceFireReachEvent = false) {
-    let fields;
+export default function(i: DataInterface, axis: string, diff: number, useScrollingClass: boolean = true, forceFireReachEvent: boolean = false): void
+{
+    let fields!: Array<string>;
 
     if (axis === "top") {
         fields = [
@@ -38,7 +41,13 @@ export default function(i, axis, diff, useScrollingClass = true, forceFireReachE
     processScrollDiff(i, diff, fields, useScrollingClass, forceFireReachEvent);
 }
 
-function processScrollDiff(i, diff, [contentHeight, containerHeight, scrollTop, y, up, down], useScrollingClass = true, forceFireReachEvent = false) {
+function processScrollDiff(
+    i: DataInterface,
+    diff: number,
+    [contentHeight, containerHeight, scrollTop, y, up, down]: Array<string>,
+    useScrollingClass: boolean = true,
+    forceFireReachEvent: boolean = false
+) {
     const element = i.element;
 
     // reset reach

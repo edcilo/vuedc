@@ -2,8 +2,8 @@ import { DataInterface } from "@/components/Scroll/interfaces/data";
 
 import * as CSS from "@/components/Scroll/lib/css";
 import cls from "@/components/Scroll/lib/class-names";
-import EventManager from "./lib/event-manager";
-import processScrollDiff from "./process-scroll-diff";
+import EventManager from "@/components/Scroll/lib/event-manager";
+import processScrollDiff from "@/components/Scroll/process-scroll-diff";
 import updateGeometry from "@/components/Scroll/update-geometry";
 import { toInt, outerWidth } from "@/components/Scroll/lib/util";
 
