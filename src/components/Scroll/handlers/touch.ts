@@ -13,7 +13,7 @@ export default function(i: DataInterface) {
 
     function shouldPrevent(deltaX: number, deltaY: number): boolean
     {
-        const scrollTop: number = Math.floor(element.scrollTop);
+        const scrollTop:  number = Math.floor(element.scrollTop);
         const scrollLeft: number = element.scrollLeft;
         const magnitudeX: number = Math.abs(deltaX);
         const magnitudeY: number = Math.abs(deltaY);
@@ -64,8 +64,9 @@ export default function(i: DataInterface) {
         }
     }
 
-    function shouldHandle(e): boolean
+    function shouldHandle(e: TouchEvent): boolean
     {
+        console.log(e);
         if (e.pointerType && e.pointerType === "pen" && e.buttons === 0) {
             return false;
         }
@@ -85,7 +86,7 @@ export default function(i: DataInterface) {
         return false;
     }
 
-    function touchStart(e): void
+    function touchStart(e: TouchEvent): void
     {
         if (!shouldHandle(e)) {
             return;
@@ -103,7 +104,7 @@ export default function(i: DataInterface) {
         }
     }
 
-    function shouldBeConsumedByChild(target, deltaX, deltaY): boolean
+    function shouldBeConsumedByChild(target: any, deltaX: number, deltaY: number): boolean
     {
         if (!element.contains(target)) {
             return false;
@@ -147,7 +148,7 @@ export default function(i: DataInterface) {
         return false;
     }
 
-    function touchMove(e): void
+    function touchMove(e: TouchEvent): void
     {
         if (shouldHandle(e)) {
             const touch = getTouch(e);

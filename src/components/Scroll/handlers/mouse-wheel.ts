@@ -7,15 +7,15 @@ import { DataInterface } from '@/components/Scroll/interfaces/data';
 export default function(i: DataInterface) {
     const element = i.element;
 
-    function shouldPreventDefault(deltaX: number, deltaY: number)
+    function shouldPreventDefault(deltaX: number, deltaY: number): boolean
     {
-        const roundedScrollTop = Math.floor(element.scrollTop);
-        const isTop = element.scrollTop === 0;
-        const isBottom = roundedScrollTop + element.offsetHeight === element.scrollHeight;
-        const isLeft = element.scrollLeft === 0;
-        const isRight = element.scrollLeft + element.offsetWidth === element.scrollWidth;
+        const roundedScrollTop: number  = Math.floor(element.scrollTop);
+        const isTop:            boolean = element.scrollTop === 0;
+        const isBottom:         boolean = roundedScrollTop + element.offsetHeight === element.scrollHeight;
+        const isLeft:           boolean = element.scrollLeft === 0;
+        const isRight:          boolean = element.scrollLeft + element.offsetWidth === element.scrollWidth;
 
-        let hitsBound;
+        let hitsBound: boolean;
 
         // pick axis with primary direction
         if (Math.abs(deltaY) > Math.abs(deltaX)) {
@@ -27,10 +27,10 @@ export default function(i: DataInterface) {
         return hitsBound ? !i.settings.wheelPropagation : true;
     }
 
-    function getDeltaFromEvent(e): Array<number>
+    function getDeltaFromEvent(e: WheelEvent): Array<number>
     {
-        let deltaX = e.deltaX;
-        let deltaY = -1 * e.deltaY;
+        let deltaX: number = e.deltaX;
+        let deltaY: number = -1 * e.deltaY;
 
         if (typeof deltaX === "undefined" || typeof deltaY === "undefined") {
             // OS X Safari
@@ -58,7 +58,7 @@ export default function(i: DataInterface) {
         return [deltaX, deltaY];
     }
 
-    function shouldBeConsumedByChild(target, deltaX: number, deltaY: number): boolean
+    function shouldBeConsumedByChild(target: any, deltaX: number, deltaY: number): boolean
     {
         // FIXME: this is a workaround for <select> issue in FF and IE #571
         if (!env.isWebKit && element.querySelector("select:focus")) {
@@ -104,7 +104,7 @@ export default function(i: DataInterface) {
         return false;
     }
 
-    function mousewheelHandler(e): void
+    function mousewheelHandler(e: WheelEvent): void
     {
         const [deltaX, deltaY] = getDeltaFromEvent(e);
 
@@ -112,7 +112,7 @@ export default function(i: DataInterface) {
             return;
         }
 
-        let shouldPrevent = false;
+        let shouldPrevent: boolean = false;
 
         if (!i.settings.useBothWheelAxes) {
             // deltaX will only be used for horizontal scrolling and deltaY will
