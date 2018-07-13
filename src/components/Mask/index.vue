@@ -37,8 +37,8 @@ export default class veMask extends Vue {
     protected body = document.querySelector('body');
 
     protected styles: Styles = {
-        display:            "none",
-        position:           ""
+        display:  "none",
+        position: ""
     }
 
     protected backgroundStyles: BackgroundStyles = {

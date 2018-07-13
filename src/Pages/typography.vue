@@ -1,5 +1,77 @@
 <template>
     <div class="page-typography">
+        <h2>Buttons</h2>
+
+        <ve-panel>
+            <ve-list>
+                <ve-list-item :border="true" style="padding: 8px">
+                    <ve-button>Primary</ve-button>
+                    &nbsp;
+                    <ve-button type="secondary">Secondary</ve-button>
+                    &nbsp;
+                    <ve-button type="success" btnType="submit" btnName="myButton" btnValue="BtnSubmit">Success</ve-button>
+                    &nbsp;
+                    <ve-button type="warning" btnType="button">Warning</ve-button>
+                    &nbsp;
+                    <ve-button type="danger" btnType="reset">Danger</ve-button>
+                    &nbsp;
+                    <ve-button type="info">Info</ve-button>
+                    &nbsp;
+                    <ve-button type="light">Light</ve-button>
+                    &nbsp;
+                    <ve-button type="dark">Dark</ve-button>
+                </ve-list-item>
+                <ve-list-item :border="true" style="padding: 8px">
+                    <ve-button type="link">Link</ve-button>
+                    &nbsp;
+                    <ve-button type="link" :disabled="true">Link</ve-button>
+                    &nbsp;
+                    <ve-button type="text">Text</ve-button>
+                    &nbsp;
+                    <ve-button type="text" :disabled="true">Text</ve-button>
+                    &nbsp;
+                    <ve-button type="outline">Outline</ve-button>
+                    &nbsp;
+                    <ve-button type="outline" :disabled="true">Outline</ve-button>
+                    &nbsp;
+                    <ve-button type="toggle">B</ve-button>
+                    &nbsp;
+                    <ve-button type="toggle" :disabled="true">B</ve-button>
+                </ve-list-item>
+                <ve-list-item :border="true" style="padding: 8px">
+                    <ve-button btn-style="rounded">Round</ve-button>
+                    &nbsp;
+                    <ve-button type="danger" btn-type="reset" btn-style="rounded">Round</ve-button>
+                    &nbsp;
+                    <ve-button btn-style="circle">O</ve-button>
+                    &nbsp;
+                    <ve-button btn-style="regular">Regular</ve-button>
+                </ve-list-item>
+                <ve-list-item :border="true" style="padding: 8px">
+                    <ve-button btn-style="block">Block</ve-button>
+                </ve-list-item>
+                <ve-list-item :border="true" style="padding: 8px">
+                    <ve-button state="">Regular</ve-button>
+                    &nbsp;
+                    <ve-button state="hover">Hover</ve-button>
+                    &nbsp;
+                    <ve-button state="active">Active</ve-button>
+                    &nbsp;
+                    <ve-button state="focus">Focus</ve-button>
+                </ve-list-item>
+                <ve-list-item :border="true" style="padding: 8px">
+                    <ve-button :disabled="true">Disabled</ve-button>
+                    &nbsp;
+                    <ve-button :autofocus="true">Autofocus</ve-button>
+                </ve-list-item>
+                <ve-list-item :border="true" style="padding: 8px">
+                    <ve-button href="http://edcilo.com">Anchor</ve-button>
+                    &nbsp;
+                    <ve-button href="http://edcilo.com" :disabled="true">Anchor</ve-button>
+                </ve-list-item>
+            </ve-list>
+        </ve-panel>
+
         <h2>Scroll</h2>
 
         <ve-panel width="280px" height="280px">
@@ -66,6 +138,44 @@
             <ve-spinner></ve-spinner>
         </ve-panel>
 
+        <h2>List</h2>
+
+        <div>
+            <ve-panel width="360px">
+                <ve-list :rounded="true">
+                    <ve-list-item :border="true">
+                        <ve-item>
+                            Item 0
+                        </ve-item>
+                    </ve-list-item>
+                    <ve-list-item :border="true">
+                        <ve-item>
+                            <template slot="overline">
+                                Overline
+                            </template>
+                            Item 1
+                        </ve-item>
+                    </ve-list-item>
+                    <ve-list-item :border="true">
+                        <ve-item>
+                            <template slot="secondary">
+                                Secondary line text, Lorem ipsum dolor sit amet.
+                            </template>
+                            Item 2
+                        </ve-item>
+                    </ve-list-item>
+                    <ve-list-item :border="true">
+                        <ve-item>
+                            <template slot="visual">
+                                <ve-avatar label="edcilo" />
+                            </template>
+                            Item 3
+                        </ve-item>
+                    </ve-list-item>
+                </ve-list>
+            </ve-panel>
+        </div>
+
         <h2>Item</h2>
 
         <div style="width: 420px">
@@ -121,11 +231,30 @@
             </ve-item>
 
             <ve-divider />
+
             <ve-item>
                 <template slot="visual">
                     <font-awesome-icon class="ve-icon" icon="coffee" />
                 </template>
                 Item with icon
+            </ve-item>
+
+            <ve-divider></ve-divider>
+
+            <ve-item>
+                Item with icon
+                <template slot="control">
+                    <font-awesome-icon class="ve-icon" :icon="['far', 'check-square']" />
+                </template>
+            </ve-item>
+
+            <ve-divider></ve-divider>
+
+            <ve-item>
+                Item with icon
+                <template slot="control">
+                    <font-awesome-icon class="ve-icon" icon="check" />
+                </template>
             </ve-item>
 
             <ve-divider />
@@ -544,10 +673,11 @@
 <script lang="ts">
 import {Vue, Component} from 'vue-property-decorator';
 
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-library.add(faCoffee);
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCoffee, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faCheckSquare } from '@fortawesome/free-regular-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+library.add(faCheckSquare, faCoffee, faCheck);
 
 import veDivider from './../components/Divider/index.vue';
 import vePanel from './../components/Panel/index.vue';
@@ -560,6 +690,7 @@ import veMask from './../components/Mask/index.vue';
 import veLoading from './../components/Loading/index.vue';
 import veImage from './../components/Image/index.vue';
 import veScroll from './../components/Scroll/index.vue';
+import veButton from './../components/Button/index.vue';
 
 @Component({
     components: {
@@ -574,7 +705,8 @@ import veScroll from './../components/Scroll/index.vue';
         veMask,
         veLoading,
         veImage,
-        veScroll
+        veScroll,
+        veButton,
     }
 })
 export default class Typography extends Vue
