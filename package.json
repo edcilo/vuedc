@@ -1,9 +1,10 @@
 {
   "name": "vuedc",
   "version": "0.1.0",
-  "description": "library of components",
+  "description": "library of Vue 2.0 components",
   "license": "MIT",
   "repository": "edcilo/vuedc",
+  "main": "./src/loader.js",
   "private": false,
   "author": {
     "name": "Eduardo Cifuentes",
