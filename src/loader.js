@@ -1,4 +1,4 @@
-import veButton from './components/Button/indecx.vue';
+import veButton from './components/Button/index.vue';
 
 export default {
     veButton
