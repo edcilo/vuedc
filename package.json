@@ -1,7 +1,14 @@
 {
-  "name": "panel",
+  "name": "vuedc",
   "version": "0.1.0",
-  "private": true,
+  "description": "library of components",
+  "license": "MIT",
+  "repository": "edcilo/vuedc",
+  "private": false,
+  "author": {
+    "name": "Eduardo Cifuentes",
+    "email": "edcilop@gmail.com"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
