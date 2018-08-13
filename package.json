@@ -3,7 +3,11 @@
   "version": "0.1.121",
   "description": "library of Vue 2.0 components",
   "license": "MIT",
-  "repository": "edcilo/vuedc",
+  "repository": {
+      "type": "git",
+      "url": "git+https://github.com:edcilo/vuedc.git"
+  },
+  "keywords": [],
   "main": "./src/loader.js",
   "private": false,
   "author": {

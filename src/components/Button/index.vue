@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts">
-import Button from "./script";
+import Button from "@/components/Button/script";
 export default Button;
 </script>
 
