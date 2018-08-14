@@ -107,7 +107,7 @@
     </pre>
 
     <h2>ve-list</h2>
-    <ve-panel width="320px" height="auto">
+    <ve-panel width="320px">
       <ve-list>
         <ve-list-item :border="true">
           <ve-item>
@@ -137,6 +137,22 @@
         </ve-list-item>
       </ve-list>
     </ve-panel>
+
+    <h2>ve-image</h2>
+    <ve-panel width="320px">
+      <ve-image :lazy="true" alt="lazy"
+                src="https://expeditionportal.com/media/2014/05/Mojave-002.jpg"
+                preview="https://static.greatbigcanvas.com/images/square/getty-images/cadiz-dunes-at-sunrise-sheephole-mountains-in-distance-in-mojave-desert-california,1977157.jpg?max=128" />
+    </ve-panel>
+    <pre>
+      props: {
+        lazy: false,
+        src,
+        preview: '',
+        alt: '',
+        placeholder: ''
+      }
+    </pre>
   </div>
 </template>
 
@@ -145,6 +161,7 @@ import HelloWorld from './components/HelloWorld.vue'
 
 import veAvatar from './components/Avatar'
 import veDivider from './components/Divider'
+import veImage from './components/Image'
 import veItem from './components/Item'
 import veList from './components/List'
 import veListItem from './components/ListItem'
@@ -159,6 +176,7 @@ export default {
     HelloWorld,
     veAvatar,
     veDivider,
+    veImage,
     veItem,
     veList,
     veListItem,

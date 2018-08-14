@@ -1,5 +1,6 @@
 import veAvatar from './components/Avatar'
 import veDivider from './components/Divider'
+import veImage from './components/Image'
 import veItem from './components/Item'
 import veList from './components/List'
 import veListItem from './components/ListItem'
@@ -13,6 +14,7 @@ export default vePanel;
 export {
     veAvatar,
     veDivider,
+    veImage,
     veItem,
     veList,
     veListItem,
