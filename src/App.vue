@@ -85,6 +85,26 @@
         tile: false
       }
     </pre>
+
+    <h2>ve-item</h2>
+    <ve-item>
+      <template slot="visual">
+        <ve-avatar src="http://edcilo.com/images/team/edcilo.png" alt="edcilo"></ve-avatar>
+      </template>
+      <template>
+        Eduardo C.
+      </template>
+      <template slot="control">
+        Ctrl + E
+      </template>
+    </ve-item>
+    <pre>
+      slots: [
+        'default',
+        'visual',
+        'control'
+      ]
+    </pre>
   </div>
 </template>
 
@@ -93,6 +113,7 @@ import HelloWorld from './components/HelloWorld.vue'
 
 import veAvatar from './components/Avatar'
 import veDivider from './components/Divider'
+import veItem from './components/Item'
 import veLoading from './components/Loading'
 import veMask from './components/Mask'
 import vePanel from './components/Panel'
@@ -104,6 +125,7 @@ export default {
     HelloWorld,
     veAvatar,
     veDivider,
+    veItem,
     veLoading,
     veMask,
     vePanel,
