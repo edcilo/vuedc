@@ -4,14 +4,15 @@
     </div>
 </template>
 
-<script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator';
-
-@Component
-export default class VeList extends Vue
-{
-    @Prop({ default: false })
-    private rounded!: boolean;
+<script lang="ls">
+export default {
+    name: 'veList',
+    props: {
+        rounded: {
+            type: Boolean,
+            default: false
+        }
+    }
 }
 </script>
 

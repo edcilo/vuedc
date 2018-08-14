@@ -7,110 +7,96 @@
     </div>
 </template>
 
-<script lang="ts">
-import { Vue, Component, Prop, Watch } from "vue-property-decorator";
-
-interface Styles {
-    display: string;
-    position: string;
-};
-
-interface BackgroundStyles {
-    opacity: number;
-    transitionDuration: string;
-}
-
-@Component
-export default class veMask extends Vue {
-    @Prop({ default: false })
-    protected fullscreen!: boolean;
-
-    @Prop({ default: false })
-    protected open!: boolean;
-
-    @Prop({ default: 1 })
-    protected opacity!: number;
-
-    @Prop({ default: 300 })
-    protected speed!: number;
-
-    protected body = document.querySelector('body');
-
-    protected styles: Styles = {
-        display:  "none",
-        position: ""
-    }
-
-    protected backgroundStyles: BackgroundStyles = {
-        transitionDuration: `${this.speed}ms`,
-        opacity:            this.opacity
-    }
-
-    @Watch('fullscreen')
-    onFullscreenChanged(val: boolean): void {
-        this.toggleFullscreen(val);
-    }
-
-    @Watch('open')
-    onOpenChanged(val: boolean): void {
-        this.toggleOpen(val);
-    }
-
-    @Watch('opacity')
-    onOpacityChanged(val: number): void {
-        this.backgroundStyles.opacity = val;
-    }
-
-    @Watch('speed')
-    onSpeedChanged(val: number): void {
-        this.backgroundStyles.transitionDuration = `${val}ms`;
-    }
-
-    changeDisplay(): void {
-        if (!this.open) {
-            this.styles.display = "none";
+<script lang="js">
+export default {
+    name: 'veMask',
+    props: {
+        fullscreen: {
+            type: Boolean,
+            default: false
+        },
+        open: {
+            type: Boolean,
+            default: false
+        },
+        opacity: {
+            type: Number,
+            default: 1
+        },
+        speed: {
+            type: Number,
+            default: 300
         }
-    }
-
-    openFullscreen(): void {
-        if (this.body) {
-            this.body.style["position"] = "relative";
-            this.body.style["overflow"] = "hidden";
-
-            this.styles.position = "fixed";
+    },
+    data: function() {
+        return {
+            body: document.querySelector('body'),
+            styles: {
+                display: 'none',
+                position: null
+            },
+            backgroundStyles: {
+                transitionDuration: `${this.speed}ms`,
+                opacity: this.opacity
+            }
         }
-    }
-
-    quitFullscreen(): void {
-        if (this.body) {
-            this.body.style["position"] = null;
-            this.body.style["overflow"] = null;
-
-            this.styles.position = "";
+    },
+    watch: {
+        fullscreen(val) {
+            this.toggleFullscreen(val);
+        },
+        open(val) {
+            this.toggleOpen(val);
+        },
+        opacity(val) {
+            this.backgroundStyles.opacity = val;
+        },
+        speed(val) {
+            this.backgroundStyles.transitionDuration = `${val}ms`;
         }
-    }
+    },
+    methods: {
+        changeDisplay() {
+            if (!this.open) {
+                this.styles.display = "none";
+            }
+        },
+        openFullscreen() {
+            if (this.body) {
+                this.body.style["position"] = "relative";
+                this.body.style["overflow"] = "hidden";
 
-    toggleFullscreen(fullscreen: boolean): void {
-        if (fullscreen) {
-            this.openFullscreen();
-        } else {
-            this.quitFullscreen();
+                this.styles.position = "fixed";
+            }
+        },
+        quitFullscreen() {
+            if (this.body) {
+                this.body.style["position"] = null;
+                this.body.style["overflow"] = null;
+
+                this.styles.position = "";
+            }
+        },
+        toggleFullscreen(fullscreen) {
+            if (fullscreen) {
+                this.openFullscreen();
+            } else {
+                this.quitFullscreen();
+            }
+        },
+        toggleOpen(open) {
+            this.styles.display = '';
+
+            if (open) {
+                this.backgroundStyles.opacity = this.opacity;
+            } else {
+                this.backgroundStyles.opacity = 0;
+            }
+
+            window.setTimeout(this.changeDisplay, this.speed);
         }
-    }
-
-    toggleOpen(open: boolean): void {
-        this.styles.display = '';
-
-        if (open) {
-            this.backgroundStyles.opacity = this.opacity;
-        } else {
-            this.backgroundStyles.opacity = 0;
-        }
-
-        window.setTimeout(this.changeDisplay, this.speed);
-    }
-
-    mounted(): void {
+    },
+    mounted() {
         this.$nextTick(() => {
             this.toggleFullscreen(this.fullscreen);
             this.toggleOpen(this.open);

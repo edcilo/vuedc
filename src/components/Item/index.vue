@@ -18,18 +18,21 @@
     </ve-panel>
 </template>
 
-<script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
+<script lang="js">
 import vePanel from "./../Panel/index.vue";
 
-@Component({ components: { vePanel } })
-export default class veItem extends Vue
-{
-    protected hasBody: boolean = typeof this.$slots.default === 'object';
-
-    protected hasVisual: boolean = typeof this.$slots.visual === 'object';
-
-    protected hasControl: boolean = typeof this.$slots.control === 'object';
+export default {
+    name: 'veItem',
+    data: function() {
+        return {
+            hasBody: this.$slots.hasOwnProperty('default'),
+            hasVisual: this.$slots.hasOwnProperty('visual'),
+            hasControl: this.$slots.hasOwnProperty('control')
+        }
+    },
+    components: {
+        vePanel
+    }
 }
 </script>
 
