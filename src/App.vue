@@ -67,12 +67,31 @@
         speed: 300
       }
     </pre>
+
+    <h2>ve-avatar</h2>
+    <ve-avatar src="http://edcilo.com/images/team/edcilo.png" alt="edcilo"></ve-avatar>
+    <ve-avatar>E</ve-avatar>
+    <ve-avatar color="#edc962">E</ve-avatar>
+    <ve-avatar label="edcilo"></ve-avatar>
+    <ve-avatar label="edcilo" size="46px"></ve-avatar>
+    <ve-avatar label="edcilo" :tile="true"></ve-avatar>
+    <pre>
+      props: {
+        src: '',
+        alt: '',
+        color: '',
+        label: '',
+        size: '',
+        tile: false
+      }
+    </pre>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 
+import veAvatar from './components/Avatar'
 import veDivider from './components/Divider'
 import veLoading from './components/Loading'
 import veMask from './components/Mask'
@@ -83,6 +102,7 @@ export default {
   name: 'app',
   components: {
     HelloWorld,
+    veAvatar,
     veDivider,
     veLoading,
     veMask,
