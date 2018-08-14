@@ -185,6 +185,11 @@
             tempora! Delectus culpa obcaecati nobis. Quo, esse! Rem, repellendus! At necessitatibus vero maxime
             voluptas, quidem nisi.
         </ve-scroll>
+        <pre>
+            props: {
+                settings: {}
+            }
+        </pre>
     </ve-panel>
   </div>
 </template>

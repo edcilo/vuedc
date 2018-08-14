@@ -45,4 +45,5 @@ Use in template
 * veLoading
 * veMask
 * vePanel
+* veScroll
 * veSpinner
