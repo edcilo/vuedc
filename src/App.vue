@@ -171,6 +171,21 @@
         autofocus: false
       }
     </pre>
+
+    <h2>ve-scroll</h2>
+    <ve-panel width="260px" height="260px">
+        <ve-scroll>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, totam aspernatur? Repudiandae
+            dignissimos asperiores magnam consectetur sunt atque culpa modi blanditiis numquam, quam voluptatum
+            dolorem corrupti distinctio delectus commodi temporibus.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad facere saepe consectetur laborum iure!
+            Nihil doloribus ipsum numquam, nesciunt dolore possimus distinctio assumenda. At, porro ad hic
+            unde nemo cupiditate!
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores ratione voluptas totam odit modi
+            tempora! Delectus culpa obcaecati nobis. Quo, esse! Rem, repellendus! At necessitatibus vero maxime
+            voluptas, quidem nisi.
+        </ve-scroll>
+    </ve-panel>
   </div>
 </template>
 
@@ -187,6 +202,7 @@ import veListItem from './components/ListItem'
 import veLoading from './components/Loading'
 import veMask from './components/Mask'
 import vePanel from './components/Panel'
+import veScroll from './components/Scroll'
 import veSpinner from './components/Spinner'
 
 export default {
@@ -203,6 +219,7 @@ export default {
     veLoading,
     veMask,
     vePanel,
+    veScroll,
     veSpinner,
   }
 }

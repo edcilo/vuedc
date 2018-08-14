@@ -8,6 +8,7 @@ import veListItem from './components/ListItem'
 import veLoading from './components/Loading'
 import veMask from './components/Mask'
 import vePanel from './components/Panel'
+import veScroll from './components/Scroll'
 import veSpinner from './components/Spinner'
 
 export default vePanel;
@@ -23,5 +24,6 @@ export {
     veLoading,
     veMask,
     vePanel,
+    veScroll,
     veSpinner,
 }
