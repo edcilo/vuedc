@@ -1,0 +1,161 @@
+@import "../helpers/variablesFolder/colors";
+
+/*--- Color ---*/
+$c-default:               $c-black;
+$c-primary:               $c-blue-base;
+$c-secondary:             $c-red-light;
+$c-info:                  $c-blue-light;
+$c-success:               $c-green;
+$c-warning:               $c-yellow;
+$c-danger:                $c-red;
+$c-light:                 $c-gray-light;
+$c-dark:                  $c-black;
+
+
+/*--- Typography ---*/
+$font-sans:               system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+$font-family-serif:       Constantia, Lucida Bright, Lucidabright, Lucida Serif, Lucida, DejaVu Serif, Bitstream Vera Serif, Liberation Serif, Georgia, serif;
+$font-family-monospace:   Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+$font-family-base:        $font-sans;
+
+$line-height-none:        1;
+$line-height-tight:       1.25;
+$line-height-base:        1.5;
+$line-height-loose:       2;
+
+$text-base:               $c-black;
+$text-primary:            $c-primary;
+$text-secondary:          $c-secondary;
+$text-info:               $c-info;
+$text-success:            $c-success;
+$text-warning:            $c-warning;
+$text-danger:             $c-danger;
+$text-light:              $c-light;
+$text-dark:               $c-black;
+$text-muted:              $c-gray-dark;
+
+// font size
+$font-xs:                 0.75rem;
+$font-sm:                 0.875rem;
+$font-base:               1rem;
+$font-lg:                 1.125rem;
+$font-xl:                 1.25rem;
+$font-2xl:                1.5rem;
+$font-3xl:                1.875rem;
+$font-4xl:                2.25rem;
+$font-5xl:                3rem;
+
+// font weight
+$fw-hairline:             100;
+$fw-thin:                 200;
+$fw-light:                300;
+$fw-base:                 400;
+$fw-medium:               500;
+$fw-semibold:             600;
+$fw-bold:                 700;
+$fw-extrabold:            800;
+$fw-black:                900;
+
+// font size ratio
+$fs-ratio:                0.0625;
+
+// root font size
+$fs-root:                 16;
+
+// headlines
+$fs-h1:                   $fs-root * 6;
+$fs-h2:                   $fs-root * 3.75;
+$fs-h3:                   $fs-root * 3;
+$fs-h4:                   $fs-root * 2.125;
+$fs-h5:                   $fs-root * 1.5;
+$fs-h6:                   $fs-root * 1.25;
+
+// Gutter
+$gutter-width:            1rem;
+
+// Margin
+$margin-xs:               0.25rem;
+$margin-sm:               0.5rem;
+$margin-base:             1rem;
+$margin-lg:               1.5rem;
+$margin-xl:               2rem;
+
+// Padding
+$padding-xs:              0.5rem;
+$padding-sm:              0.5rem;
+$padding-base:            1rem;
+$padding-lg:              1.5rem;
+$padding-xl:              2rem;
+
+// subtitles
+$fs-st1:                  16;
+$fs-st2:                  14;
+
+$fs-b1:                   16;
+$fs-b2:                   14;
+
+$fs-btn:                  14;
+$fs-cap:                  12;
+$fs-ol:                   10;
+
+// link
+$link-color:              $c-primary;
+$link-decoration:         none;
+$link-hover-color:        darken($link-color, 15%);
+$link-hover-decoration:   underline;
+
+// heading
+$heading-margin-bottom:   1rem;
+
+// p
+$paragraph-margin-bottom: 1rem;
+
+// tracking from sketch
+$tfs:                     0.2;
+
+$dt-font-weight:          $fw-bold;
+
+/*--- Body ---*/
+$body-bg:                 $c-white;
+$body-color:              $text-base;
+
+/*--- Breakpoints ---*/
+$grid-breakpoints:        (
+    xs:                   0,
+    sm:                   576px,
+    md:                   768px,
+    lg:                   992px,
+    xl:                   1200px
+);
+
+/*--- Containers ---*/
+$container-max-widths:    (
+    sm:                   540px,
+    md:                   720px,
+    lg:                   960px,
+    xl:                   1140px
+);
+
+/*--- BORDER ---*/
+$br-sm:                   2px;
+
+/*--- Shadow ---*/
+$box-shadow-sm:           0 .125rem .25rem rgba($c-black, .075);
+$box-shadow:              0 2px 4px 0 rgba($c-black, .10);
+$box-shadow-md:           0 4px 8px 0 rgba($c-black, .12), 0 2px 4px 0 rgba($c-black, .08);
+$box-shadow-lg:           0 15px 30px 0 rgba($c-black, .11), 0 5px 15px 0 rgba($c-black, .08);
+
+$panel-shadow:            0 1px 2px rgba($c-black, 0.1), 0 0 1px rgba($c-black, 0.1);
+$box-shadow-outline:      0 0 0 3px rgba($c-primary,  .6);
+$box-shadow-inner:        inset 0 2px 4px 0 rgba($c-black, .06);
+
+/*--- TRANSITIONS ---*/
+$trans-speed:             300ms;
+
+/*--- TABLES ---*/
+$table-cell-padding:      .75rem;
+$table-cell-padding-sm:   .3rem;
+$table-caption-color:     $text-muted;
+
+/*--- FORM ---*/
+$label-margin-bottom:     .5rem;
