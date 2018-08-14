@@ -28,12 +28,29 @@
         subheader: ""
       }
     </pre>
+
+    <h2>ve-mask</h2>
+    <ve-panel width="320px" height="320px">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo odit et eum delectus
+      id unde assumenda ut tempora at voluptatem cupiditate quae dolor beatae perspiciatis
+      incidunt consectetur, dolorum ipsam magni.
+      <ve-mask :open="true" :opacity="0.9"></ve-mask>
+    </ve-panel>
+    <pre>
+      props: {
+        fullscreen: false,
+        open: false,
+        opacity: 1,
+        speed: 300
+      }
+    </pre>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import veDivider from './components/Divider'
+import veMask from './components/Mask'
 import vePanel from './components/Panel'
 
 export default {
@@ -41,6 +58,7 @@ export default {
   components: {
     HelloWorld,
     veDivider,
+    veMask,
     vePanel
   }
 }
