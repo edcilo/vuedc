@@ -4,14 +4,15 @@
     </div>
 </template>
 
-<script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator';
-
-@Component
-export default class VeListItem extends Vue
-{
-    @Prop({ default: false })
-    border!: boolean;
+<script lang="js">
+export default {
+    name: 'veListItem',
+    props: {
+        border: {
+            type: Boolean,
+            default: false
+        }
+    }
 }
 </script>
 

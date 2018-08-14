@@ -11,109 +11,105 @@
     </div>
 </template>
 
-<script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
-
-interface Preview {
-    preview: boolean;
-    reveal: boolean;
-};
-
-@Component
-export default class veImage extends Vue {
-    @Prop({ default: false })
-    protected lazy!: boolean;
-
-    @Prop({ required: true })
-    protected src!: string;
-
-    @Prop({ default: "" })
-    protected preview!: string;
-
-    @Prop({ default: "" })
-    protected alt!: string;
-
-    @Prop({ default: "" })
-    protected placeholder!: string;
-
-    public $refs!: { preview: HTMLElement };
-
-    protected srcImage:     string | null = null;
-    protected srcPreview:   string | null = null;
-    protected previewClass: Preview       = { preview: true, reveal: false };
-    protected timer:        any           = null;
-    protected loaded:       boolean       = false;
-
-    constructor() {
-        super();
+<script lang="js">
+export default {
+    name: 've-image',
+    props: {
+        lazy: {
+            type: Boolean,
+            default: false
+        },
+        src: {
+            type: String,
+            required: true
+        },
+        preview: {
+            type: String,
+            default: ''
+        },
+        alt: {
+            type: String,
+            default: ''
+        },
+        placeholder: {
+            type: String,
+            default: ''
+        }
+    },
+    data: function() {
+        let srcPreview = null
+        let srcImage = null
 
         if (this.lazy) {
-            this.srcPreview = (this.preview.length > 0) ? this.preview : null;
+            srcPreview = (this.preview.length > 0) ? this.preview : null;
         } else {
-            this.srcImage = this.src;
+            srcImage = this.src;
         }
-    }
 
-    lazyLoad(): void {
-        if (window.addEventListener && window.requestAnimationFrame) {
-            window.addEventListener("scroll", this.scroller, false);
-            window.addEventListener("resize", this.scroller, false);
-
-            this.inView();
+        return {
+            srcImage,
+            srcPreview,
+            previewClass: { preview: true, reveal: false },
+            timer: null,
+            loaded: false
         }
-    }
+    },
+    methods: {
+        lazyLoad() {
+            if (window.addEventListener && window.requestAnimationFrame) {
+                window.addEventListener("scroll", this.scroller, false);
+                window.addEventListener("resize", this.scroller, false);
 
-    scroller(): void {
-        this.timer = this.timer || setTimeout(() => {
-            this.timer = null;
-            this.inView();
-        }, 300);
-    }
-
-    inView(): void {
-        requestAnimationFrame(() => {
-            let wT = window.pageYOffset;
-            let wB = wT + window.innerHeight;
-
-            if (!this.$refs.preview) {
-                return;
+                this.inView();
             }
+        },
+        scroller() {
+            this.timer = this.timer || setTimeout(() => {
+                this.timer = null;
+                this.inView();
+            }, 300);
+        },
+        inView() {
+            requestAnimationFrame(() => {
+                let wT = window.pageYOffset;
+                let wB = wT + window.innerHeight;
 
-            let cRect = this.$refs.preview.getBoundingClientRect();
-            let pT = wT + cRect.top;
-            let pB = pT + cRect.height;
+                if (!this.$refs.preview) {
+                    return;
+                }
 
-            if (wT < pB && wB > pT) {
-                this.srcImage = this.src;
-            }
-        });
-    }
+                let cRect = this.$refs.preview.getBoundingClientRect();
+                let pT = wT + cRect.top;
+                let pB = pT + cRect.height;
 
-    imageLoaded(e: Event): void {
-        this.loaded = true;
+                if (wT < pB && wB > pT) {
+                    this.srcImage = this.src;
+                }
+            });
+        },
+        imageLoaded(e) {
+            this.loaded = true;
 
-        this.loadEvent(e);
-    }
+            this.loadEvent(e);
+        },
+        loadEvent(e) {
+            this.$emit('load', e);
+        },
+        errorEvent(e) {
+            this.$emit('error', e);
 
-    loadEvent(e: Event): void {
-        this.$emit('load', e);
-    }
-
-    errorEvent(e: Event): void {
-        this.$emit('error', e);
-
-        if (this.placeholder.length > 0) {
-            if(!this.lazy) {
-                this.srcImage = this.placeholder;
-            } else {
-                this.srcPreview = this.placeholder;
-                this.previewClass.preview = false;
-                this.previewClass.reveal = true;
+            if (this.placeholder.length > 0) {
+                if(!this.lazy) {
+                    this.srcImage = this.placeholder;
+                } else {
+                    this.srcPreview = this.placeholder;
+                    this.previewClass.preview = false;
+                    this.previewClass.reveal = true;
+                }
             }
         }
-    }
-
-    mounted(): void {
+    },
+    mounted() {
         this.$nextTick(function() {
             if (this.lazy) {
                 this.lazyLoad();

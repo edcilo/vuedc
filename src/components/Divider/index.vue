@@ -1,22 +1,26 @@
 <template>
     <div class="ve-divider" :class="{dark, clear}">
-        <span v-if="subheader.length" class="ve-divider-subheader">{{ subheader }}</span>
+        <span v-if="subheader.length" class="ve-divider-subheader">{{ subheader }}</span>
     </div>
 </template>
 
-<script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
-
-@Component
-export default class veDivider extends Vue {
-    @Prop({ default: false })
-    private clear!: boolean;
-
-    @Prop({ default: false })
-    private dark!: boolean;
-
-    @Prop({ default: "" })
-    private subheader!: string
+<script lang="js">
+export default {
+    name: 'edcDivider',
+    props: {
+        clear: {
+            type: Boolean,
+            default: false
+        },
+        dark: {
+            type: Boolean,
+            default: false
+        },
+        subheader: {
+            type: String,
+            default: ''
+        }
+    }
 }
 </script>
 

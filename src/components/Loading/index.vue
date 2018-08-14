@@ -11,31 +11,39 @@
     </div>
 </template>
 
-<script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
+<script lang="js">
 import veMask from "./../Mask/index.vue";
 import veSpinner from "./../Spinner/index.vue";
 
-@Component({
+export default {
+    name: 'veLoading',
     components: {
         veMask,
         veSpinner
+    },
+    props: {
+        fullscreen: {
+            type: Boolean,
+            default: false
+        },
+        open: {
+            type: Boolean,
+            default: false
+        },
+        opacity: {
+            type: Number,
+            default: 1
+        },
+        speed: {
+            type: Number,
+            default: 300
+        }
+    },
+    data: function() {
+        return {
+            hasBody: this.$slots.hasOwnProperty('default')
+        }
     }
-})
-export default class veLoading extends Vue {
-    @Prop({ default: false })
-    protected fullscreen!: boolean
-
-    @Prop({ default: false })
-    protected open!: boolean;
-
-    @Prop({ default: 1 })
-    protected opacity!: number;
-
-    @Prop({ default: 300 })
-    protected speed!: number;
-
-    protected hasBody: boolean = typeof this.$slots.default === 'object';
 }
 </script>
 

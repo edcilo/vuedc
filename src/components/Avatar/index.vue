@@ -10,43 +10,54 @@
     </div>
 </template>
 
-<script lang="ts">
-import { Vue, Component, Prop, Watch } from "vue-property-decorator";
-
-@Component
-export default class veAvatar extends Vue {
-    @Prop({ default: "" })
-    protected src!: string;
-
-    @Prop({ default: "" })
-    protected alt!: string;
-
-    @Prop({ default: "" })
-    protected label!: string;
-
-    @Prop({ default: "" })
-    protected color!: string;
-
-    @Prop({ default: "" })
-    protected size!: string;
-
-    @Prop({ default: false })
-    protected tile!: boolean;
-
-    protected letter: string | null = this.getFirstLetter();
-
-    @Watch('src')
-    onSrcChanged(val: string): void {
-        this.letter = null;
-    }
-
-    @Watch('label')
-    onLabelChanged(val: string): void {
-        this.letter = this.getFirstLetter();
-    }
-
-    getFirstLetter(): string | null {
-        return (this.label.length > 0) ? this.label.charAt(0).toUpperCase() : null;
+<script lang="js">
+export default {
+    name: 'veAvatar',
+    props: {
+        src: {
+            type: String,
+            default: ''
+        },
+        alt: {
+            type: String,
+            default: ''
+        },
+        label: {
+            type: String,
+            default: ''
+        },
+        color: {
+            type: String,
+            default: ''
+        },
+        size: {
+            type: String,
+            default: ''
+        },
+        tile: {
+            type: Boolean,
+            default: false
+        }
+    },
+    data: function() {
+        return {
+            letter: this.getFirstLetter()
+        }
+    },
+    watch: {
+        src() {
+            this.letter = null
+        },
+        label() {
+            this.letter = this.getFirstLetter()
+        }
+    },
+    methods: {
+        getFirstLetter() {
+            return (this.label.length > 0)
+                ? this.label.charAt(0).toUpperCase()
+                : null;
+        }
     }
 }
 </script>

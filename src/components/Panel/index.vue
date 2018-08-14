@@ -4,17 +4,19 @@
     </div>
 </template>
 
-<script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
-
-@Component
-export default class vePanel extends Vue
-{
-    @Prop({ default: "100%" })
-    private width!: string;
-
-    @Prop({ default: "auto" })
-    private height!: string;
+<script lang="js">
+export default {
+    name: "vePanel",
+    props: {
+        width: {
+            type: String,
+            default: '100%'
+        },
+        height: {
+            type: String,
+            default: 'auto'
+        }
+    }
 }
 </script>
 

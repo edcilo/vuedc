@@ -24,8 +24,8 @@
     </a>
 </template>
 
-<script lang="ts">
-import Button from "@/components/Button/script";
+<script lang="js">
+import Button from "./script";
 export default Button;
 </script>
 

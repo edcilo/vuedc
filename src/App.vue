@@ -1,67 +1,223 @@
 <template>
-    <div id="app">
-        <div class="title">
-            <h1>Vuedc</h1>
-        </div>
+  <div id="app">
+    <div class="text-center">
+      <img alt="Vue logo" src="./assets/logo.png">
 
-        <page-typography />
+      <HelloWorld msg="Welcome to Your Vue.js App"/>
     </div>
+
+    <h2>ve-panel</h2>
+    <ve-panel>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse corrupti in dolorum error commodi
+      laborum dicta magnam neque. Modi quibusdam facere eius quasi aperiam voluptas, perferendis
+      sunt officia aut earum.
+    </ve-panel>
+    <pre>
+      props: {
+        width: '100%',
+        heaight: 'auto'
+      }
+    </pre>
+
+    <h2>vue-divider</h2>
+    <ve-divider></ve-divider>
+    <pre>
+      props: {
+        clear: false,
+        dark: false,
+        subheader: ""
+      }
+    </pre>
+
+    <h2>ve-mask</h2>
+    <ve-panel width="320px" height="320px">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo odit et eum delectus
+      id unde assumenda ut tempora at voluptatem cupiditate quae dolor beatae perspiciatis
+      incidunt consectetur, dolorum ipsam magni.
+      <ve-mask :open="true" :opacity="0.9"></ve-mask>
+    </ve-panel>
+    <pre>
+      props: {
+        fullscreen: false,
+        open: false,
+        opacity: 1,
+        speed: 300
+      }
+    </pre>
+
+    <h2>ve-spinner</h2>
+    <ve-panel width="80px" height="80px">
+      <ve-spinner></ve-spinner>
+    </ve-panel>
+
+    <h2>ve-loading</h2>
+    <ve-panel width="320px" height="320px">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo odit et eum delectus
+      id unde assumenda ut tempora at voluptatem cupiditate quae dolor beatae perspiciatis
+      incidunt consectetur, dolorum ipsam magni.
+      <ve-loading :open="true" :opacity="0.9">
+        Loading...
+      </ve-loading>
+    </ve-panel>
+    <pre>
+      props: {
+        fullscreen: false,
+        open: false,
+        opacity: 1,
+        speed: 300
+      }
+    </pre>
+
+    <h2>ve-avatar</h2>
+    <ve-avatar src="http://edcilo.com/images/team/edcilo.png" alt="edcilo"></ve-avatar>
+    <ve-avatar>E</ve-avatar>
+    <ve-avatar color="#edc962">E</ve-avatar>
+    <ve-avatar label="edcilo"></ve-avatar>
+    <ve-avatar label="edcilo" size="46px"></ve-avatar>
+    <ve-avatar label="edcilo" :tile="true"></ve-avatar>
+    <pre>
+      props: {
+        src: '',
+        alt: '',
+        color: '',
+        label: '',
+        size: '',
+        tile: false
+      }
+    </pre>
+
+    <h2>ve-item</h2>
+    <ve-item>
+      <template slot="visual">
+        <ve-avatar src="http://edcilo.com/images/team/edcilo.png" alt="edcilo"></ve-avatar>
+      </template>
+      <template>
+        Eduardo C.
+      </template>
+      <template slot="control">
+        Ctrl + E
+      </template>
+    </ve-item>
+    <pre>
+      slots: [
+        'default',
+        'visual',
+        'control'
+      ]
+    </pre>
+
+    <h2>ve-list</h2>
+    <ve-panel width="320px">
+      <ve-list>
+        <ve-list-item :border="true">
+          <ve-item>
+            <template slot="visual">
+              <ve-avatar src="http://edcilo.com/images/team/edcilo.png" alt="edcilo"></ve-avatar>
+            </template>
+            <template>
+              Eduardo C.
+            </template>
+            <template slot="control">
+              Ctrl + E
+            </template>
+          </ve-item>
+        </ve-list-item>
+        <ve-list-item>
+          <ve-item>
+            <template slot="visual">
+              <ve-avatar src="http://edcilo.com/images/team/edcilo.png" alt="edcilo"></ve-avatar>
+            </template>
+            <template>
+              Eduardo C.
+            </template>
+            <template slot="control">
+              Ctrl + C
+            </template>
+          </ve-item>
+        </ve-list-item>
+      </ve-list>
+    </ve-panel>
+
+    <h2>ve-image</h2>
+    <ve-panel width="320px">
+      <ve-image :lazy="true" alt="lazy"
+                src="https://expeditionportal.com/media/2014/05/Mojave-002.jpg"
+                preview="https://static.greatbigcanvas.com/images/square/getty-images/cadiz-dunes-at-sunrise-sheephole-mountains-in-distance-in-mojave-desert-california,1977157.jpg?max=128" />
+    </ve-panel>
+    <pre>
+      props: {
+        lazy: false,
+        src,
+        preview: '',
+        alt: '',
+        placeholder: ''
+      }
+    </pre>
+
+    <h2>ve-button</h2>
+    <ve-button btn-type="button">
+      Primary
+    </ve-button>
+    <pre>
+      props: {
+        type: 'primary',
+        btnStyle: '',
+        state: '',
+        btnType: 'button',
+        btnName: '',
+        btnValue: null,
+        disabled: false,
+        href: '',
+        autofocus: false
+      }
+    </pre>
+  </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+<script>
+import HelloWorld from './components/HelloWorld.vue'
 
-import pageList from './Pages/list.vue';
-import pageColor from './Pages/colors.vue';
-import pageTypography from './Pages/typography.vue';
+import veAvatar from './components/Avatar'
+import veButton from './components/Button'
+import veDivider from './components/Divider'
+import veImage from './components/Image'
+import veItem from './components/Item'
+import veList from './components/List'
+import veListItem from './components/ListItem'
+import veLoading from './components/Loading'
+import veMask from './components/Mask'
+import vePanel from './components/Panel'
+import veSpinner from './components/Spinner'
 
-@Component({
+export default {
+  name: 'app',
   components: {
-    pageColor,
-    pageTypography,
-    pageList
+    HelloWorld,
+    veAvatar,
+    veButton,
+    veDivider,
+    veImage,
+    veItem,
+    veList,
+    veListItem,
+    veLoading,
+    veMask,
+    vePanel,
+    veSpinner,
   }
-})
-export default class App extends Vue {}
+}
 </script>
 
-<style lang="scss">
-@import "./components/Styles/main";
-
-pre {
-    background: #f9f9f9;
-    color: #ff4181;
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
-    padding: 8px;
-    line-height: 1.4;
-}
-
+<style>
 #app {
-    padding: 1rem;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  margin-top: 60px;
 }
 
-.title {
-    border-bottom: 1px solid #f0f0f0;
-    margin-bottom: 2rem;
-}
-
-.container {
-    display: grid;
-    grid-template-columns: auto;
-    grid-row-gap: 1rem;
-}
-
-.panel-component {
-    display: flex;
-    padding: 0.5rem;
-}
-
-.panel-component .col {
-    padding: 0.5rem;
-    width: 33.3333%;
-}
-
-.design-grid {
-    background: #e5e5e5;
+.text-center {
+  text-align: center;
 }
 </style>
