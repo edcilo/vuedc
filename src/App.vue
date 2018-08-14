@@ -44,6 +44,11 @@
         speed: 300
       }
     </pre>
+
+    <h2>ve-spinner</h2>
+    <ve-panel width="80px" height="80px">
+      <ve-spinner></ve-spinner>
+    </ve-panel>
   </div>
 </template>
 
@@ -52,6 +57,7 @@ import HelloWorld from './components/HelloWorld.vue'
 import veDivider from './components/Divider'
 import veMask from './components/Mask'
 import vePanel from './components/Panel'
+import veSpinner from './components/Spinner'
 
 export default {
   name: 'app',
@@ -59,7 +65,8 @@ export default {
     HelloWorld,
     veDivider,
     veMask,
-    vePanel
+    vePanel,
+    veSpinner,
   }
 }
 </script>
