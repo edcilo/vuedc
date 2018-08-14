@@ -12,17 +12,35 @@
       laborum dicta magnam neque. Modi quibusdam facere eius quasi aperiam voluptas, perferendis
       sunt officia aut earum.
     </ve-panel>
+    <pre>
+      props: {
+        width: '100%',
+        heaight: 'auto'
+      }
+    </pre>
+
+    <h2>vue-divider</h2>
+    <ve-divider></ve-divider>
+    <pre>
+      props: {
+        clear: false,
+        dark: false,
+        subheader: ""
+      }
+    </pre>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import veDivider from './components/Divider'
 import vePanel from './components/Panel'
 
 export default {
   name: 'app',
   components: {
     HelloWorld,
+    veDivider,
     vePanel
   }
 }
