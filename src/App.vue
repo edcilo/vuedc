@@ -105,6 +105,38 @@
         'control'
       ]
     </pre>
+
+    <h2>ve-list</h2>
+    <ve-panel width="320px" height="auto">
+      <ve-list>
+        <ve-list-item :border="true">
+          <ve-item>
+            <template slot="visual">
+              <ve-avatar src="http://edcilo.com/images/team/edcilo.png" alt="edcilo"></ve-avatar>
+            </template>
+            <template>
+              Eduardo C.
+            </template>
+            <template slot="control">
+              Ctrl + E
+            </template>
+          </ve-item>
+        </ve-list-item>
+        <ve-list-item>
+          <ve-item>
+            <template slot="visual">
+              <ve-avatar src="http://edcilo.com/images/team/edcilo.png" alt="edcilo"></ve-avatar>
+            </template>
+            <template>
+              Eduardo C.
+            </template>
+            <template slot="control">
+              Ctrl + C
+            </template>
+          </ve-item>
+        </ve-list-item>
+      </ve-list>
+    </ve-panel>
   </div>
 </template>
 
@@ -114,6 +146,8 @@ import HelloWorld from './components/HelloWorld.vue'
 import veAvatar from './components/Avatar'
 import veDivider from './components/Divider'
 import veItem from './components/Item'
+import veList from './components/List'
+import veListItem from './components/ListItem'
 import veLoading from './components/Loading'
 import veMask from './components/Mask'
 import vePanel from './components/Panel'
@@ -126,6 +160,8 @@ export default {
     veAvatar,
     veDivider,
     veItem,
+    veList,
+    veListItem,
     veLoading,
     veMask,
     vePanel,
