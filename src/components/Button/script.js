@@ -37,7 +37,7 @@ export default {
             default: "button",
             validator: (value) => btnType.indexOf(value) !== -1
         },
-        btnName: {
+        btnName: {
             type: String,
             default: ''
         },
@@ -105,14 +105,14 @@ export default {
         }
     },
     methods: {
-        setStateClass(state) {
+        setStateClass() {
             return {
                 "active": this.state === 'active',
                 "hover": this.state === 'hover',
                 "focus": this.state === 'focus'
             };
         },
-        setStyleClass(style) {
+        setStyleClass() {
             return {
                 "ve-btn-round": this.btnStyle === 'rounded',
                 "ve-btn-circle": this.btnStyle === 'circle',

@@ -31,7 +31,7 @@ export default {
             type: String,
             default: ''
         },
-        placeholder: {
+        placeholder: {
             type: String,
             default: ''
         }
@@ -54,7 +54,7 @@ export default {
             loaded: false
         }
     },
-    methods: {
+    methods: {
         lazyLoad() {
             if (window.addEventListener && window.requestAnimationFrame) {
                 window.addEventListener("scroll", this.scroller, false);

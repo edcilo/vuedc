@@ -45,10 +45,10 @@ export default {
         }
     },
     watch: {
-        src(val) {
+        src() {
             this.letter = null
         },
-        label(val) {
+        label() {
             this.letter = this.getFirstLetter()
         }
     },

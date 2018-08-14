@@ -1,6 +1,6 @@
 <template>
     <div class="ve-divider" :class="{dark, clear}">
-        <span v-if="subheader.length" class="ve-divider-subheader">{{ subheader }}</span>
+        <span v-if="subheader.length" class="ve-divider-subheader">{{ subheader }}</span>
     </div>
 </template>
 
