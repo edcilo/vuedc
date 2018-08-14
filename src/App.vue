@@ -153,6 +153,24 @@
         placeholder: ''
       }
     </pre>
+
+    <h2>ve-button</h2>
+    <ve-button btn-type="button">
+      Primary
+    </ve-button>
+    <pre>
+      props: {
+        type: 'primary',
+        btnStyle: '',
+        state: '',
+        btnType: 'button',
+        btnName: '',
+        btnValue: null,
+        disabled: false,
+        href: '',
+        autofocus: false
+      }
+    </pre>
   </div>
 </template>
 
@@ -160,6 +178,7 @@
 import HelloWorld from './components/HelloWorld.vue'
 
 import veAvatar from './components/Avatar'
+import veButton from './components/Button'
 import veDivider from './components/Divider'
 import veImage from './components/Image'
 import veItem from './components/Item'
@@ -175,6 +194,7 @@ export default {
   components: {
     HelloWorld,
     veAvatar,
+    veButton,
     veDivider,
     veImage,
     veItem,
