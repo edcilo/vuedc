@@ -1,6 +1,7 @@
 import veAvatar from './components/Avatar'
 import veButton from './components/Button'
 import veDivider from './components/Divider'
+import veHeader from './components/Header'
 import veImage from './components/Image'
 import veItem from './components/Item'
 import veList from './components/List'
@@ -17,6 +18,7 @@ export {
     veAvatar,
     veButton,
     veDivider,
+    veHeader,
     veImage,
     veItem,
     veList,

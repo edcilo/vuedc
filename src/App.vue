@@ -1,5 +1,40 @@
 <template>
   <div id="app">
+    <ve-header :settings="headerSettings" :fixed="true">
+        <template slot="logo">
+            <h1>edcilo</h1>
+        </template>
+        <template slot="search">
+            <input type="text" placeholder="search">
+        </template>
+        <template slot="nav">
+            <ve-list :row="true">
+                <ve-list-item>
+                    <ve-button href="#ve-image" type="text">ve-image</ve-button>
+                </ve-list-item>
+                <ve-list-item>
+                    <ve-button href="#ve-loading" type="text">ve-loading</ve-button>
+                </ve-list-item>
+                <ve-list-item>
+                    <ve-button href="#ve-list" type="text">ve-list</ve-button>
+                </ve-list-item>
+                <ve-list-item>
+                    <ve-button href="#ve-scroll" type="text">ve-scroll</ve-button>
+                </ve-list-item>
+            </ve-list>
+        </template>
+        <template slot="login">
+            <ve-list :row="true">
+                <ve-list-item>
+                    <ve-button type="text">Log in</ve-button>
+                </ve-list-item>
+                <ve-list-item>
+                    <ve-button type="text">Register</ve-button>
+                </ve-list-item>
+            </ve-list>
+        </template>
+    </ve-header>
+
     <div class="text-center">
       <img alt="Vue logo" src="./assets/logo.png">
 
@@ -50,7 +85,7 @@
       <ve-spinner></ve-spinner>
     </ve-panel>
 
-    <h2>ve-loading</h2>
+    <h2 id="ve-loading">ve-loading</h2>
     <ve-panel width="320px" height="320px">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo odit et eum delectus
       id unde assumenda ut tempora at voluptatem cupiditate quae dolor beatae perspiciatis
@@ -106,7 +141,7 @@
       ]
     </pre>
 
-    <h2>ve-list</h2>
+    <h2 id="ve-list">ve-list</h2>
     <ve-panel width="320px">
       <ve-list>
         <ve-list-item :border="true">
@@ -144,7 +179,7 @@
         }
     </pre>
 
-    <h2>ve-image</h2>
+    <h2 id="ve-image">ve-image</h2>
     <ve-panel width="320px">
       <ve-image :lazy="true" alt="lazy"
                 src="https://expeditionportal.com/media/2014/05/Mojave-002.jpg"
@@ -178,7 +213,7 @@
       }
     </pre>
 
-    <h2>ve-scroll</h2>
+    <h2 id="ve-scroll">ve-scroll</h2>
     <ve-panel width="260px" height="260px">
         <ve-scroll>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, totam aspernatur? Repudiandae
@@ -206,6 +241,7 @@ import HelloWorld from './components/HelloWorld.vue'
 import veAvatar from './components/Avatar'
 import veButton from './components/Button'
 import veDivider from './components/Divider'
+import veHeader from './components/Header'
 import veImage from './components/Image'
 import veItem from './components/Item'
 import veList from './components/List'
@@ -223,6 +259,7 @@ export default {
     veAvatar,
     veButton,
     veDivider,
+    veHeader,
     veImage,
     veItem,
     veList,
@@ -232,6 +269,34 @@ export default {
     vePanel,
     veScroll,
     veSpinner,
+  },
+  data: function () {
+      const headerSettings = {
+          logo: {
+              width: 20,
+              position: 1,
+              show: true
+          },
+          nav: {
+              width: 40,
+              position: 0,
+              show: true
+          },
+          search: {
+              width: 20,
+              position: 2,
+              show: true
+          },
+          login: {
+              width: 20,
+              position: 3,
+              show: true
+          }
+      }
+
+      return {
+          headerSettings
+      };
   }
 }
 </script>
@@ -242,7 +307,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
 }
 
 .text-center {
