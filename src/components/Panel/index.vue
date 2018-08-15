@@ -25,6 +25,7 @@ export default {
 
 .ve-panel {
     position: relative;
+    z-index: $z-regular;
 
     background: $c-white;
     box-shadow: $panel-shadow;

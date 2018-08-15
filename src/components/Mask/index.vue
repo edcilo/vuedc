@@ -120,6 +120,7 @@ export default {
     flex-direction:  column;
     align-items:     center;
     justify-content: center;
+    z-index:         $z-mask;
 
     .ve-mask-background {
         position:   absolute;

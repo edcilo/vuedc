@@ -95,6 +95,7 @@ export default {
     justify-content: center;
     background-color: $c-gray-base;
     width: 100%;
+    z-index: $z-header;
 
     &.fixed {
         position: fixed;
