@@ -3,7 +3,7 @@ import cls from "./lib/class-names";
 import EventManager from "./lib/event-manager";
 import processScrollDiff from "./process-scroll-diff";
 import updateGeometry from "./update-geometry";
-import { toInt, outerWidth } from "./lib/util";
+import { toInt } from "./lib/util";
 
 import clickRail from "./handlers/click-rail";
 import dragThumb from "./handlers/drag-thumb";
