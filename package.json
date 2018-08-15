@@ -4,8 +4,8 @@
   "description": "library of Vue 2.0 components",
   "license": "MIT",
   "repository": {
-      "type": "git",
-      "url": "git+https://github.com:edcilo/vuedc.git"
+    "type": "git",
+    "url": "git+https://github.com:edcilo/vuedc.git"
   },
   "main": "./src/export.js",
   "private": false,

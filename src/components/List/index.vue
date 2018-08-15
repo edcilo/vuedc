@@ -1,5 +1,5 @@
 <template>
-    <div class="ve-list" :class="{rounded: rounded}">
+    <div class="ve-list" :class="{rounded, row}">
         <slot></slot>
     </div>
 </template>
@@ -9,6 +9,10 @@ export default {
     name: 'veList',
     props: {
         rounded: {
+            type: Boolean,
+            default: false
+        },
+        row: {
             type: Boolean,
             default: false
         }
@@ -30,6 +34,10 @@ export default {
 .ve-list {
     display: flex;
     flex-direction: column;
+
+    &.row {
+        flex-direction: row;
+    }
 
     &.rounded {
         border-radius: $br-sm;

@@ -137,6 +137,12 @@
         </ve-list-item>
       </ve-list>
     </ve-panel>
+    <pre>
+        props: {
+            rounded: false,
+            row: false
+        }
+    </pre>
 
     <h2>ve-image</h2>
     <ve-panel width="320px">
